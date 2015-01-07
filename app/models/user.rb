@@ -3,6 +3,20 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :email, uniqueness: true
 
+  has_one(
+    :profile,
+    class_name: "Profile",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_one(
+    :preferences,
+    class_name: "Preference",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
   attr_reader :password
 
   after_initialize :ensure_session_token
