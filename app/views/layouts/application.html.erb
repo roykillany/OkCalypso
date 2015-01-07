@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if request.env["SERVER_NAME"] == "localhost" %>
+<% if logged_in? %>
+  <h2>Signed in as: <%= current_user.username %></h2>
+  <%= button_to "Sign Out", session_url, method: :delete %>
+<% else %>
+  <a href="<%= new_session_url %>">Sign In</a>
+  <a href="<%= new_user_url %>">Sign Up</a>
+<% end %>
 
 <%= yield %>
 
+<% else %>
+  NO HACKING FOR YOU TODAY JAJAJAJAJAJAJAJAJAJAJAJAJAAJAJAJAJAJAJ
+  (wes/justin u guys r bad boys)
+<% end %>
 </body>
 </html>

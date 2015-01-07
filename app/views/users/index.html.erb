@@ -1,0 +1,10 @@
+<h1 class="filler">OMG WE HAVE SO MANY USERS!</h1>
+
+<ul class="users-list">
+  <% @users.each do |user| %>
+      <ul>
+        <li>Username: <%= user.username %></li>
+        <li>Email: <%= user.email %></li>
+      </ul>
+  <% end %>
+</ul>

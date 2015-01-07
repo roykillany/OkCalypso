@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       redirect_to users_url
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :new
+      render :new, status: 422
     end
   end
 
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       render :show
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :edit
+      render :edit, status: 422
     end
   end
 

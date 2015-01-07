@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       log_in(@user)
       redirect_to users_url
     else
-      flash.now[:errors] = @user.errors.full_messages, status: 422
-      render :new
+      flash.now[:errors] = @user.errors.full_messages
+      render :new, status: 422
     end
   end
 
