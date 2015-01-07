@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(user_params[:username], user_params[:password])
     if @user
       log_in(@user)
-      redirect_to users_url
+      redirect_to user_url(@user.id)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new, status: 422
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :password)
   end
 end

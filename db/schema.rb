@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107144402) do
+ActiveRecord::Schema.define(version: 20150107200248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "preferences", force: true do |t|
+    t.string   "target_people",    null: false
+    t.string   "target_age_range", null: false
+    t.string   "target_location",  null: false
+    t.string   "target_purpose",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.text     "self_sum"
+    t.text     "life_sum"
+    t.text     "skills"
+    t.text     "favorites"
+    t.text     "needs"
+    t.text     "thoughts"
+    t.text     "fun_acts"
+    t.text     "msg_reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
@@ -24,6 +49,10 @@ ActiveRecord::Schema.define(version: 20150107144402) do
     t.boolean  "searchable"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "orientation",     null: false
+    t.string   "gender",          null: false
+    t.string   "country",         null: false
+    t.integer  "zip_code",        null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

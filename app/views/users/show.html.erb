@@ -1,5 +1,24 @@
 <h1>Hi <%= @user.username %>!</h1>
 
-<section>
-  <h4>About Me</h4>
+<section class="profile">
+  <section class="about-me">
+    <h4>About Me</h4>
+    <li><strong>My self-summary</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>></textarea>
+    </li>
+    <li><strong>What I'm doing with my life</strong></li>
+    <li><strong>I'm really good at</strong></li>
+    <li><strong>Favorite books, movies, shows, music, and food</strong></li>
+    <li><strong>The six things I could never do without</strong></li>
+    <li><strong>I spend a lot of time thinking about</strong></li>
+    <li><strong>On a typical Friday night I am</strong></li>
+    <li><strong>You should message me if</strong></li>
+  </section>
+  <section>
+    <h4>I'm looking for</h4>
+      <ul class="preferences">
+      </ul>
+  </section>
 </section>
+
+<a href="<%= users_url %>">Return to Index</a>

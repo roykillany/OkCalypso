@@ -7,7 +7,25 @@
   color: #00f;
 }
 
+.users-list {
+  // position: relative;
+}
+
 .users-list ul {
+  // position: absolute;
   margin: 10px;
   border: 1px solid #000;
+}
+
+section.about-me li {
+  list-style-type: none;
+  display: block;
+  padding: 10px;
+}
+
+.email {
+}
+
+section.about-me textarea {
+  border: 0px solid;
 }

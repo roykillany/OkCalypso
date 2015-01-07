@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.title {
+  float: right;
+  color: #f00;
+}

@@ -5,6 +5,7 @@
       <ul>
         <li>Username: <%= user.username %></li>
         <li>Email: <%= user.email %></li>
+        <li><a href="<%= user_url(user.id) %>">Visit!</a></li>
       </ul>
   <% end %>
 </ul>
