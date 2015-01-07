@@ -3,19 +3,30 @@
 <section class="profile">
   <section class="about-me">
     <h4>About Me</h4>
+    <form action="<%= user_profile_url(@user.id) %>" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="profile[user_id]" value="@user.id">
     <li><strong>My self-summary</strong><br>
-      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>></textarea>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.self_sum %></textarea>
     </li>
-    <li><strong>What I'm doing with my life</strong></li>
-    <li><strong>I'm really good at</strong></li>
-    <li><strong>Favorite books, movies, shows, music, and food</strong></li>
-    <li><strong>The six things I could never do without</strong></li>
-    <li><strong>I spend a lot of time thinking about</strong></li>
-    <li><strong>On a typical Friday night I am</strong></li>
-    <li><strong>You should message me if</strong></li>
+    <li><strong>What I'm doing with my life</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.life_sum %></textarea></li>
+    <li><strong>I'm really good at</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.skills %></textarea></li>
+    <li><strong>Favorite books, movies, shows, music, and food</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.favorites %></textarea></li>
+    <li><strong>The six things I could never do without</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.needs %></textarea></li>
+    <li><strong>I spend a lot of time thinking about</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.thoughts %></textarea></li>
+    <li><strong>On a typical Friday night I am</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.fun_acts %></textarea></li>
+    <li><strong>You should message me if</strong><br>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.msg_reason %></textarea></li>
 
-    <%= button_to "Submit", edit_user_profile_url(<%= @user.id %>), method: :patch %>
+    <button name="button">Submit</button>
+  </form>
   </section>
   <section>
     <h4>I'm looking for</h4>

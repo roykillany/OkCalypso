@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.profile = Profile.new(user_id: @user.id)
+    @user.preferences = Preference.new(user_id: @user.id)
     if @user.save
       log_in(@user)
       redirect_to users_url

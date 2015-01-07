@@ -1,7 +1,11 @@
 class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:user_id])
-    @profile.update!
+    if @profile.update(profile_params)
+      # redirect_to user_url(@profile.user_id)
+    else
+      flash.now[:errors] = @profile.errors.full_messages
+    end
   end
 
   def profile_params
