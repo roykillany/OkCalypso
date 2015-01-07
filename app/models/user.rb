@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :username, :session_token, :password_digest :email, presence: true
+  validates :username, :session_token, :password_digest, :email, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :email, uniqueness: true
 
