@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :likees, through: :likes, source: :likees
+  has_many :likees, through: :likes, source: :likee
 
   has_many(
     :user_answers,
