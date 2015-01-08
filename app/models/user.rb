@@ -17,6 +17,15 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :likes,
+    class_name: "Like",
+    foreign_key: :liker_id,
+    primary_key: :id
+  )
+
+  has_many :likees, through: :likes, source: :likees
+
   attr_reader :password
 
   after_initialize :ensure_session_token
