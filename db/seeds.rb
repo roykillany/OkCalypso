@@ -9,8 +9,9 @@ users = User.create!([{ username: 'big_booty_judy', email: 'anacondas@hottestmai
   { username: 'clubcantevenhandle', email: 'merightnow@yahoo.com', password_digest: BCrypt::Password.create('clubcanteven'), session_token: SecureRandom.urlsafe_base64, orientation: 'Demisexual', gender: 'Pangender', country: 'Sudan', zip_code: '12939'},
   { username: 'tokenwhitegirl', email: 'starbucksiphoneuggs@icant.even', password_digest: BCrypt::Password.create('tokenwhitegirl'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012'}])
 
-users.each do |prof|
-  Profile.create!([{ user_id: prof.id }])
+users.each do |user|
+  Profile.create!([{ user_id: user.id }])
+  Preference.create!({ user_id: user.id })
 end
 
 questions = Question.create!([{ prompt: 'Do you believe that everything happens for a reason?'},
