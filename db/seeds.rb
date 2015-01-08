@@ -3,9 +3,17 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Question.create([{ prompt: 'Do you believe that everything happens for a reason?'},
+#   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create!(name: 'Emanuel', city: cities.first)
+users = User.create!([{ username: 'big_booty_judy', email: 'anacondas@hottestmail.com', password_digest: BCrypt::Password.create('bigbootyjudy'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'Djibouti', zip_code: '10012'},
+  { username: 'clubcantevenhandle', email: 'merightnow@yahoo.com', password_digest: BCrypt::Password.create('clubcanteven'), session_token: SecureRandom.urlsafe_base64, orientation: 'Demisexual', gender: 'Pangender', country: 'Sudan', zip_code: '12939'},
+  { username: 'tokenwhitegirl', email: 'starbucksiphoneuggs@icant.even', password_digest: BCrypt::Password.create('tokenwhitegirl'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012'}])
+
+users.each do |prof|
+  Profile.create!([{ user_id: prof.id }])
+end
+
+Question.create!([{ prompt: 'Do you believe that everything happens for a reason?'},
   { prompt: 'Do you like to be the center of attention?'},
   { prompt: 'How tall are you?'},
   { prompt: 'In terms of relationships, which of these is the most important to find?'},
@@ -26,7 +34,7 @@ Question.create([{ prompt: 'Do you believe that everything happens for a reason?
   { prompt: 'Do you try to draw attention to your body by wearing seductive clothing?'},
   { prompt: 'Do you ever feel the need to pick at other people\'s blemishes?'}])
 
-Answer.create([{ question_id: 1, content: 'Yes'},
+Answer.create!([{ question_id: 1, content: 'Yes'},
   { question_id: 1, content: 'No'},
   { question_id: 2, content: 'Yes, Always'},
   { question_id: 2, content: 'Yes, sometimes'},
