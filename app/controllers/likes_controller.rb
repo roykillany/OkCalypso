@@ -10,9 +10,9 @@ class LikesController < ApplicationController
     end
   end
 
-  def show
-    @like = Like.find_by_id(params[:liker_id])
-    render :show
+  def index
+    @likes = User.find_by_id(params[:user_id]).likees.uniq
+    render :index
   end
 
   def like_params

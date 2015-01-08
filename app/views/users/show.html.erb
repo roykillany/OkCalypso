@@ -38,6 +38,7 @@
 
 <% if current_user.id == @user.id %>
   <a href="<%= user_questions_url(@user.id) %>">Questions</a>
+  <a href="<%= user_likes_url(@user.id) %>">Your Likes</a>
 <% else %>
   <form action="<%= user_likes_url(@user.id) %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
