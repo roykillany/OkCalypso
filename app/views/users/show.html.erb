@@ -21,7 +21,7 @@
     <li><strong>I spend a lot of time thinking about</strong><br>
       <textarea name="profile[thoughts]" rows="8" cols="40" <% if current_user.id != @user.id %>, readonly<% end %>><%= @user.profile.thoughts %></textarea></li>
     <li><strong>On a typical Friday night I am</strong><br>
-      <textarea name="profile[fun_facts]" rows="8" cols="40" <% if current_user.id != @user.id %>, readonly<% end %>><%= @user.profile.fun_acts %></textarea></li>
+      <textarea name="profile[fun_acts]" rows="8" cols="40" <% if current_user.id != @user.id %>, readonly<% end %>><%= @user.profile.fun_acts %></textarea></li>
     <li><strong>You should message me if</strong><br>
       <textarea name="profile[msg_reason]" rows="8" cols="40" <% if current_user.id != @user.id %>, readonly<% end %>><%= @user.profile.msg_reason %></textarea></li>
     <% if current_user.id == @user.id %>
