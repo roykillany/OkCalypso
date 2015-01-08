@@ -1,4 +1,6 @@
 class UserAnswersController < ApplicationController
+  before_action :ensure_logged_in
+
   def create
     @user_answer = UserAnswer.new(user_answer_params)
     if @user_answer.save

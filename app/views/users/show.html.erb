@@ -38,6 +38,13 @@
 
 <% if current_user.id == @user.id %>
   <a href="<%= user_questions_url(@user.id) %>">Questions</a>
+<% else %>
+  <form action="<%= user_likes_url(@user.id) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="like[liker_id]" value="<%= current_user.id %>">
+    <input type="hidden" name="like[likee_id]" value="<%= @user.id %>">
+    <button name="button">Like</button>
+  </form>
 <% end %>
 
 <a href="<%= users_url %>">Return to Index</a>
