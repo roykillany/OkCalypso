@@ -1,0 +1,13 @@
+<h1>Questions</h1>
+
+<% @questions.each do |quest| %>
+<form action="<%= user_user_answers_url(current_user.id) %>" method="post">
+  <%= quest.prompt %>
+  <input type="hidden" name="user_answers[user_id]" value="<%= current_user.id %>">
+
+  <% quest.answers.each do |ans| %>
+  <label><input type="radio" value="<%= ans.content %>"><%= ans.content %></label>
+  <% end %>
+  <button name="button">Submit</button>
+</form><br>
+<% end %>
