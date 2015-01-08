@@ -8,22 +8,22 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="profile[user_id]" value="<%= @user.id %>">
     <li><strong>My self-summary</strong><br>
-      <textarea name="profile[self_sum]" rows="8" cols="40", readonly: <%= !!current_user %>><%= @user.profile.self_sum %></textarea>
+      <textarea name="profile[self_sum]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.self_sum %></textarea>
     </li>
     <li><strong>What I'm doing with my life</strong><br>
-      <textarea name="profile[life_sum]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.life_sum %></textarea></li>
+      <textarea name="profile[life_sum]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.life_sum %></textarea></li>
     <li><strong>I'm really good at</strong><br>
-      <textarea name="profile[skills]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.skills %></textarea></li>
+      <textarea name="profile[skills]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.skills %></textarea></li>
     <li><strong>Favorite books, movies, shows, music, and food</strong><br>
-      <textarea name="profile[favorites]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.favorites %></textarea></li>
+      <textarea name="profile[favorites]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.favorites %></textarea></li>
     <li><strong>The six things I could never do without</strong><br>
-      <textarea name="profile[needs]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.needs %></textarea></li>
+      <textarea name="profile[needs]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.needs %></textarea></li>
     <li><strong>I spend a lot of time thinking about</strong><br>
-      <textarea name="profile[thoughts]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.thoughts %></textarea></li>
+      <textarea name="profile[thoughts]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.thoughts %></textarea></li>
     <li><strong>On a typical Friday night I am</strong><br>
-      <textarea name="profile[fun_facts]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.fun_acts %></textarea></li>
+      <textarea name="profile[fun_facts]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.fun_acts %></textarea></li>
     <li><strong>You should message me if</strong><br>
-      <textarea name="profile[msg_reason]" rows="8" cols="40" <% if @user != current_user %>readonly: true<% end %>><%= @user.profile.msg_reason %></textarea></li>
+      <textarea name="profile[msg_reason]" rows="8" cols="40" <% if !!current_user %>, readonly<% end %>><%= @user.profile.msg_reason %></textarea></li>
     <% if current_user.id == @user.id %>
     <button name="button">Submit</button>
     <% end %>
