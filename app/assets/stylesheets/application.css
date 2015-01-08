@@ -15,5 +15,16 @@
  */
 h1.title {
   float: right;
+}
+
+a.title {
   color: #f00;
+}
+
+a.title:link {
+  text-decoration: none;
+}
+
+a.title:visited {
+  text-decoration: none;
 }
