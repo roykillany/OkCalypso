@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :ensure_logged_in
+
   def update
     @profile = Profile.find_by_user_id(params[:user_id])
     if @profile.update(profile_params)
