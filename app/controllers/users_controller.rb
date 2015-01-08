@@ -11,11 +11,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
-    if @user
-      render :show
+    if current_user
+      @user = User.find_by_id(params[:id])
+      if @user
+        render :show
+      else
+        redirect_to :index
+      end
     else
-      redirect_to :index
+      ensure_logged_in
     end
   end
 
