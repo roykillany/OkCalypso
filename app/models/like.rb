@@ -6,10 +6,10 @@ class Like < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many(
-    :likees,
+  belongs_to(
+    :likee,
     class_name: "User",
-    foreign_key: :id,
-    primary_key: :likee_id
+    primary_key: :id,
+    foreign_key: :likee_id
   )
 end

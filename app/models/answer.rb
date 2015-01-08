@@ -8,7 +8,7 @@ class Answer < ActiveRecord::Base
 
   has_many(
     :user_answers,
-    class_name: "UserANswer",
+    class_name: "UserAnswer",
     foreign_key: :answer_id,
     primary_key: :id
   )

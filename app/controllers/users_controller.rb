@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_logged_in, only: [:show]
 
   def new
     @user = User.new
@@ -11,15 +12,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = User.find_by_id(params[:id])
-      if @user
-        render :show
-      else
-        redirect_to :index
-      end
+    @user = User.find(params[:id])
+    if @user
+      render :show
     else
-      ensure_logged_in
+      redirect_to :index
     end
   end
 

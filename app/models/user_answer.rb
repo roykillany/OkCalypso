@@ -14,7 +14,7 @@ class UserAnswer < ActiveRecord::Base
   )
 
   belongs_to(
-    :answereds,
+    :answer,
     class_name: "Answer",
     foreign_key: :answer_id,
     primary_key: :id

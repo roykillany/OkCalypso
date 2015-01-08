@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :ensure_logged_in
 
   def create
-    @like = Like.new(like_params)
+    @like = current_user.likes.new(like_params)
     if @like.save
       redirect_to user_url(like_params[:likee_id])
     else
