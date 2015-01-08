@@ -35,6 +35,7 @@
         <form action="<%= user_preference_url(@user.id) %>" method="post">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="hidden" name="preference[user_id]" value="<%= @user.id %>">
+          <input type="hidden" name="_method" value="PATCH">
 
           <label>Who:
           <input type="text" name="preference[target_people]" value="<%= @user.preferences.target_people %>"></label><br>
