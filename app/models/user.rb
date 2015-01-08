@@ -37,6 +37,13 @@ class User < ActiveRecord::Base
 
   has_many :answers, through: :user_answers, source: :answereds
 
+  has_many(
+    :matches,
+    class_name: "Match",
+    foreign_key: :matcher_id,
+    primary_key: :id
+  )
+
   attr_reader :password
 
   after_initialize :ensure_session_token

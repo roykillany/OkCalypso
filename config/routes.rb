@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "users#new"
   resources :users do
+    resources :matches, only: [:create, :show]
     resource :profile, only: [:update]
     resource :preference, only: [:update]
     resources :likes, only: [:index, :create]
