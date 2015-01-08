@@ -1,14 +1,51 @@
 <form action="<%= users_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
+  <section class="username">
   <label>Username</label>
   <input type="text" name="user[username]" value="<%= @user.username %>">
+</section><br>
 
+  <section class="email">
   <label class="email">Email</label>
   <input class="email" type="text" name="user[email]" value="<%= @user.email %>">
+  </section><br>
 
+  <section class="password">
   <label>Password</label>
   <input type="password" name="user[password]" value="">
+  </section><br>
+
+  <% orientation = ["Straight", "Gay", "Bisexual", "Demisexual", "Heteroflexible", "Homoflexible", "Lesbian", "Pansexual", "Queer", "Questioning", "Sapiosexual"] %>
+
+  <% gender = ["Woman", "Man", "Agender", "Androgynous", "Bigender", "Cis Man", "Cis Woman", "Genderfluid", "Genderqueer", "Gender Nonconforming", "Hijira", "Intersex", "Non-binary", "Other", "Pangender", "Transfeminine", "Transgender", "Transmasculine",
+    "Transsexual", "Trans Man", "Trans Woman", "Two Spirit"] %>
+
+  <section class="orientation">
+    <label>Orientation</label><br>
+    <% orientation.each do |el| %>
+      <label for="orientation"><%= el %></label>
+      <input id="orientation" type="radio" name="user[orientation]" value="<%= el %>">
+    <% end %>
+  </section><br>
+
+  <section class="gender">
+    <label>Gender</label><br>
+    <% gender.each do |el| %>
+      <label for="gender"><%= el %></label>
+      <input id="gender" type="radio" name="user[gender]" value="<%= el %>">
+    <% end %>
+  </section><br>
+
+  <section class="country">
+  <label>Country</label>
+  <input type="text" name="user[country]" value="America">
+  </section><br>
+
+  <section class="zip_code">
+  <label>Zip Code</label>
+  <input type="text" name="user[zip_code]" value="">
+  </section><br>
 
   <button name="button">Submit</button>
 </form>

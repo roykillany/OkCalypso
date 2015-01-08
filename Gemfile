@@ -43,8 +43,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'quiet_assets'
-  gem 'rails_12factor'
 end
 
+gem 'rails_12factor'
 gem 'bcrypt'
 gem 'byebug'
