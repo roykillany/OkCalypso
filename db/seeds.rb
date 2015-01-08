@@ -11,7 +11,7 @@ users = User.create!([{ username: 'big_booty_judy', email: 'anacondas@hottestmai
 
 users.each do |user|
   Profile.create!([{ user_id: user.id }])
-  Preference.create!({ user_id: user.id })
+  Preference.create!([{ user_id: user.id }])
 end
 
 questions = Question.create!([{ prompt: 'Do you believe that everything happens for a reason?'},
