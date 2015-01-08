@@ -26,6 +26,17 @@ class User < ActiveRecord::Base
 
   has_many :likees, through: :likes, source: :likees
 
+  has_many(
+    :user_answers,
+    class_name: "UserAnswer",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many :answered_questions, through: :user_answers, source: :question
+
+  has_many :answers, through: :user_answers, source: :answereds
+
   attr_reader :password
 
   after_initialize :ensure_session_token

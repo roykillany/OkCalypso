@@ -37,7 +37,7 @@
 </section>
 
 <% if current_user.id == @user.id %>
-  <a href="<%= questions_url %>">Questions</a>
+  <a href="<%= user_questions_url(@user.id) %>">Questions</a>
 <% end %>
 
 <a href="<%= users_url %>">Return to Index</a>

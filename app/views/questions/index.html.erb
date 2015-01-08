@@ -1,13 +1,19 @@
 <h1>Questions</h1>
 
 <% @questions.each do |quest| %>
-<form action="<%= user_user_answers_url(current_user.id) %>" method="post">
+<form action="<%= user_user_answers_url(@user.id) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <%= quest.prompt %>
   <input type="hidden" name="user_answers[user_id]" value="<%= current_user.id %>">
+  <input type="hidden" name="user_answers[question_id]" value="<%= quest.id %>">
 
   <% quest.answers.each do |ans| %>
-  <label><input type="radio" value="<%= ans.content %>"><%= ans.content %></label>
+  <input type="hidden" name="user_answers[answer_id]" value="<%= ans.id %>">
+  <label><input type="radio" value="<%= ans.content %>" <% if @user.user_answers.include?(ans) %>checked="checked"<% end %>><%= ans.content %></label>
   <% end %>
-  <button name="button">Submit</button>
+
+  <% unless @user.answered_questions.include?(quest) %>
+    <button name="button">Submit</button>
+  <% end %>
 </form><br>
 <% end %>

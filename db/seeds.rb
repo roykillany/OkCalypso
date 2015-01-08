@@ -13,7 +13,7 @@ users.each do |prof|
   Profile.create!([{ user_id: prof.id }])
 end
 
-Question.create!([{ prompt: 'Do you believe that everything happens for a reason?'},
+questions = Question.create!([{ prompt: 'Do you believe that everything happens for a reason?'},
   { prompt: 'Do you like to be the center of attention?'},
   { prompt: 'How tall are you?'},
   { prompt: 'In terms of relationships, which of these is the most important to find?'},
