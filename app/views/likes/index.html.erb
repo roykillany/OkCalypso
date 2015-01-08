@@ -1,5 +1,8 @@
 <h1>Your Likes</h1>
 
+<% if @likes.empty? %>
+  <strong>AWWWW WHY DON'T YOU LIKE ANYBODY?!?!?!?</strong>
+<% end %>
 <ul>
   <% @likes.each do |like| %>
     <li><%= like.username %></li>

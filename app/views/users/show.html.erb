@@ -32,6 +32,26 @@
   <section>
     <h4>I'm looking for</h4>
       <ul class="preferences">
+        <form action="<%= user_preference_url(@user.id) %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="preference[user_id]" value="<%= @user.id %>">
+
+          <label>Who:
+          <input type="text" name="preference[target_people]" value="<%= @user.preferences.target_people %>"></label><br>
+
+          <label>Ages:
+          <input type="text" name="preference[target_age_range]" value="<%= @user.preferences.target_age_range %>"></label><br>
+
+          <label>Located:
+          <input type="text" name="preference[target_location]" value="<%= @user.preferences.target_location %>"></label><br>
+
+          <label>For:
+          <input type="text" name="preference[target_purpose]" value="<%= @user.preferences.target_purpose %>"></label><br>
+
+          <% if current_user.id == @user.id %>
+            <button name="button">Submit</button>
+          <% end %>
+        </form>
       </ul>
   </section>
 </section>
