@@ -47,3 +47,5 @@ end
 gem 'rails_12factor'
 gem 'bcrypt'
 gem 'byebug'
+
+gem 'backbone-on-rails'
