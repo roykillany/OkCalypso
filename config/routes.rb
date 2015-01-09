@@ -3,10 +3,10 @@ OkStupid::Application.routes.draw do
 
   namespace :api do
     resources :profiles, only: [:index, :show, :destroy]
-    resources :messages
-    resources :preferences
-    resources :matches
-    resources :likes
+    resources :messages, only: [:show, :index]
+    resources :preferences, only: [:show]
+    resources :matches, only: [:show]
+    resources :likes, only: [:show]
   end
 
   resources :users do

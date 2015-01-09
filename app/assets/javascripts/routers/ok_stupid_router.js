@@ -4,10 +4,14 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "profiles/:id": "userProfile"
+    "profiles/:id": "profile",
+    "messages": "messagesIndex",
+    "messages/:id": "messageShow",
+    "matches/:id": "matchShow",
+    "likes/:id": "likeShow",
   },
 
-  userProfile: function(id){
+  profile: function(id){
     var profile = OkStupid.profiles.getOrFetch(id);
 
     var profileView = new OkStupid.Views.ProfileShow({
@@ -15,6 +19,46 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(profileView);
+  },
+
+  messagesIndex: function(){
+    var messages = OkStupid.messages.fetch();
+
+    var messageIndexView = new OkStupid.Views.MessagesIndex({
+      collection: messages
+    });
+
+    this._swapView(messageIndexView);
+  },
+
+  messageShow: function(id){
+    var message = OkStupid.messages.getOrFetch(id);
+
+    var messageShowView = new OkStupid.Views.MessageShow({
+      model: message
+    });
+
+    this._swapView(messageShowView);
+  },
+
+  matchShow: function(id){
+    var match = OkStupid.matches.getOrFetch(id);
+
+    var matchShowView = new OkStupid.Views.MatchShow({
+      model: match
+    });
+
+    this._swapView(matchShowView);
+  },
+
+  likeShow: function(id){
+    var like = OkStupid.likes.getOrFetch(id);
+
+    var likeShowView = new OkStupid.Views.LikeShow({
+      model: like
+    });
+
+    this._swapView(likeShowView);
   },
 
   _swapView: function(view){
