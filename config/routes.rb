@@ -1,5 +1,11 @@
+OkStupid::Application.routes.draw do
+  root :to => "site#root"
+
+  namespace :api do
+  end
+end
+
 Rails.application.routes.draw do
-  root "users#new"
   resources :users do
     resources :messages, only: [:create, :show, :destroy, :index]
     resources :matches, only: [:create, :show]
@@ -12,6 +18,4 @@ Rails.application.routes.draw do
     resources :user_answers, only: [:create]
   end
   resource :session, only: [:new, :create, :destroy]
-
-
 end
