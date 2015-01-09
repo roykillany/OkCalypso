@@ -3,6 +3,43 @@
 <strong>Your Profile</strong>
 
 <form id="your-profile">
-  label
+  <label>
+    My self-summary
+    <input type="text" value="<%= profile.self_sum %>">
+  </label>
 
+  <label>
+    What I'm doing with my life
+    <input type="text" value="<%= profile.life_sum %>">
+  </label>
+
+  <label>
+    I'm really good at
+    <input type="text" value="<%= profile.skills %>">
+  </label>
+
+  <label>
+    Favorite books, movies, shows, music, and food
+    <input type="text" value="<%= profile.favorites %>">
+  </label>
+
+  <label>
+    The six things I could never do without
+    <input type="text" value="<%= profile.needs %>">
+  </label>
+
+  <label>
+    I spend a lot of time thinking about
+    <input type="text" value="<%= profile.thoughts %>">
+  </label>
+
+  <label>
+    On a typical Friday night I am
+    <input type="text" value="<%= profile.fun_acts %>">
+  </label>
+
+  <label>
+    You should message me if
+    <input type="text" value="<%= profile.msg_reason %>">
+  </label>
 </form>
