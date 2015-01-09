@@ -3,10 +3,12 @@ OkStupid::Application.routes.draw do
 
   namespace :api do
     resources :profiles, only: [:index, :show, :destroy]
+    resources :messages
+    resources :preferences
+    resources :matches
+    resources :likes
   end
-end
 
-Rails.application.routes.draw do
   resources :users do
     resources :messages, only: [:create, :show, :destroy, :index]
     resources :matches, only: [:create, :show]

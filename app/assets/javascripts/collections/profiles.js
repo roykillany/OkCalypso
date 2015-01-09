@@ -3,14 +3,14 @@ OkStupid.Collections.Profiles = Backbone.Collection.extend({
   url: "api/profiles",
 
   getOrFetch: function(user_id){
-    var profile = this.get(user_id);
+    var profile = this.findWhere({user_id: user_id});
     var that = this;
 
     if(!profile){
       profile = new OkStupid.Models.Profile({ user_id: user_id });
       profile.fetch({
         success: function(){
-          that.add(profile);
+          that.add(profile, { merge: true });
         }
       });
     } else {

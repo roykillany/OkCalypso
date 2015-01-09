@@ -4,7 +4,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "profile/:id": "userProfile"
+    "profiles/:id": "userProfile"
   },
 
   userProfile: function(id){

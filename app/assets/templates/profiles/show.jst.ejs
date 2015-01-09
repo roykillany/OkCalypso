@@ -5,41 +5,41 @@
 <form id="your-profile">
   <label>
     My self-summary
-    <input type="text" value="<%= profile.self_sum %>">
+    <input type="text" value="<%= profile.escape("self_sum") %>">
   </label>
 
   <label>
     What I'm doing with my life
-    <input type="text" value="<%= profile.life_sum %>">
+    <input type="text" value="<%= profile.escape("life_sum") %>">
   </label>
 
   <label>
     I'm really good at
-    <input type="text" value="<%= profile.skills %>">
+    <input type="text" value="<%= profile.escape("skills") %>">
   </label>
 
   <label>
     Favorite books, movies, shows, music, and food
-    <input type="text" value="<%= profile.favorites %>">
+    <input type="text" value="<%= profile.escape("favorites") %>">
   </label>
 
   <label>
     The six things I could never do without
-    <input type="text" value="<%= profile.needs %>">
+    <input type="text" value="<%= profile.escape("needs") %>">
   </label>
 
   <label>
     I spend a lot of time thinking about
-    <input type="text" value="<%= profile.thoughts %>">
+    <input type="text" value="<%= profile.escape("thoughts") %>">
   </label>
 
   <label>
     On a typical Friday night I am
-    <input type="text" value="<%= profile.fun_acts %>">
+    <input type="text" value="<%= profile.escape("fun_acts") %>">
   </label>
 
   <label>
     You should message me if
-    <input type="text" value="<%= profile.msg_reason %>">
+    <input type="text" value="<%= profile.escape]("msg_reason") %>">
   </label>
 </form>

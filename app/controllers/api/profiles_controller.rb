@@ -3,12 +3,12 @@ class Api::ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
-    render json: @profiles, json: @current_user
+    render json: @profiles
   end
 
   def show
     @profile = Profile.find_by_user_id(params[:id])
-    render json: @profile, json: @current_user
+    render json: @profile
   end
 
   def update
