@@ -44,6 +44,20 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :sent_messages,
+    class_name: "Message",
+    foreign_key: :sender_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :received_messages,
+    class_name: "Message",
+    foreign_key: :receiver_id,
+    primary_key: :id
+  )
+
   attr_reader :password
 
   after_initialize :ensure_session_token
