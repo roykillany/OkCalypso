@@ -1,4 +1,6 @@
 class Like < ActiveRecord::Base
+  validates :liker_id, :likee_id, presence: true
+
   belongs_to(
     :liker,
     class_name: "User",

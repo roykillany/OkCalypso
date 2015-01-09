@@ -1,4 +1,6 @@
 class Answer < ActiveRecord::Base
+  validates :question_id, presence: true
+
   belongs_to(
     :question,
     class_name: "Question",

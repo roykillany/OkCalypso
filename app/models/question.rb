@@ -1,4 +1,4 @@
-class Question < ActiveRecord::Base
+class Question < ActiveRecord::Base  
   has_many(
     :answers,
     class_name: "Answer",
