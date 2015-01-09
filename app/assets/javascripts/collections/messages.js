@@ -6,7 +6,7 @@ OkStupid.Collections.Messages = Backbone.Collection.extend({
     var message = this.get(id);
     var that = this;
 
-    if(messages){
+    if(message){
       message.fetch();
     } else {
       message = new OkStupid.Models.Message({ id: id });
