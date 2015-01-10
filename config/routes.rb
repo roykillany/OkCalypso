@@ -2,6 +2,7 @@ OkStupid::Application.routes.draw do
   root :to => "site#root"
 
   namespace :api do
+    resource :session, only: [:show]
     resources :profiles, only: [:index, :show, :destroy]
     resources :messages, only: [:show, :index]
     resources :preferences, only: [:show]

@@ -5,7 +5,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "root",
-    "profiles/:id": "profile",
+    "profiles/:id": "profileShow",
     "messages": "messagesIndex",
     "messages/:id": "messageShow",
     "matches/:id": "matchShow",
@@ -17,7 +17,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     this._swapView(rootView);
   },
 
-  profile: function(id){
+  profileShow: function(id){
     var profile = OkStupid.profiles.getOrFetch(id);
 
     var profileView = new OkStupid.Views.ProfileShow({

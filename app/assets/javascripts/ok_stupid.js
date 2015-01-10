@@ -4,6 +4,7 @@ window.OkStupid = {
   Views: {},
   Routers: {},
   initialize: function() {
+    OkStupid.currentUser = new OkStupid.Models.User();
     OkStupid.profiles = new OkStupid.Collections.Profiles();
     OkStupid.messages = new OkStupid.Collections.Messages();
     OkStupid.preferences = new OkStupid.Collections.Preferences();
@@ -13,6 +14,16 @@ window.OkStupid = {
       $rootEl: $("#content")
     });
     Backbone.history.start();
+    $.ajax({
+      url: "/api/session",
+      type: "GET",
+      success: function(data){
+        if(data){
+          OkStupid.currentUser.set(data);
+        }
+      }
+
+    })
   }
 };
 
