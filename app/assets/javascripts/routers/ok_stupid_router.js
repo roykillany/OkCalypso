@@ -45,10 +45,17 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   messagesIndex: function(){
-    var messages = OkStupid.messages.fetch();
+    var sentMessages = OkStupid.messages.where({
+      sender_id: OkStupid.currentUser.id
+    });
+
+    var receivedMessages = OkStupid.messages.where({
+      receiver_id: OkStupid.currentUser.id
+    });
 
     var messageIndexView = new OkStupid.Views.MessagesIndex({
-      collection: messages
+      sentCollection: sentMessages,
+      receivedCollection: receivedMessages
     });
 
     this._swapView(messageIndexView);

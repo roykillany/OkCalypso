@@ -1,5 +1,23 @@
 <h1>All Messages</h1>
 
-<% if(messages === {}){ %>
-  <strong>You have no messages :/</strong>
-<% } %>
+<ul class="sent">
+  <h4>Sent Messages</h4>
+  <% if(sentMessages !== undefined){ %>
+    <% sentMessages.each(function(msg){ %>
+      <li>Title: <%= msg.title %>Body: <%= msg.body %></li>
+    <%  }) %>
+  <% } else { %>
+    <p>Aww, you haven't sent any messages</p>
+  <% } %>
+</ul>
+
+<ul class="received">
+  <h4>Received Messages</h4>
+  <% if(receivedMessages !== undefined){ %>
+    <% receivedMessages.each(function(msg){ %>
+      <li>Title: <%= msg.title %>Body: <%= msg.body %></li>
+    <%  }) %>
+  <% } else { %>
+    <p>Aww, you haven't received any messages</p>
+  <% } %>
+</ul>

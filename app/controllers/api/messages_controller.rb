@@ -10,6 +10,12 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
+    @message = Message.new(message_params)
+    if @message.save!
+      render json: @message
+    else
+      render json: @message.errors.full_messages
+    end
   end
 
   def message_params
