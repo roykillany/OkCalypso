@@ -7,6 +7,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     "": "root",
     "profiles/:id": "profileShow",
     "messages": "messagesIndex",
+    "message/new": "messageNew",
     "messages/:id": "messageShow",
     "matches/:id": "matchShow",
     "likes/:id": "likeShow",
@@ -25,6 +26,22 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(profileView);
+  },
+
+  messageNew: function(){
+    var message = new OkStupid.Models.Message({
+      sender_id: OkStupid.currentUser.id
+    });
+    var that = this;
+    OkStupid.users.fetch({
+      success: function(){
+        var messageNewView = new OkStupid.Views.MessageNew({
+          model: message,
+          collection: OkStupid.users
+        });
+        that._swapView(messageNewView);
+      }
+    });
   },
 
   messagesIndex: function(){
