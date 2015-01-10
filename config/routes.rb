@@ -7,7 +7,7 @@ OkStupid::Application.routes.draw do
     resources :profiles, only: [:index, :show, :destroy]
     resources :messages, only: [:show, :index, :create]
     resources :preferences, only: [:show]
-    resources :matches, only: [:show]
+    resources :matches, only: [:show, :index]
     resources :likes, only: [:show]
     resources :questions, only: [:index]
     resources :answers, only: [:index]

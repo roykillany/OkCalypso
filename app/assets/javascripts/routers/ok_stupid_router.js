@@ -9,6 +9,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     "messages": "messagesIndex",
     "message/new": "messageNew",
     "messages/:id": "messageShow",
+    "matches": "matchesIndex",
     "matches/:id": "matchShow",
     "likes/:id": "likeShow",
     "questions": "questionsIndex",
@@ -90,6 +91,20 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(messageShowView);
+  },
+
+  matchesIndex: function(){
+    var that = this;
+
+    OkStupid.matches.fetch({
+      success: function (){
+        var newMatchIndexView = new OkStupid.Views.MatchesIndex({
+          collection: OkStupid.Matches
+        });
+
+        that._swapView(newMatchIndexView);
+      }
+    });
   },
 
   matchShow: function(id){
