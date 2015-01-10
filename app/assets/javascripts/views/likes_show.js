@@ -1,5 +1,5 @@
 OkStupid.Views.LikeShow = Backbone.View.extend({
-  template: JST["messages/show"],
+  template: JST["likes/show"],
 
   render: function(){
     var content = this.template({
