@@ -10,7 +10,8 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.sent_messages.build(message_params)
+    # @message = Message.new(message_params)
     if @message.save!
       render json: @message
     else
@@ -19,6 +20,6 @@ class Api::MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:title, :receiver_id)
+    params.require(:message).permit(:title, :receiver_id, :sender_id, :body)
   end
 end

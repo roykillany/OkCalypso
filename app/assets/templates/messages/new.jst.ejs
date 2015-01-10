@@ -1,23 +1,27 @@
 <h1>Send a Message ^_^V</h1>
 
-<label>Send to:
-<select id="sendee">
-  <% users.each(function(user){ %>
-    <option value="<%= user %>"><%= user.escape("username") %>
-  <% }) %>
-</select>
-</label>
-
 <form id="new-message">
+  <input type="hidden" name="message[sender_id]" value="<%= OkStupid.currentUser.id %>">
+  <label>Send to:
+    <select id="sendee" name="message[receiver_id]">
+    <% users.each(function(user){ %>
+      <% if(user.id === OkStupid.currentUser.id){ %>
+        <% return false; %>
+      <% } %>
+      <option value="<%= user.id %>"><%= user.escape("username") %>
+      <% }) %>
+    </select>
+  </label>
+
   <label>
     Title
-    <input type="text" value="">
+    <input type="text" name="message[title]" value="">
   </label>
 
   <label>
     Body
-    <input type="text" value="">
+    <input type="text" name="message[body]" value="">
   </label>
 
-  <button class="submit">Send</button>
+  <input type="submit" class="submit">Send</button>
 </form>

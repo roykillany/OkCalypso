@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def create
-    
+
   end
 
   def show
@@ -15,6 +15,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:receiver_id, :title)
+    params.require(:message).permit(:receiver_id, :title, :sender_id, :body)
   end
 end
