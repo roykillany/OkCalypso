@@ -11,11 +11,26 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     "messages/:id": "messageShow",
     "matches/:id": "matchShow",
     "likes/:id": "likeShow",
+    "questions": "questionsIndex",
   },
 
   root: function(){
     var rootView = new OkStupid.Views.RootView();
     this._swapView(rootView);
+  },
+
+  questionsIndex: function(){
+    var that = this;
+
+    OkStupid.questions.fetch({
+      success: function(){
+        var newQuestionsIndexView = new OkStupid.Views.QuestionsIndex({
+          collection: OkStupid.questions
+        });
+
+        that._swapView(newQuestionsIndexView);
+      }
+    });
   },
 
   profileShow: function(id){

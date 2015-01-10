@@ -5,6 +5,8 @@ window.OkStupid = {
   Routers: {},
   initialize: function() {
     OkStupid.currentUser = new OkStupid.Models.User();
+    OkStupid.questions = new OkStupid.Collections.Questions();
+    OkStupid.answers = new OkStupid.Collections.Answers();
     OkStupid.users = new OkStupid.Collections.Users();
     OkStupid.profiles = new OkStupid.Collections.Profiles();
     OkStupid.messages = new OkStupid.Collections.Messages();

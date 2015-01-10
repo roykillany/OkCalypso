@@ -9,6 +9,8 @@ OkStupid::Application.routes.draw do
     resources :preferences, only: [:show]
     resources :matches, only: [:show]
     resources :likes, only: [:show]
+    resources :questions, only: [:index]
+    resources :answers, only: [:index]
   end
 
   resources :users do
