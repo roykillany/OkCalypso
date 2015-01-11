@@ -6,10 +6,13 @@
     <form id="<%= question.escape("id") %>">
       <% answers.each(function(answer){ %>
         <% if(answer.escape("question_id") === question.escape("id")){ %>
-          <input type="radio" name="answer_id" id="<%= answer.escape("id") %>" value="<%= answer.escape("content") %>">
+          <input type="radio" name="userAnswer[answer_id]" id="<%= answer.escape("id") %>" value="<%= answer.get("id") %>">
+          <input type="hidden" name="userAnswer[question_id]" value="<%= question.escape("id") %>">
+          <input type="hidden" name="userAnswer[user_id]" value="<%= currentUser.id %>">
           <label for="<%= answer.escape("id") %>"><%= answer.escape("content") %></label>
         <% } %>
       <% }) %>
+      <button name="button">Submit</button>
     </form>
   <% }) %>
 </ul>
