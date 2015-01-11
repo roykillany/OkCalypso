@@ -1,48 +1,33 @@
-<h3>Your Profile</h3>
+<h1>Your Profile</h1>
 
 <% profiles.each(function(profile){ %>
   <% if(profile.escape("user_id") !== user_id){ %>
     <% return false; %>
   <% } %>
-  <form id="your-profile">
-    <label>
-      My self-summary
-      <input type="text" value="<%= profile.escape("self_sum") %>">
-    </label>
+  <h4>My self-summary</h4>
+  <p>
+    <%= profile.escape("self_sum") %>
+  </p>
 
-    <label>
-      What I'm doing with my life
-      <input type="text" value="<%= profile.escape("life_sum") %>">
-    </label>
+  <h4>What I'm doing with my life</h4>
+  <p><%= profile.escape("life_sum") %></p>
 
-    <label>
-      I'm really good at
-      <input type="text" value="<%= profile.escape("skills") %>">
-    </label>
+  <h4>I'm really good at</h4>
+  <p><%= profile.escape("skills") %></p>
 
-    <label>
-      Favorite books, movies, shows, music, and food
-      <input type="text" value="<%= profile.escape("favorites") %>">
-    </label>
+  <h4>Favorite books, movies, shows, music, and food</h4>
+  <p><%= profile.escape("favorites") %></p>
 
-    <label>
-      The six things I could never do without
-      <input type="text" value="<%= profile.escape("needs") %>">
-    </label>
 
-    <label>
-      I spend a lot of time thinking about
-      <input type="text" value="<%= profile.escape("thoughts") %>">
-    </label>
+  <h4>The six things I could never do without</h4>
+  <p><%= profile.escape("needs") %></p>
 
-    <label>
-      On a typical Friday night I am
-      <input type="text" value="<%= profile.escape("fun_acts") %>">
-    </label>
+  <h4>I spend a lot of time thinking about</h4>
+  <p><%= profile.escape("thoughts") %></p>
 
-    <label>
-      You should message me if
-      <input type="text" value="<%= profile.escape("msg_reason") %>">
-    </label>
-  </form>
+  <h4>On a typical Friday night I am</h4>
+  <p><%= profile.escape("fun_acts") %></p>
+
+  <h4>You should message me if</h4>
+  <p><%= profile.escape("msg_reason") %></p>
 <% }) %>
