@@ -5,6 +5,10 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     this.listenTo(this.collection, "sync", this.render)
   },
 
+  events: {
+    "blur input.profile-edit": "editProfile"
+  },
+
   render: function(){
     // console.log(profile);
     // var profile = this.collection.findWhere({ user_id: this.id });
@@ -16,5 +20,10 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     return this;
   },
 
+  editProfile: function(event){
+    console.log(event.currentTarget);
+    event.preventDefault();
 
+    var formData = $("form.profile-edit").serializeJSON();
+  }
 })

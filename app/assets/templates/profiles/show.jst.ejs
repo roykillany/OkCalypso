@@ -4,30 +4,29 @@
   <% if(profile.escape("user_id") !== user_id){ %>
     <% return false; %>
   <% } %>
-  <h4>My self-summary</h4>
-  <p>
-    <%= profile.escape("self_sum") %>
-  </p>
+  <form class="profile-edit">
+    <h4>My self-summary</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("self_sum") %>"></input>
 
-  <h4>What I'm doing with my life</h4>
-  <p><%= profile.escape("life_sum") %></p>
+    <h4>What I'm doing with my life</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("life_sum") %>"></input>
 
-  <h4>I'm really good at</h4>
-  <p><%= profile.escape("skills") %></p>
+    <h4>I'm really good at</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("skills") %>"></input>
 
-  <h4>Favorite books, movies, shows, music, and food</h4>
-  <p><%= profile.escape("favorites") %></p>
+    <h4>Favorite books, movies, shows, music, and food</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("favorites") %>"></input>
 
+    <h4>The six things I could never do without</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("needs") %>"></input>
 
-  <h4>The six things I could never do without</h4>
-  <p><%= profile.escape("needs") %></p>
+    <h4>I spend a lot of time thinking about</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("thoughts") %>"></input>
 
-  <h4>I spend a lot of time thinking about</h4>
-  <p><%= profile.escape("thoughts") %></p>
+    <h4>On a typical Friday night I am</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("fun_acts") %>"></input>
 
-  <h4>On a typical Friday night I am</h4>
-  <p><%= profile.escape("fun_acts") %></p>
-
-  <h4>You should message me if</h4>
-  <p><%= profile.escape("msg_reason") %></p>
+    <h4>You should message me if</h4>
+    <input class="profile-edit" name="" value="<%= profile.escape("msg_reason") %>"></input>
+  </form>
 <% }) %>
