@@ -1,12 +1,13 @@
 OkStupid.Views.MessagesIndex = Backbone.View.extend({
   template: JST["messages/index"],
 
+  initialize: function(){
+    this.listenTo(this.collection, "sync", this.render)
+  },
+
   render: function(){
-    console.log(this.sentCollection);
-    console.log(this.receivedCollection);
     var content = this.template({
-      sentMessages: this.sentCollection,
-      receivedMessages: this.receivedCollection
+      messages: this.collection,
     });
 
     this.$el.html(content);

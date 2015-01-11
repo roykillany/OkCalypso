@@ -1,23 +1,17 @@
 <h1>All Messages</h1>
 
-<ul class="sent">
+<ul class="messages">
   <h4>Sent Messages</h4>
-  <% if(sentMessages !== undefined){ %>
-    <% sentMessages.each(function(msg){ %>
-      <li>Title: <%= msg.title %>Body: <%= msg.body %></li>
-    <%  }) %>
-  <% } else { %>
-    <p>Aww, you haven't sent any messages</p>
-  <% } %>
-</ul>
+  <% messages.each(function(msg){ %>
+    <% if(msg.get("sender_id") === currentUser.id){ %>
+      <li>Title: <%= msg.escape("title") %>Body: <%= msg.escape("body") %></li>
+    <% } %>
+  <% }) %>
 
-<ul class="received">
   <h4>Received Messages</h4>
-  <% if(receivedMessages !== undefined){ %>
-    <% receivedMessages.each(function(msg){ %>
-      <li>Title: <%= msg.title %>Body: <%= msg.body %></li>
-    <%  }) %>
-  <% } else { %>
-    <p>Aww, you haven't received any messages</p>
-  <% } %>
+  <% messages.each(function(msg){ %>
+    <% if(msg.get("receiver_id") === currentUser.id){ %>
+      <li>Title: <%= msg.escape("title") %>Body: <%= msg.escape("body") %></li>
+    <% } %>
+  <% }) %>
 </ul>

@@ -69,18 +69,8 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     var that = this;
     OkStupid.messages.fetch({
       success: function(){
-        console.log(OkStupid.messages);
-        var sentMessages = OkStupid.messages.where({
-          sender_id: OkStupid.currentUser.id
-        });
-
-        var receivedMessages = OkStupid.messages.where({
-          receiver_id: OkStupid.currentUser.id
-        });
-
         var messageIndexView = new OkStupid.Views.MessagesIndex({
-          sentCollection: sentMessages,
-          receivedCollection: receivedMessages
+          collection: OkStupid.messages,
         });
 
         that._swapView(messageIndexView);

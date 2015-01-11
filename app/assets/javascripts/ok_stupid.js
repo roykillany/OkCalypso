@@ -17,16 +17,15 @@ window.OkStupid = {
     new OkStupid.Routers.Router({
       $rootEl: $("#content")
     });
-    Backbone.history.start();
     $.ajax({
       url: "/api/session",
       type: "GET",
       success: function(data){
+        Backbone.history.start();
         if(data){
           OkStupid.currentUser.set(data);
         }
       }
-
     })
   }
 };
