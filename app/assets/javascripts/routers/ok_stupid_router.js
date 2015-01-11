@@ -22,11 +22,12 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
   questionsIndex: function(){
     var that = this;
+    OkStupid.answers.fetch();
 
     OkStupid.questions.fetch({
       success: function(){
         var newQuestionsIndexView = new OkStupid.Views.QuestionsIndex({
-          collection: OkStupid.questions
+          collection: OkStupid.questions,
         });
 
         that._swapView(newQuestionsIndexView);

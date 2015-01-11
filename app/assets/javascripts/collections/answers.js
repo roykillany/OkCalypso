@@ -1,5 +1,5 @@
 OkStupid.Collections.Answers = Backbone.Collection.extend({
-  url: "api/collections",
+  url: "api/answers",
   model: OkStupid.Models.Answer,
 
   getOrFetch: function(id){

@@ -44,6 +44,8 @@ group :development do
   gem 'quiet_assets'
 end
 
+gem 'figaro'
+
 gem 'rails_12factor'
 gem 'bcrypt'
 gem 'byebug'

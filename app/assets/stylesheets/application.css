@@ -21,6 +21,10 @@ a.title {
   color: #f00;
 }
 
+a.title:hover {
+  color: #00f;
+}
+
 a.title:link {
   text-decoration: none;
 }

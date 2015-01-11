@@ -6,11 +6,8 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function(){
-    console.log(this.collection);
-    this.collection.each(function(quest){
-      console.log(quest);
-    });
     var content = this.template({
+      answers: OkStupid.answers,
       questions: this.collection
     });
 
