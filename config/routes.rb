@@ -5,10 +5,11 @@ OkStupid::Application.routes.draw do
     resources :users, only: [:index] do
       resources :user_answers
     end
+    resource :detail, only: [:show]
     resource :session, only: [:show]
     resources :profiles, only: [:index, :show, :destroy]
     resources :messages, only: [:show, :index, :create]
-    resources :preferences, only: [:show]
+    resources :preferences, only: [:index, :create, :update]
     resources :matches, only: [:show, :index]
     resources :likes, only: [:show]
     resources :questions, only: [:index]

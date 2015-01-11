@@ -8,6 +8,7 @@ window.OkStupid = {
     OkStupid.userAnswers = new OkStupid.Collections.UserAnswers();
     OkStupid.questions = new OkStupid.Collections.Questions();
     OkStupid.answers = new OkStupid.Collections.Answers();
+    OkStupid.details = new OkStupid.Collections.Details();
     OkStupid.users = new OkStupid.Collections.Users();
     OkStupid.profiles = new OkStupid.Collections.Profiles();
     OkStupid.messages = new OkStupid.Collections.Messages();

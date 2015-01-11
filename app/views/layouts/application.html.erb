@@ -10,8 +10,7 @@
   <h1 class="title"><a class="title" href="/#">OkStupid</a></h1>
 
   <% if current_user %>
-    <h2>Signed in as: <%= current_user.username %></h2>
-    <a href="<%= users_url %>">Rails App</a>
+    <h2>Heyyy <%= current_user.username %></h2>
     <%= button_to "Sign Out", session_url, method: :delete %>
     <nav class="sidebar">
       <a href="/#message/new">Send a Message</a>
@@ -20,7 +19,7 @@
     <nav class="topbar">
       <a href="/#profiles/<%= current_user.id %>">Profile</a>
       <a href="/#messages">Messages</a>
-      <a href="/#matches/<%= current_user.id %>">Matches</a>
+      <a href="/#matches">Matches</a>
       <a href="/#likes/<%= current_user.id %>">Likes</a>
       <a href="<%= users_url %>">All Profiles</a>
     </nav>
