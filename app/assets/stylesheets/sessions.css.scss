@@ -1,9 +1,29 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-form {
+
+
+form.sign-in {
   margin: auto;
   width: 150px;
   float: left;
   padding: 100px 200px;
+  color: #fff;
+  background: #436CE8;
+  border-radius: 10px;
+}
+
+.sign-in button {
+  color: #fff;
+  background: #8EA7F1;
+  border-radius: 3px;
+}
+
+.sign-in input {
+  background: #8EA7F1;
+  border-radius: 3px;
+}
+
+.sign-in input:hover {
+
 }

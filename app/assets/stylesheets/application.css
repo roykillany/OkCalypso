@@ -13,13 +13,14 @@
  *= require_tree .
  *= require_self
  */
-html, head, title, body, h1, a, h2, nav, span {
+html, head, title, body, h1, a, h2, nav, span, form, input, label, button {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   background: transparent;
   font: inherit;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   color: inherit;
   text-decoration: inherit;
   text-align: inherit;
@@ -47,7 +48,7 @@ a.title {
   color: #fff;
   font-weight: bold;
   font-size: 48px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+
   padding: 0 0 0 10px;
 }
 
@@ -68,7 +69,6 @@ nav.sign-ins {
   float: right;
   width: auto;
   margin: 20px 20px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .sign-ins a {
