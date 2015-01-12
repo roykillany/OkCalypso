@@ -1,5 +1,5 @@
 class Match < ActiveRecord::Base
-  validates_uniqueness_of :matcher_id, scope: [:matchee_id, :matcher_id]
+  validates_uniqueness_of :matcher_id, scope: [:matcher_id, :matchee_id]
 
   belongs_to(
     :matcher,

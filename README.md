@@ -1,3 +1,9 @@
+TODO:
+  1. Make Match Show Page
+  2. Fix answered Question visibility
+  2. Add User Like functionality
+  3. Make User Like Show Page
+
 Features
   user auth
   switching user profiles from public to private

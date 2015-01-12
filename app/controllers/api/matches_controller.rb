@@ -10,30 +10,16 @@ class Api::MatchesController < ApplicationController
   end
 
   def create
-    @matches = []
-    matches_ids = []
+    @match = Match.new(match_params)
 
-    current_user_answers = UserAnswer.all.where(user_id: current_user.id)
-
-    User.all.each do |user|
-      next if user.id == current_user.id
-
-      this_user_answers = UserAnswer.all.where(user_id: user.id)
-      current_user_answers.each do |ans|
-        if this_user_answers.find_by_answer_id(ans.answer_id)
-          matches_ids.push(user.id)
-        end
-      end
+    if @match.save!
+      render json: ""
+    else
+      render json: @match.errors.full_messages
     end
-
-    matches_ids.each do |id|
-      @matches.push(Match.create!({ matcher_id: current_user.id, matchee_id: id }))
-    end
-
-    render json: @matches
   end
 
   def match_params
-    params.require(:match).permit(:matchee_id)
+    params.require(:match).permit(:matchee_id, :matcher_id)
   end
 end
