@@ -13,18 +13,42 @@
  *= require_tree .
  *= require_self
  */
+html, head, title, body, h1, a, h2, nav, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+}
 
-
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
 
 body {
 }
 
 h1.title {
-  float: right;
+  background: #436CE8;
+  width: 100%;
+  position: relative;
+  display: block;
 }
 
 a.title {
-  color: #f00;
+  color: #fff;
+  font-weight: bold;
+  font-size: 48px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  padding: 0 0 0 10px;
 }
 
 a.title:hover {
@@ -37,4 +61,22 @@ a.title:link {
 
 a.title:visited {
   text-decoration: none;
+}
+
+nav.sign-ins {
+  display: block;
+  float: right;
+  width: auto;
+  margin: 20px 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.sign-ins a {
+  color: #8EA7F1;
+  padding: 23px;
+  font-size: 20px;
+}
+
+.sign-ins a:hover {
+  color: #fff;
 }

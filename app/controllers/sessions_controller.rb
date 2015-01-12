@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
       log_in(@user)
       redirect_to root_url
     else
-      flash[:errors] = @user.errors.full_messages
+      flash.now[:errors] = ["You're not fooling anyone, stupid."]
+      @user = User.new(user_params)
       render :new, status: 422
     end
   end

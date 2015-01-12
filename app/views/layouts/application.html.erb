@@ -7,11 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1 class="title"><a class="title" href="/#">OkStupid</a></h1>
+  <h1 class="title group">
+    <a class="title" href="/#">OkStupid</a>
+    <% if current_user %>
+      <h2>Heyyy <%= current_user.username %></h2>
+      <%= button_to "Sign Out", session_url, method: :delete %>
+    <% else %>
+      <nav class="sign-ins">
+        <a href="<%= new_session_url %>">Sign In</a>
+        <a href="<%= new_user_url %>">Sign Up</a>
+      </nav>
+    <% end %>
+  </h1>
 
   <% if current_user %>
-    <h2>Heyyy <%= current_user.username %></h2>
-    <%= button_to "Sign Out", session_url, method: :delete %>
+
     <nav class="sidebar">
       <a href="/#message/new">Send a Message</a>
       <a href="/#questions">Questions</a>
@@ -24,11 +34,10 @@
       <a href="<%= users_url %>">All Profiles</a>
     </nav>
   <% else %>
-    <a href="<%= new_session_url %>">Sign In</a>
-    <a href="<%= new_user_url %>">Sign Up</a>
+
   <% end %>
 
-  <span><%= flash.now[:errors] %></span>
+  <span class="errors"><%= flash.now[:errors] %></span>
 
   <%= yield %>
 </body>
