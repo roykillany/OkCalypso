@@ -17,5 +17,26 @@ OkStupid.Collections.UserAnswers = Backbone.Collection.extend({
       })
     }
     return userAnswer;
+  },
+
+  getMatchPercent: function(otherUserAns){
+    var that = this;
+    var totalMatchedQ = 0;
+    var totalMatchedA = 0;
+
+    this.each(function(ans){
+      if(otherUserAns.where({ answer_id: ans.get("answer_id") }).length > 0){
+        totalMatchedA += 1;
+        totalMatchedQ += 1;
+      } else if (otherUserAns.where({ question_id: ans.get("question_id") }).length > 0){
+        totalMatchedQ += 1;
+      }
+
+      if(totalMatchQ === 0){
+        return 0;
+      } else {
+        return (totalMatchA / totalMatchQ);
+      }
+    });
   }
 })

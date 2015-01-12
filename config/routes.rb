@@ -2,7 +2,7 @@ OkStupid::Application.routes.draw do
   root :to => "site#root"
 
   namespace :api do
-    resources :users, only: [:index] do
+    resources :users, only: [:index, :show] do
       resources :user_answers
     end
     resource :detail, only: [:show]
@@ -10,7 +10,7 @@ OkStupid::Application.routes.draw do
     resources :profiles, only: [:index, :show, :destroy, :update]
     resources :messages, only: [:show, :index, :create]
     resources :preferences, only: [:index, :create, :update]
-    resources :matches, only: [:show, :index]
+    resources :matches, only: [:show, :index, :create]
     resources :likes, only: [:show]
     resources :questions, only: [:index]
     resources :answers, only: [:index]

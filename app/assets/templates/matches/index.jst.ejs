@@ -1,3 +1,15 @@
 <h1>Your Matches</h1>
 
 <strong>You don't have any matches. You will die alone. Goodbye. Beepboop.</strong>
+
+<button class="create-matches">See Matches</button>
+
+<ul>
+  <% if(OkStupid.matches.length > 0 && OkStupid.users.length > 0){ %>
+    <% OkStupid.matches.forEach(function(match){ %>
+      <% OkStupid.users.where({ id: match.get("matchee_id") }).forEach(function(user){ %>
+        <li><%= user.escape("username") %></li>
+      <% }) %>
+    <% }) %>
+  <% } %>
+</ul>

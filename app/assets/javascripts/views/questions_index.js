@@ -3,6 +3,7 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(OkStupid.answers, "sync", this.render);
   },
 
   events: {

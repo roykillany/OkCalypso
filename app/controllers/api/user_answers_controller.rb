@@ -5,6 +5,11 @@ class Api::UserAnswersController < ApplicationController
     render json: @user_answer
   end
 
+  def index
+    @user_answers = UserAnswer.all
+    render json: @user_answers
+  end
+
   def user_answer_params
     params.require(:user_answer).permit(:question_id, :answer_id, :user_id)
   end

@@ -1,6 +1,6 @@
 class UserAnswer < ActiveRecord::Base
   validates :user_id, :answer_id, :question_id, presence: true
-  validates :question_id, uniqueness: true
+  validates_uniqueness_of :question_id, scope: [:user_id]
 
   belongs_to(
     :answerer,

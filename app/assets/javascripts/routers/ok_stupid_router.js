@@ -92,7 +92,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
   matchesIndex: function(){
     var that = this;
-
+    OkStupid.userAnswers.fetch();
+    OkStupid.currentUser.fetch();
+    OkStupid.users.fetch();
     OkStupid.matches.fetch({
       success: function (){
         var newMatchIndexView = new OkStupid.Views.MatchesIndex({
