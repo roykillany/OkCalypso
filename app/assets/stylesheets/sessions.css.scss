@@ -6,6 +6,9 @@ div.sign-in {
   padding: 200px 0 0 0;
 }
 
+span.errors {
+}
+
 form.sign-in {
   width: 150px;
   padding: 100px 200px;
@@ -23,17 +26,41 @@ label {
   color: #fff;
   background: #8EA7F1;
   border-radius: 3px;
+  padding: 0 0 0 5px;
+}
+
+.sign-in button:hover {
+  cursor: pointer;
 }
 
 .sign-in input {
   background: #8EA7F1;
   border-radius: 3px;
-  border: 1px solid #436CE8;
+  // border: 1px solid #436CE8;
 }
 
-.sign-in input:hover {
-  border: 1px solid #00f;
-  display: block;
+input:hover {
+  background: #00f;
+}
+
+label:hover {
+  color: #00f;
+}
+
+label.username:hover ~ input.username {
+  background: #00f;
+}
+
+input.username:hover ~ label.username {
+  color: #00f;
+}
+
+label.password:hover ~ input.password {
+  background: #00f;
+}
+
+.sign-in button:hover {
+  color: #00f;
 }
 
 .hvr-float-shadow {
