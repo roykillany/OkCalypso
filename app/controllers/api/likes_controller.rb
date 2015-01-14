@@ -1,11 +1,19 @@
 class Api::LikesController < ApplicationController
   def show
     @like = Like.find_by_liker_id(params[:id])
-    render json: @like || {}
   end
 
   def index
-    @likes = Like.all
-    render json: @likes
+    @likes = Like.where({ liker_id: current_user.id })
+  end
+
+  def create
+    @like = Like.new({ liker_id: current_user.id, likee_id: params[:likee_id] })
+    @like.save!
+    render json: {}
+  end
+
+  def like_params
+    params.require(:like).permit(:likee_id)
   end
 end

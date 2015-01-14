@@ -6,7 +6,8 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
   },
 
   events: {
-    "blur textarea.profile-edit": "editProfile"
+    "blur textarea.profile-edit": "editProfile",
+    "click button.like": "likeUser"
   },
 
   render: function(){
@@ -26,6 +27,19 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     this.model.save(formData, {
       success: function(){
         that.render();
+      }
+    })
+  },
+
+  likeUser: function(event){
+    event.preventDefault();
+    var that = this;
+    var formData = $("form.like").serializeJSON().like;
+
+    var like = new OkStupid.Models.Like();
+    like.save(formData, {
+      success: function(){
+        console.log("successful like!")
       }
     })
   }

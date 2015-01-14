@@ -11,7 +11,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     "messages/:id": "messageShow",
     "matches": "matchesIndex",
     "matches/:id": "matchShow",
-    "likes/:id": "likeShow",
+    "likes": "likeIndex",
     "questions": "questionsIndex",
   },
 
@@ -108,14 +108,18 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     this._swapView(matchShowView);
   },
 
-  likeShow: function(id){
-    var like = OkStupid.likes.getOrFetch(id);
+  likeIndex: function(){
+    var that = this;
 
-    var likeShowView = new OkStupid.Views.LikeShow({
-      model: like
+    OkStupid.likes.fetch({
+      success: function(){
+        var likesIndexView = new OkStupid.Views.LikeIndex({
+          collection: OkStupid.likes
+        });
+
+        that._swapView(likesIndexView);
+      }
     });
-
-    this._swapView(likeShowView);
   },
 
   _swapView: function(view){

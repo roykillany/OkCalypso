@@ -11,7 +11,7 @@ OkStupid::Application.routes.draw do
     resources :messages, only: [:show, :index, :create], defaults: { format: :json }
     resources :preferences, only: [:index, :create, :update], defaults: { format: :json }
     resources :matches, only: [:show, :index, :create], defaults: { format: :json }
-    resources :likes, only: [:show], defaults: { format: :json }
+    resources :likes, only: [:show, :create, :index], defaults: { format: :json }
     resources :questions, only: [:index], defaults: { format: :json }
     resources :answers, only: [:index], defaults: { format: :json }
   end

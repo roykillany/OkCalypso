@@ -16,3 +16,14 @@ textarea.profile-edit:hover {
 textarea.profile-edit:focus {
   border: 1px solid blue;
 }
+
+button.like {
+  background: #8EA7F1;
+  padding: 3px;
+  border-radius: 3px
+}
+
+button.like:hover {
+  cursor: pointer;
+  color: #fff;
+}

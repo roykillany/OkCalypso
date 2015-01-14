@@ -1,0 +1,8 @@
+<h1>Your Likes</h1>
+<% console.log(likes) %>
+<ul>
+  <% likes.each(function(like){ %>
+    <% console.log(like.likee().escape("username")) %>
+    <li><a href="#profiles/<%= like.likee().get("id") %>"><% like.likee().escape("username") %></a></li>
+  <% }) %>
+</ul>
