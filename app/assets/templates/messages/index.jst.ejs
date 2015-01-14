@@ -5,10 +5,10 @@
   <% messages.each(function(msg){ %>
     <% if(msg.get("sender_id") === currentUser.id){ %>
       <ul class="sent-msg">
-        <li>Title: <%= msg.escape("title") %></li>
-        <li>Body: <%= msg.escape("body") %></li>
-        <li>From: <%= msg.receiver().escape("username") %></li>
-        <li>Sent: <%= new Date(msg.escape("created_at")) %></li>
+        <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
+        <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
+        <li class="msg"><strong>From</strong>: <%= msg.receiver().escape("username") %></li>
+        <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
       </ul>
     <% } %>
   <% }) %>
@@ -17,10 +17,10 @@
   <% messages.each(function(msg){ %>
     <% if(msg.get("receiver_id") === currentUser.id){ %>
       <ul class="received-msg">
-        <li>Title: <%= msg.escape("title") %></li>
-        <li>Body: <%= msg.escape("body") %></li>
-        <li>From: <%= msg.sender().escape("username") %></li>
-        <li>Sent: <%= new Date(msg.escape("created_at")) %></li>
+        <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
+        <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
+        <li class="msg"><strong>From</strong>: <%= msg.sender().escape("username") %></li>
+        <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
       </ul>
     <% } %>
   <% }) %>
