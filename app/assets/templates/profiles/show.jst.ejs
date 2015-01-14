@@ -1,9 +1,8 @@
-<h1>Your Profile</h1>
-
 <% profiles.each(function(profile){ %>
   <% if(profile.escape("user_id") !== user_id){ %>
     <% return false; %>
   <% } %>
+
   <form class="profile-edit">
     <h4>My self-summary</h4>
     <textarea class="profile-edit" rows="8" cols="40" name="profile[self_sum]" value="<%= profile.escape("self_sum") %>"><%= profile.escape("self_sum") %></textarea>

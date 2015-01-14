@@ -4,6 +4,7 @@
   <input type="hidden" name="message[sender_id]" value="<%= OkStupid.currentUser.id %>">
   <label>Send to:
     <select id="sendee" name="message[receiver_id]">
+
     <% users.each(function(user){ %>
       <% if(user.id === OkStupid.currentUser.id){ %>
         <% return false; %>

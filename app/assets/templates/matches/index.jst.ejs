@@ -1,6 +1,5 @@
 <h1>Your Matches</h1>
 
-
 <ul>
   <% if(OkStupid.matches.length > 0 && OkStupid.users.length > 0){ %>
     <% OkStupid.matches.where({ matcher_id: OkStupid.currentUser.id }).forEach(function(match){ %>

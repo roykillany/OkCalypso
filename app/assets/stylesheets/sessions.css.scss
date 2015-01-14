@@ -26,7 +26,8 @@ label {
   color: #fff;
   background: #8EA7F1;
   border-radius: 3px;
-  padding: 0 0 0 5px;
+  padding: 5px;
+  margin: 20px 0 0 0;
 }
 
 .sign-in button:hover {
@@ -36,28 +37,29 @@ label {
 .sign-in input {
   background: #8EA7F1;
   border-radius: 3px;
+  padding: 3px;
   // border: 1px solid #436CE8;
 }
 
-input:hover {
-  background: #00f;
-}
+// input:hover {
+//   background: #00f;
+// }
 
 label:hover {
   color: #00f;
 }
 
-label.username:hover ~ input.username {
-  background: #00f;
-}
-
-input.username:hover ~ label.username {
-  color: #00f;
-}
-
-label.password:hover ~ input.password {
-  background: #00f;
-}
+// label.username:hover ~ input.username {
+//   background: #00f;
+// }
+//
+// input.username:hover ~ label.username {
+//   color: #00f;
+// }
+//
+// label.password:hover ~ input.password {
+//   background: #00f;
+// }
 
 .sign-in button:hover {
   color: #00f;
@@ -108,4 +110,22 @@ label.password:hover ~ input.password {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
   /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
+.hvr-glow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }

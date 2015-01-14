@@ -3,6 +3,7 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render)
+    this.listenTo(OkStupid.users, "sync add", this.render)
   },
 
   events: {
