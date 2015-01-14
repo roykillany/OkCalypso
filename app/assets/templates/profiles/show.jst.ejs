@@ -1,31 +1,47 @@
-<% profiles.each(function(profile){ %>
-  <% if(profile.escape("user_id") !== user_id){ %>
-    <% return false; %>
-  <% } %>
+<% if(profile.get("is_current_user")){ %>
+  <h3>Your Profile</h3>
+<% } else { %>
+  <h3><%= profile.user().escape("username") %>'s Profile</h3>
+<% } %>
 
   <form class="profile-edit">
     <h4>My self-summary</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[self_sum]" value="<%= profile.escape("self_sum") %>"><%= profile.escape("self_sum") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[self_sum]" value="<%= profile.escape("self_sum") %>"><%= profile.escape("self_sum") %></textarea>
 
     <h4>What I'm doing with my life</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[life_sum]" value="<%= profile.escape("life_sum") %>"><%= profile.escape("life_sum") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[life_sum]" value="<%= profile.escape("life_sum") %>"><%= profile.escape("life_sum") %></textarea>
 
     <h4>I'm really good at</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[skills]" value="<%= profile.escape("skills") %>"><%= profile.escape("skills") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[skills]" value="<%= profile.escape("skills") %>"><%= profile.escape("skills") %></textarea>
 
     <h4>Favorite books, movies, shows, music, and food</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[favorites]" value="<%= profile.escape("favorites") %>"><%= profile.escape("favorites") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[favorites]" value="<%= profile.escape("favorites") %>"><%= profile.escape("favorites") %></textarea>
 
     <h4>The six things I could never do without</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[needs]" value="<%= profile.escape("needs") %>"><%= profile.escape("needs") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[needs]" value="<%= profile.escape("needs") %>"><%= profile.escape("needs") %></textarea>
 
     <h4>I spend a lot of time thinking about</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[thoughts]" value="<%= profile.escape("thoughts") %>"><%= profile.escape("thoughts") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[thoughts]" value="<%= profile.escape("thoughts") %>"><%= profile.escape("thoughts") %></textarea>
 
     <h4>On a typical Friday night I am</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[fun_acts]" value="<%= profile.escape("fun_acts") %>"><%= profile.escape("fun_acts") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[fun_acts]" value="<%= profile.escape("fun_acts") %>"><%= profile.escape("fun_acts") %></textarea>
 
     <h4>You should message me if</h4>
-    <textarea class="profile-edit" rows="8" cols="40" name="profile[msg_reason]" value="<%= profile.escape("msg_reason") %>"><%= profile.escape("msg_reason") %></textarea>
+    <textarea <% if(!profile.get("is_current_user")){ %>
+      readonly
+      <% } %> class="profile-edit" rows="8" cols="40" name="profile[msg_reason]" value="<%= profile.escape("msg_reason") %>"><%= profile.escape("msg_reason") %></textarea>
   </form>
-<% }) %>

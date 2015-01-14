@@ -95,3 +95,9 @@ nav.sidebar {
 h1.title button {
   position: absolute;
 }
+
+body h2.greet {
+  margin-left: 700px;
+  margin-top: 17px;
+  font-size: 18px;
+}

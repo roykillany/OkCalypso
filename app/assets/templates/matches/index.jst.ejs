@@ -3,7 +3,7 @@
 <ul>
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
-      <li><a href="#"><%= match.matchee().escape("username") %></a> - <%= match.escape("match_percent") %>% Match</li>
+      <li><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a> - <%= match.escape("match_percent") %>% Match</li>
     <% }) %>
   <% } else { %>
     <strong>You don't have any matches. You will die alone. Goodbye. Beepboop.</strong>

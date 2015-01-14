@@ -37,19 +37,13 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
   profileShow: function(id){
     var that = this;
-    OkStupid.users.fetch();
-    OkStupid.profiles.fetch({
-      success: function(){
-        var profile = OkStupid.profiles.findWhere({ user_id: OkStupid.currentUser.id });
-        var profileView = new OkStupid.Views.ProfileShow({
-          collection: OkStupid.profiles,
-          id: id,
-          model: profile
-        });
-
-        that._swapView(profileView);
-      }
+    var profile = OkStupid.profiles.getOrFetch(id);
+    var profileView = new OkStupid.Views.ProfileShow({
+      id: id,
+      model: profile
     });
+
+    that._swapView(profileView);
   },
 
   messageNew: function(){

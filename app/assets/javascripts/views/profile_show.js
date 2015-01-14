@@ -2,8 +2,7 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
   template: JST["profiles/show"],
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
-    this.listenTo(OkStupid.users, "sync add", this.render)
+    this.listenTo(this.model, "sync", this.render);
   },
 
   events: {
@@ -11,10 +10,7 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
   },
 
   render: function(){
-    // console.log(profile);
-    // var profile = this.collection.findWhere({ user_id: this.id });
     var content = this.template({
-      profiles: this.collection,
       user_id: this.id,
       profile: this.model
     });
