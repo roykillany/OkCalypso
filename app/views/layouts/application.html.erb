@@ -11,9 +11,10 @@
     <a class="title" href="/#">OkStupid</a>
     <% if current_user %>
       <h2 class="greet">Heyyy <%= current_user.username %></h2>
-      <form id="form_id" action="index.html" method="post">
+      <form id="sign-out" action="<%= session_url %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="hidden" name="_method" value="DELETE">
-        <button name="button">Sign Out</button>
+        <button class="sign-out" name="button">Sign Out</button>
       </form>
     <% else %>
       <nav class="sign-ins">
