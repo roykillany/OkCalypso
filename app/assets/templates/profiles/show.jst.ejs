@@ -13,6 +13,11 @@
 
 
   <form class="profile-edit">
+    <% console.log(profile) %>
+    <% if(profile.get("avatar") !== "undefined"){ %>
+      <img src="<%= profile.escape("avatar") %>" alt="Avatar" />
+    <% } %>
+
     <h4>My self-summary</h4>
     <textarea <% if(!profile.get("is_current_user")){ %>
       readonly
