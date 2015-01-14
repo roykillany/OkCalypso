@@ -40,6 +40,7 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     like.save(formData, {
       success: function(){
         console.log("successful like!")
+        that.render();
       }
     })
   }
