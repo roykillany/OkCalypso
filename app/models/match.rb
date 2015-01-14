@@ -7,4 +7,11 @@ class Match < ActiveRecord::Base
     foreign_key: :matcher_id,
     primary_key: :id
   )
+
+  belongs_to(
+    :matchee,
+    class_name: "User",
+    foreign_key: :matchee_id,
+    primary_key: :id
+  )
 end

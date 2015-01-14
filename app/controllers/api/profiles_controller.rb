@@ -7,7 +7,6 @@ class Api::ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by_user_id(params[:id])
-    render json: @profile
   end
 
   def update

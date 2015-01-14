@@ -1,12 +1,10 @@
 class Api::MessagesController < ApplicationController
   def index
-    @messages = Message.all
-    render json: @messages
+    @messages = Message.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
   end
 
   def show
     @message = Message.find(params[:id])
-    render json: @message
   end
 
   def create

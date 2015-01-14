@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111155529) do
+ActiveRecord::Schema.define(version: 20150114154317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150111155529) do
     t.integer  "matchee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "match_percent", null: false
   end
 
   add_index "matches", ["matchee_id"], name: "index_matches_on_matchee_id", using: :btree

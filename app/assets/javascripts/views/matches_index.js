@@ -3,12 +3,7 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(OkStupid.matches, "add sync remove reset", this.render);
-    this.listenTo(OkStupid.users, "sync", this.render);
     this.createMatches();
-  },
-
-  events: {
-    "click button.create-matches": "createMatches"
   },
 
   render: function(){
