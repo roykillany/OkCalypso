@@ -1,10 +1,12 @@
 <h1>Questions</h1>
+
 <% var answered = false %>
 <ul class="questions">
   <% questions.each(function(question){ %>
     <li><%= question.escape("prompt") %></li>
     <form id="<%= question.escape("id") %>">
       <% question.answers().each(function(answer){ %>
+
         <% if(answer.get("answered")){ %>
           <% answered = true %>
         <% } %>
@@ -21,6 +23,7 @@
       <% if(!answered){ %>
         <button name="button">Submit</button>
       <% } %>
+      <% answered = false %>
     </form>
   <% }) %>
 </ul>

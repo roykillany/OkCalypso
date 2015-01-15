@@ -2,7 +2,7 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
   template: JST["questions/index"],
 
   initialize: function(){
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync add", this.render);
   },
 
   events: {

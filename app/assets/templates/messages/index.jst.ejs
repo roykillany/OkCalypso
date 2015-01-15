@@ -7,7 +7,7 @@
       <ul class="sent-msg">
         <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
         <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
-        <li class="msg"><strong>From</strong>: <%= msg.receiver().escape("username") %></li>
+        <li class="msg"><strong>To</strong>: <%= msg.receiver().escape("username") %></li>
         <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
       </ul>
     <% } %>

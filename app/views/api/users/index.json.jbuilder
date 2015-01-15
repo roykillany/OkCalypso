@@ -1,5 +1,5 @@
 json.array!(@users) do |user|
-  json.(user, :id, :username, :email, :gender, :country, :searchable, :orientation, :zip_code)
+  json.(user, :id, :username, :email, :gender, :country, :searchable, :orientation, :zip_code, :avatar)
 
   json.profile do
     json.merge! user.profile

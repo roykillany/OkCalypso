@@ -1,4 +1,4 @@
-json.(@user, :id, :username, :email, :gender, :searchable, :orientation, :country, :zip_code)
+json.(@user, :id, :username, :email, :gender, :searchable, :orientation, :country, :zip_code, :avatar)
 
 json.profile do
   json.merge! @user.profile

@@ -51,3 +51,7 @@ gem 'bcrypt'
 gem 'byebug'
 
 gem 'backbone-on-rails'
+
+gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
+
+gem 'aws-sdk', '~> 1.5.7'

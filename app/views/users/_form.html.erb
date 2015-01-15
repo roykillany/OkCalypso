@@ -1,6 +1,12 @@
 <div class="new-user">
-  <form class="new-user hvr-glow" action="<%= users_url %>" method="post">
+  <form class="new-user hvr-glow" action="<%= users_url %>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <section class="avatar">
+      <label class="header avatar">Avatar
+      <input id="user_avatar" type="file" name="user[avatar]" value="">
+      </label>
+    </section><br>
 
     <section class="username">
     <label class="header username">Username</label>
