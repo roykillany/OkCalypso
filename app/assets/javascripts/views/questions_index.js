@@ -3,7 +3,6 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(OkStupid.answers, "sync", this.render);
   },
 
   events: {
@@ -12,7 +11,6 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
 
   render: function(){
     var content = this.template({
-      answers: OkStupid.answers,
       questions: this.collection
     });
 
@@ -23,6 +21,7 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
 
   createUserAnswer: function(event){
     event.preventDefault();
+    var that = this;
 
     var formData = $(event.currentTarget).serializeJSON().userAnswer;
     var model = new OkStupid.Models.UserAnswer();
@@ -31,7 +30,7 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
     model.save(formData, {
       success: function(){
         OkStupid.userAnswers.add(model, { merge: true });
-        Backbone.history.navigate("#questions", { trigger: true });
+        that.render();
       }
     });
   }

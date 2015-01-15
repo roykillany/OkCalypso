@@ -1,18 +1,26 @@
 <h1>Questions</h1>
-
+<% var answered = false %>
 <ul class="questions">
   <% questions.each(function(question){ %>
     <li><%= question.escape("prompt") %></li>
     <form id="<%= question.escape("id") %>">
-      <% answers.each(function(answer){ %>
+      <% question.answers().each(function(answer){ %>
+        <% if(answer.get("answered")){ %>
+          <% answered = true %>
+        <% } %>
         <% if(answer.escape("question_id") === question.escape("id")){ %>
-          <input type="radio" name="userAnswer[answer_id]" id="<%= answer.escape("id") %>" value="<%= answer.get("id") %>">
+          <input type="radio" name="userAnswer[answer_id]" id="<%= answer.escape("id") %>" value="<%= answer.get("id") %>"
+          <% if(answer.get("answered")){ %>
+            checked
+          <% } %>>
           <input type="hidden" name="userAnswer[question_id]" value="<%= question.escape("id") %>">
           <input type="hidden" name="userAnswer[user_id]" value="<%= currentUser.id %>">
           <label for="<%= answer.escape("id") %>"><%= answer.escape("content") %></label>
         <% } %>
       <% }) %>
-      <button name="button">Submit</button>
+      <% if(!answered){ %>
+        <button name="button">Submit</button>
+      <% } %>
     </form>
   <% }) %>
 </ul>

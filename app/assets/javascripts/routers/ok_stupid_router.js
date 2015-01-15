@@ -22,7 +22,6 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
   questionsIndex: function(){
     var that = this;
-    OkStupid.answers.fetch();
 
     OkStupid.questions.fetch({
       success: function(){
