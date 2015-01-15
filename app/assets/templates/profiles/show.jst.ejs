@@ -11,7 +11,7 @@
 <% } %>
 
   <form class="profile-edit">
-    <img src="<%= profile.user().escape("avatar_file_name") %>" alt="Avatar" />
+    <img src="<%= profile.user().escape("avatar") %>" alt="Avatar" />
 
     <h4>My self-summary</h4>
     <textarea <% if(!profile.get("is_current_user")){ %>

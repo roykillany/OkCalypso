@@ -10,12 +10,14 @@
   <h1 class="title group">
     <a class="title" href="/#">OkStupid</a>
     <% if current_user %>
-      <h2 class="greet">Heyyy <%= current_user.username %></h2>
-      <form id="sign-out" action="<%= session_url %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <button class="sign-out" name="button">Sign Out</button>
-      </form>
+      <nav class="sign-outs">
+        <h2 class="greet">Heyyy <%= current_user.username %></h2>
+        <form class="group" id="sign-out" action="<%= session_url %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="sign-out" name="button">Sign Out</button>
+        </form>
+      </nav>
     <% else %>
       <nav class="sign-ins">
         <a href="<%= new_session_url %>">Sign In</a>
@@ -29,8 +31,6 @@
     <nav class="sidebar">
       <a href="/#message/new">Send a Message</a>
       <a href="/#questions">Questions</a>
-    </nav>
-    <nav class="topbar">
       <a href="/#profiles/<%= current_user.id %>">Profile</a>
       <a href="/#messages">Messages</a>
       <a href="/#matches">Matches</a>

@@ -2,8 +2,7 @@ class User < ActiveRecord::Base
   validates :username, :session_token, :password_digest, :email, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :email, uniqueness: true
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"#,
-  # storage: :s3, s3_credentials: Proc.new{ |a| a.instance.s3_credentials }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_one(
@@ -92,9 +91,5 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
-  end
-
-  def s3_credentials
-    # { bucket: , access_key_id: , secret_access_key:  }
   end
 end
