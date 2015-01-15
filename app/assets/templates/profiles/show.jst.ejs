@@ -11,7 +11,7 @@
 <% } %>
 
   <form class="profile-edit">
-    <img src="<%= profile.user().escape("avatar") %>" alt="Avatar" />
+    <img src="<%= profile.user().escape("image_url") %>" alt="Avatar" />
     <label>Change Profile
       <form id="change-avatar">
         <input class="change-avatar" type="file" name="user[avatar]" value="">

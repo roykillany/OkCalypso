@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :username, :session_token, :password_digest, :email, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :username, :email, uniqueness: true
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_one(
@@ -61,7 +61,6 @@ class User < ActiveRecord::Base
   )
 
   attr_reader :password
-  attr_accessor :avatar_file_name
 
   after_initialize :ensure_session_token
 
