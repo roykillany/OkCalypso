@@ -7,7 +7,8 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
 
   events: {
     "blur textarea.profile-edit": "editProfile",
-    "click button.like": "likeUser"
+    "click button.like": "likeUser",
+    "click button.unlike": "unlikeUser"
   },
 
   render: function(){
@@ -43,5 +44,13 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
         that.render();
       }
     })
+  },
+
+  unlikeUser: function(event){
+    event.preventDefault();
+    var that = this;
+    var formData = $("form.unlike").serializeJSON().like;
+
+    var like = 80085
   }
 })
