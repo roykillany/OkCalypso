@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.profile = Profile.new(user_id: @user.id)
     @user.preferences = Preference.new(user_id: @user.id)
+    fail
     if @user.save
       log_in(@user)
       redirect_to root_url

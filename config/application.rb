@@ -21,14 +21,10 @@ module OkStupid
     # config.i18n.default_locale = :de
     config.paperclip_defaults = {
       :storage => :s3,
-      # :s3_protocol => 'http',
-      # :url =>':s3_domain_url',
-      :path => ":class/:id.:style.:extension",
-      :s3_host_name => 'https://s3.amazonaws.com',
       :s3_credentials => {
-        :bucket => ENV['s3_bucket'], #these values safely stored in application.yml thanks to figaro!
-        :access_key_id => ENV['s3_access_key_id'],
-        :secret_access_key => ENV['s3_secret_access_key']
+        :bucket => ENV["s3_bucket"],
+        :access_key_id => ENV["s3_access_key_id"],
+        :secret_access_key => ENV["s3_secret_access_key"]
       }
     }
   end
