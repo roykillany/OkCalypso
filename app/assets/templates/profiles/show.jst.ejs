@@ -12,6 +12,11 @@
 
   <form class="profile-edit">
     <img src="<%= profile.user().escape("avatar") %>" alt="Avatar" />
+    <label>Change Profile
+      <form id="change-avatar">
+        <input class="change-avatar" type="file" name="user[avatar]" value="">
+      </form>
+    </label>
 
     <h4>My self-summary</h4>
     <textarea <% if(!profile.get("is_current_user")){ %>

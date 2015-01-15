@@ -61,6 +61,7 @@ class User < ActiveRecord::Base
   )
 
   attr_reader :password
+  attr_accessor :avatar_file_name
 
   after_initialize :ensure_session_token
 
