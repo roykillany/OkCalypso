@@ -1,5 +1,5 @@
 <% if(profile.get("is_current_user")){ %>
-  <h3>Your Profile</h3>
+  <h3 class="profile-show-header">Your Profile</h3>
 <% } else { %>
   <h3><%= profile.user().escape("username") %>'s Profile</h3>
   <% if(!profile.get("current_user_liked")){ %>
@@ -10,14 +10,15 @@
   <% } %>
 <% } %>
 
-  <form class="profile-edit">
-    <img src="<%= profile.user().escape("image_url") %>" alt="Avatar" />
+  <img src="<%= profile.user().escape("image_url") %>" alt="Avatar" />
     <label>Change Profile
       <form id="change-avatar">
         <input class="change-avatar" type="file" name="user[avatar]" value="">
+        <button name="button" class="change-avatar" value="Submit"></button>
       </form>
     </label>
 
+  <form class="profile-edit">
     <h4>My self-summary</h4>
     <textarea <% if(!profile.get("is_current_user")){ %>
       readonly

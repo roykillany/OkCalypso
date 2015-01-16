@@ -4,6 +4,7 @@
   <title>OkStupid</title>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,17 +12,17 @@
     <a class="title" href="/#">OkStupid</a>
     <% if current_user %>
       <nav class="sign-outs">
-        <h2 class="greet">Heyyy <%= current_user.username %></h2>
+        <a class="user-search" href="#users"><i class="fa fa-search"></i> Find a User</a>
         <form class="group" id="sign-out" action="<%= session_url %>" method="post">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="sign-out" name="button">Sign Out</button>
+          <button class="sign-out" name="button"><i class="fa fa-sign-out"></i> Sign Out</button>
         </form>
       </nav>
     <% else %>
       <nav class="sign-ins">
-        <a href="<%= new_session_url %>">Sign In</a>
-        <a href="<%= new_user_url %>">Sign Up</a>
+        <a href="<%= new_session_url %>"><i class="fa fa-sign-in"></i> Sign In</a>
+        <a href="<%= new_user_url %>"><i class="fa fa-arrow-circle-o-up"></i> Sign Up</a>
       </nav>
     <% end %>
   </h1>
@@ -29,12 +30,12 @@
   <% if current_user %>
 
     <nav class="sidebar">
-      <a href="/#message/new">Send a Message</a>
-      <a href="/#questions">Questions</a>
-      <a href="/#profiles/<%= current_user.id %>">Profile</a>
-      <a href="/#messages">Messages</a>
-      <a href="/#matches">Matches</a>
-      <a href="/#likes">Likes</a>
+      <a class="hvr-box-shadow-outset" href="/#message/new"><i class="fa fa-comment"></i> Send a Message</a>
+      <a class="hvr-box-shadow-outset" href="/#questions"><i class="fa fa-question"></i> Questions</a>
+      <a class="hvr-box-shadow-outset" href="/#profiles/<%= current_user.id %>"><i class="fa fa-user"></i> Profile</a>
+      <a class="hvr-box-shadow-outset" href="/#messages"><i class="fa fa-envelope"></i> Messages</a>
+      <a class="hvr-box-shadow-outset" href="/#matches"><i class="fa fa-heart"></i> Matches</a>
+      <a class="hvr-box-shadow-outset" href="/#likes"><i class="fa fa-star"></i> Likes</a>
     </nav>
   <% else %>
 
