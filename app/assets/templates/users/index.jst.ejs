@@ -1,0 +1,6 @@
+All Users
+<ul>
+  <% users.each(function(user){ %>
+    <li><img src="<%= user.escape("image_url") %>" alt="thumbnail" /><%= user.escape("username") %></li>
+  <% }) %>
+</ul>

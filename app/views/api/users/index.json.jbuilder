@@ -1,5 +1,7 @@
 json.array!(@users) do |user|
-  json.(user, :id, :username, :email, :gender, :country, :searchable, :orientation, :zip_code, :avatar)
+  json.(user, :id, :username, :email, :gender, :country, :searchable, :orientation, :zip_code)
+
+  json.image_url asset_path(user.avatar.url(:thumb))
 
   json.profile do
     json.merge! user.profile
