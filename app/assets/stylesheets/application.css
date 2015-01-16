@@ -53,6 +53,10 @@ a.title {
   padding: 0 0 0 10px;
 }
 
+a.title i.fa-heart {
+  font-size: 30px;
+}
+
 a.title:hover {
   color: #00f;
 }
