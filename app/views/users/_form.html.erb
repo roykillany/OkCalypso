@@ -30,18 +30,22 @@
 
     <section class="orientation">
       <label class="header orientation">Orientation</label><br>
-      <% orientation.each do |el| %>
-        <label for="<%= el %>"><%= el %></label>
-        <input id="<%= el %>" type="radio" name="user[orientation]" value="<%= el %>">
-      <% end %>
+      <select name="user[orientation]">
+        <% orientation.each do |el| %>
+          <label for="<%= el %>"><%= el %></label>
+          <option name="user[orientation]" value="<%= el %>"><%= el %></option>
+        <% end %>
+      </select>
     </section><br>
 
     <section class="gender">
       <label class="header gender">Gender</label><br>
-      <% gender.each do |el| %>
-        <label for="<%= el %>"><%= el %></label>
-        <input id="<%= el %>" type="radio" name="user[gender]" value="<%= el %>">
-      <% end %>
+      <select name="user[gender]">
+        <% gender.each do |el| %>
+          <label for="<%= el %>"><%= el %></label>
+          <option name="user[gender]" value="<%= el %>"><%= el %></option>
+        <% end %>
+      </select>
     </section><br>
 
     <section class="country">

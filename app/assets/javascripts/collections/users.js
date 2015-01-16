@@ -17,5 +17,9 @@ OkStupid.Collections.Users = Backbone.Collection.extend({
       })
     }
     return user;
+  },
+
+  comparator: function(user){
+    return user.escape("username")
   }
 })
