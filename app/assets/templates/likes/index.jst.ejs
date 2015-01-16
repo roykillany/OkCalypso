@@ -2,7 +2,6 @@
 <% console.log(likes) %>
 <ul>
   <% likes.each(function(like){ %>
-    <% console.log(like.likee().escape("username")) %>
-    <li><a href="#profiles/<%= like.likee().get("id") %>"><%= like.likee().escape("username") %></a></li>
+    <li><img src="<%= like.likee().escape("image_url") %>" alt="thumb" /><a href="#profiles/<%= like.likee().get("id") %>"><%= like.likee().escape("username") %></a></li>
   <% }) %>
 </ul>

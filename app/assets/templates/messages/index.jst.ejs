@@ -7,7 +7,7 @@
       <ul class="sent-msg">
         <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
         <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
-        <li class="msg"><strong>To</strong>: <%= msg.receiver().escape("username") %></li>
+        <li class="msg"><strong>To</strong>: <a href="#profiles/<%= msg.receiver().get("id") %>"><%= msg.receiver().escape("username") %></a></li>
         <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
       </ul>
     <% } %>
@@ -19,7 +19,7 @@
       <ul class="received-msg">
         <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
         <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
-        <li class="msg"><strong>From</strong>: <%= msg.sender().escape("username") %></li>
+        <li class="msg"><strong>From</strong>: <a href="#profiles/<%= msg.sender().get("id") %>"><%= msg.sender().escape("username") %></a></li>
         <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
       </ul>
     <% } %>

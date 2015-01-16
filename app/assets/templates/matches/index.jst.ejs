@@ -3,7 +3,9 @@
 <ul>
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
-      <li><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a> - <%= match.escape("match_percent") %>% Match</li>
+      <li><% if(match.get("match_percent") > 90){ %>
+        <i class="fa fa-heart-o hvr-pulse hvr-radial-in"></i>
+      <% } %><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a> - <%= match.escape("match_percent") %>% Match</li>
     <% }) %>
   <% } else { %>
     <strong>You don't have any matches. You will die alone. Goodbye. Beepboop.</strong>
