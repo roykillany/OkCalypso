@@ -3,6 +3,7 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, "sync add", this.render);
+    console.log("initialize questions index");
   },
 
   events: {
@@ -10,6 +11,7 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function(){
+    console.log(this.collection)
     var content = this.template({
       questions: this.collection
     });

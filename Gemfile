@@ -55,3 +55,9 @@ gem 'backbone-on-rails'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 
 gem 'aws-sdk', '~> 1.5.7'
+
+gem 'pg_search'
+
+gem 'kaminari'
+
+gem 'rmagick', '2.13.2', git: 'http://github.com/rmagick/rmagick.git'

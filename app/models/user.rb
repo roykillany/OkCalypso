@@ -5,6 +5,20 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", tiny: "40x40" }, :default_url => "vendor/assets/default_profile.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  include PgSearch
+  multisearchable against: [:username, :email, :orientation, :zip_code, :country, :gender]
+
+  pg_search_scope :search_by_attr, against: [
+    [:username, 'A'],
+    [:email, 'B'],
+    [:orientation, 'B'],
+    [:country, 'B'],
+    [:gender, 'B'],
+    [:zip_code, 'B'],
+  ], using: {
+      tsearch: { prefix: true }
+      }
+
   has_one(
     :profile,
     class_name: "Profile",

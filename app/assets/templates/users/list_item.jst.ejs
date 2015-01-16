@@ -1,0 +1,4 @@
+<% console.log("list_item template") %>
+<li>
+  <h3><img src="<%= model.escape("image_url") %>" alt="<%= model.escape("username") %>" /><a href="#/users/<%= model.id %>"><%= model.escape("username") %></a></h3>
+</li>

@@ -127,9 +127,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
     OkStupid.users.fetch({
       success: function(){
-        var userSearchView = new OkStupid.Views.UserSearch({
-          collection: OkStupid.users
-        });
+        var userSearchView = new OkStupid.Views.Search();
 
         that._swapView(userSearchView);
       }

@@ -2,6 +2,7 @@ OkStupid::Application.routes.draw do
   root :to => "site#root"
 
   namespace :api do
+    resources :searches, only: [:index], defaults: { format: :json }
     resources :users, defaults: { format: :json }, only: [:index, :show] do
       resources :user_answers, defaults: { format: :json }
     end
