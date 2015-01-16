@@ -110,3 +110,32 @@ button.submit:hover {
 .hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
   box-shadow: 0 0 15px rgba(0, 0, 0.4, 0.6);
 }
+
+h3.user-search {
+  font-size: 36px;
+}
+
+p {
+  font-size: 12px;
+}
+
+input.query {
+  background: #8EA7F1;
+  border-radius: 3px;
+}
+
+input.search {
+  background: #8EA7F1;
+  border-radius: 3px;
+  color: #fff;
+}
+
+input.search:hover, a.next-page:hover {
+  color: #00f;
+}
+
+a.next-page {
+  background: #8EA7F1;
+  border-radius: 3px;
+  color: #fff;
+}

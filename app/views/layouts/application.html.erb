@@ -12,6 +12,7 @@
     <a class="title" href="/#">OkStupid</a>
     <% if current_user %>
       <nav class="sign-outs">
+        <strong class="user-name">How-de-do <%= current_user.username %></strong>
         <a class="user-search" href="#users"><i class="fa fa-search"></i> Find a User</a>
         <form class="group" id="sign-out" action="<%= session_url %>" method="post">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
