@@ -5,7 +5,7 @@ i.fa.fa-heart-o {
   color: #f00;
 }
 
-.hvr-pulse {
+li:hover ~ i.hvr-pulse, .hvr-pulse {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
@@ -15,7 +15,8 @@ i.fa.fa-heart-o {
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
 }
-.hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
+
+li:hover ~ i.hvr-pulse, .hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
   -webkit-animation-name: hvr-pulse;
   animation-name: hvr-pulse;
   -webkit-animation-duration: 1s;
@@ -54,13 +55,16 @@ ul.matches {
   margin: 20px 120px 20px 160px;
   background: #DCDCDF;
   padding: 20px;
+  width: 970px;
 }
 
 ul.matches li {
-  width: 330px;
+  width: 300px;
+  padding: 0 10px;
   height: 400px;
   overflow: hidden;
   position: relative;
+  float: left;
 }
 
 ul.matches li img {
