@@ -49,3 +49,32 @@ i.fa.fa-heart-o {
     transform: scale(0.9);
   }
 }
+
+ul.matches {
+  margin: 20px 120px 20px 160px;
+  background: #DCDCDF;
+  padding: 20px;
+}
+
+ul.matches li {
+  width: 330px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+ul.matches li img {
+  margin: auto;
+  width: 330px;
+  height: auto;
+}
+
+li h5 {
+  position: absolute;
+  bottom: -22px;
+  background: #fff;
+  width: 330px;
+}
+ h5 a {
+   margin: auto;
+ }
