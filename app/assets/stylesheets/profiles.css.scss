@@ -23,20 +23,30 @@ textarea.profile-edit:focus {
 }
 
 button.like {
-  background: #8EA7F1;
+  background: #E9E9F0;
   padding: 3px;
-  border-radius: 3px
+  border-radius: 3px;
 }
 
 button.unlike {
   background: #8EA7F1;
   padding: 3px;
   border-radius: 3px;
+  color: #fff;
 }
 
-button.like:hover, button.unlike:hover {
+button.like:hover {
   cursor: pointer;
-  color: #fff;
+  background: #BABAC0;
+}
+
+button.unlike:hover {
+  cursor: pointer;
+  color: #00f;
+}
+
+i.liked {
+  color: #f00;
 }
 
 form.clicked {

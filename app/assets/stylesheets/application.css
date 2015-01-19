@@ -55,10 +55,15 @@ a.title {
 
 a.title i.fa-heart {
   font-size: 30px;
+  color: #f00;
 }
 
 a.title:hover {
   color: #00f;
+}
+
+a.title:hover i.fa-heart {
+  color: #fff;
 }
 
 a.title:link {

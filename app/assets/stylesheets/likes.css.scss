@@ -1,3 +1,24 @@
 // Place all the styles related to the Likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul.likes {
+  background: #DCDCDF;
+  margin: 0 20px 0 140px;
+  padding: 10px;
+}
+
+ul.likes img {
+}
+
+ul.likes li {
+  margin: 10px;
+  background: #fff;
+  height: 100px;
+}
+
+li.likes a {
+  position: relative;
+  margin-left: 10px;
+  bottom: 70px;
+  font-size: 24px;
+}
