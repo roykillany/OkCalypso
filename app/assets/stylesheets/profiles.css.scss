@@ -1,6 +1,11 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+form.profile-edit {
+  margin: 0 0 0 120px;
+}
+
 textarea.profile-edit {
   border: none;
   resize: none;
@@ -23,11 +28,32 @@ button.like {
   border-radius: 3px
 }
 
-button.like:hover {
+button.unlike {
+  background: #8EA7F1;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+button.like:hover, button.unlike:hover {
   cursor: pointer;
   color: #fff;
 }
 
+form.clicked {
+  display: none;
+}
+
 h3.profile-show-header {
   padding: none;
+}
+
+a.messaging {
+  background: #8EA7F1;
+  padding: 4px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+a.messaging:hover {
+  color: #00f;
 }
