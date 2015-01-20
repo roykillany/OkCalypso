@@ -1,13 +1,13 @@
 OkStupid::Application.routes.draw do
-  root :to => "site#root"
+  root :to => "sites#root"
 
   namespace :api do
     resources :searches, only: [:index], defaults: { format: :json }
-    resources :users, defaults: { format: :json }, only: [:index, :show] do
+    resources :users, defaults: { format: :json }, only: [:index, :show, :new, :create] do
       resources :user_answers, defaults: { format: :json }
     end
     resource :detail, only: [:show], defaults: { format: :json }
-    resource :session, only: [:show], defaults: { format: :json }
+    resource :session, only: [:show, :create, :new, :destroy], defaults: { format: :json }
     resources :profiles, only: [:index, :show, :destroy, :update], defaults: { format: :json }
     resources :messages, only: [:show, :index, :create], defaults: { format: :json }
     resources :preferences, only: [:index, :create, :update], defaults: { format: :json }
@@ -17,7 +17,7 @@ OkStupid::Application.routes.draw do
     resources :answers, only: [:index], defaults: { format: :json }
   end
 
-  resources :users, only: [:new, :create] do
+  # resources :users, only: [:new, :create] do
   #   resources :messages, only: [:create, :show, :destroy, :index]
   #   resources :matches, only: [:create, :show]
   #   resource :profile, only: [:update]
@@ -27,6 +27,6 @@ OkStupid::Application.routes.draw do
   #     resources :answers, only: []
   #   end
   #   resources :user_answers, only: [:create]
-  end
-  resource :session, only: [:new, :create, :destroy]
+  # end
+  # resource :session, only: [:new, :create, :destroy]
 end

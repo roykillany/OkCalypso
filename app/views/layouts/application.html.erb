@@ -8,39 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1 class="title group">
-    <a class="title" href="/#">Ok<i class="fa fa-heart"></i>Stupid</a>
-    <% if current_user %>
-      <nav class="sign-outs">
-        <strong class="user-name">How-de-do <%= current_user.username %></strong>
-        <a class="user-search" href="#users"><i class="fa fa-search"></i> Find a User</a>
-        <form class="group" id="sign-out" action="<%= session_url %>" method="post">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <button class="sign-out" name="button"><i class="fa fa-sign-out"></i> Sign Out</button>
-        </form>
-      </nav>
-    <% else %>
-      <nav class="sign-ins">
-        <a href="<%= new_session_url %>"><i class="fa fa-sign-in"></i> Sign In</a>
-        <a href="<%= new_user_url %>"><i class="fa fa-arrow-circle-o-up"></i> Sign Up</a>
-      </nav>
-    <% end %>
-  </h1>
-
-  <% if current_user %>
-
-    <nav class="sidebar">
-      <a class="hvr-box-shadow-outset" href="/#questions"><i class="fa fa-question"></i> Questions</a>
-      <a class="hvr-box-shadow-outset" href="/#profiles/<%= current_user.id %>"><i class="fa fa-user"></i> Profile</a>
-      <a class="hvr-box-shadow-outset" href="/#messages"><i class="fa fa-envelope"></i> Messages</a>
-      <a class="hvr-box-shadow-outset" href="/#matches"><i class="fa fa-heart"></i> Matches</a>
-      <a class="hvr-box-shadow-outset" href="/#likes"><i class="fa fa-star"></i> Likes</a>
-    </nav>
-  <% else %>
-
-  <% end %>
-
   <%= yield %>
 </body>
 </html>

@@ -5,11 +5,11 @@
 #
 #   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create!(name: 'Emanuel', city: cities.first)
-users = User.create!([{ username: 'big_booty_judy', email: 'anacondas@hottestmail.com', password_digest: BCrypt::Password.create('bigbootyjudy'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'Djibouti', zip_code: '10012', avatar: "http://cdn.hollywoodtake.com/sites/hollywoodtake.com/files/styles/large/public/2013/10/22/jennifer-lopez-fat.jpg?itok=ggr-24h4"},
+users = User.create!([{ username: 'guest', email: 'guest@guest.com', password_digest: BCrypt::Password.create('guest'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012', avatar: "http://img.thehobbyblogger.com/2012/08/custom-avatar.png"},
   { username: 'clubcantevenhandle', email: 'merightnow@yahoo.com', password_digest: BCrypt::Password.create('clubcanteven'), session_token: SecureRandom.urlsafe_base64, orientation: 'Demisexual', gender: 'Pangender', country: 'Sudan', zip_code: '12939', avatar: "http://wundergroundmusic.com/wp-content/uploads/2014/06/Tiesto_HakkasanLV_5.5.13.jpg"},
   { username: 'tokenwhitegirl', email: 'starbucksiphoneuggs@icant.even', password_digest: BCrypt::Password.create('tokenwhitegirl'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012', avatar: "http://i.imgur.com/iH6zoUE.jpg"}])
 
-Profile.create!([{ user_id: 1, self_sum: "", life_sum: "", skills: "", favorites: "", needs: "", thoughts: "", fun_acts: "", msg_reason: "", avatar: "http://cdn.hollywoodtake.com/sites/hollywoodtake.com/files/styles/large/public/2013/10/22/jennifer-lopez-fat.jpg?itok=ggr-24h4"}, { user_id: 2, self_sum: "", life_sum: "",
+Profile.create!([{ user_id: 1, self_sum: "", life_sum: "", skills: "", favorites: "", needs: "", thoughts: "", fun_acts: "", msg_reason: "", avatar: "http://img.thehobbyblogger.com/2012/08/custom-avatar.png"}, { user_id: 2, self_sum: "", life_sum: "",
   skills: "", favorites: "", needs: "", thoughts: "", fun_acts: "", msg_reason: "", avatar: "http://wundergroundmusic.com/wp-content/uploads/2014/06/Tiesto_HakkasanLV_5.5.13.jpg"}, { user_id: 3, self_sum: "", life_sum: "", skills: "", favorites: "", needs: "",
     thoughts: "", fun_acts: "", msg_reason: "", avatar: "http://i.imgur.com/iH6zoUE.jpg"}])
 

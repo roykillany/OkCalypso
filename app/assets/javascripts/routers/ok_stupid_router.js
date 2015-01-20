@@ -1,10 +1,12 @@
 OkStupid.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl;
+    OkStupid.users.fetch();
   },
 
   routes: {
     "": "root",
+    "session/new": "signIn",
     "profiles/:id": "profileShow",
     "messages": "messagesIndex",
     "message/new": "messageNew",
@@ -14,6 +16,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     "likes": "likeIndex",
     "questions": "questionsIndex",
     "users": "userSearch",
+    "users/new": "newUser"
   },
 
   root: function(){
@@ -132,6 +135,52 @@ OkStupid.Routers.Router = Backbone.Router.extend({
         that._swapView(userSearchView);
       }
     })
+  },
+
+  newUser: function(){
+    if(!this.requireSignedOut()){ return; }
+
+    var model = new this.collection.model();
+    var newUserView = new OkStupid.Views.UsersForm({
+      collection: OkStupid.users,
+      model: model
+    });
+
+    this._swapView(newUserView);
+  },
+
+  signIn: function(callback){
+    if(!this._requireSignedOut(callback)){ return; }
+
+    var signInView = new OkStupid.Views.SignIn({
+      callback: callback
+    });
+
+    this._swapView(signInView);
+  },
+
+  _requireSignedIn: function(callback){
+    if(!OkStupid.currentUser.isSignedIn()){
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+
+  _requireSignedOut: function(callback){
+    if(OkStupid.currentUser.isSignedIn()){
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
   },
 
   _swapView: function(view){

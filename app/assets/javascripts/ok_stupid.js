@@ -4,17 +4,18 @@ window.OkStupid = {
   Views: {},
   Routers: {},
   initialize: function() {
-    OkStupid.currentUser = new OkStupid.Models.User();
-    OkStupid.userAnswers = new OkStupid.Collections.UserAnswers();
-    OkStupid.questions = new OkStupid.Collections.Questions();
-    OkStupid.answers = new OkStupid.Collections.Answers();
-    OkStupid.details = new OkStupid.Collections.Details();
-    OkStupid.users = new OkStupid.Collections.Users();
-    OkStupid.profiles = new OkStupid.Collections.Profiles();
-    OkStupid.messages = new OkStupid.Collections.Messages();
-    OkStupid.preferences = new OkStupid.Collections.Preferences();
-    OkStupid.matches = new OkStupid.Collections.Matches();
-    OkStupid.likes = new OkStupid.Collections.Likes();
+    this.currentUser = new OkStupid.Models.CurrentUser();
+    // this.currentUser = new OkStupid.Models.User();
+    this.userAnswers = new OkStupid.Collections.UserAnswers();
+    this.questions = new OkStupid.Collections.Questions();
+    this.answers = new OkStupid.Collections.Answers();
+    this.details = new OkStupid.Collections.Details();
+    this.users = new OkStupid.Collections.Users();
+    this.profiles = new OkStupid.Collections.Profiles();
+    this.messages = new OkStupid.Collections.Messages();
+    this.preferences = new OkStupid.Collections.Preferences();
+    this.matches = new OkStupid.Collections.Matches();
+    this.likes = new OkStupid.Collections.Likes();
     new OkStupid.Routers.Router({
       $rootEl: $("#content")
     });

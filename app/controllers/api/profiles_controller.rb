@@ -1,6 +1,4 @@
 class Api::ProfilesController < ApplicationController
-  before_action :ensure_logged_in
-
   def index
     @profiles = Profile.all
   end
