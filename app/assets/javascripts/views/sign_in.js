@@ -5,7 +5,8 @@ OkStupid.Views.SignIn = Backbone.View.extend({
   },
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click button#guest-login": "guestLogin"
   },
 
   template: JST["shared/sign_in"],
@@ -40,5 +41,21 @@ OkStupid.Views.SignIn = Backbone.View.extend({
     } else {
       Backbone.history.navigate("", { trigger: true });
     }
+  },
+
+  guestLogin: function(event){
+    event.preventDefault();
+    $("input.username").attr("value", "guest");
+    $("input.password").attr("value", "guest");
+
+    var timer = window.setTimeout( function() {
+      OkStupid.currentUser.signIn({
+        username: "guest",
+        password: "guest",
+        success: function(){
+          Backbone.history.navigate("", { trigger: true })
+        }
+      });
+    }, 175);
   }
 });

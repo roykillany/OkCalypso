@@ -5,7 +5,7 @@
 #
 #   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create!(name: 'Emanuel', city: cities.first)
-users = User.create!([{ username: 'guest', email: 'guest@guest.com', password_digest: BCrypt::Password.create('guest'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012', avatar: "http://img.thehobbyblogger.com/2012/08/custom-avatar.png"},
+users = User.create!([{ username: 'somebody', email: 'somebody@somebody.com', password_digest: BCrypt::Password.create('guest'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012', avatar: "http://img.thehobbyblogger.com/2012/08/custom-avatar.png"},
   { username: 'clubcantevenhandle', email: 'merightnow@yahoo.com', password_digest: BCrypt::Password.create('clubcanteven'), session_token: SecureRandom.urlsafe_base64, orientation: 'Demisexual', gender: 'Pangender', country: 'Sudan', zip_code: '12939', avatar: "http://wundergroundmusic.com/wp-content/uploads/2014/06/Tiesto_HakkasanLV_5.5.13.jpg"},
   { username: 'tokenwhitegirl', email: 'starbucksiphoneuggs@icant.even', password_digest: BCrypt::Password.create('tokenwhitegirl'), session_token: SecureRandom.urlsafe_base64, orientation: 'Straight', gender: 'Cis Woman', country: 'United States of America', zip_code: '10012', avatar: "http://i.imgur.com/iH6zoUE.jpg"}])
 
