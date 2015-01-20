@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
 
   def new
     @user = User.new
-    render :new
+    render json: @user
   end
 
   # def show
@@ -26,11 +26,13 @@ class Api::UsersController < ApplicationController
     @user.profile = Profile.new(user_id: @user.id)
     @user.preferences = Preference.new(user_id: @user.id)
     if @user.save
+      p "SAVED!"
       log_in(@user)
-      redirect_to root_url
+      render json: @user
     else
+      p "NOT SAVED!"
       flash.now[:errors] = @user.errors.full_messages
-      render :new, status: 422
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
