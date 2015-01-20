@@ -6,7 +6,7 @@ OkStupid.Views.SignIn = Backbone.View.extend({
 
   events: {
     "submit form": "submit",
-    "click button#guest-login": "guestLogin"
+    "click a#guest-login": "guestLogin"
   },
 
   template: JST["shared/sign_in"],

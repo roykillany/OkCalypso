@@ -168,14 +168,130 @@ nav.sign-outs a.user-search:hover {
   color: #00f;
 }
 
-body form button.sign-out {
+h1.title a#sign-out-link {
   background: #8EA7F1;
   padding: 5px;
   border-radius: 3px;
   cursor: pointer;
   color: #fff;
+  position: relative;
+  top: 5px;
 }
 
-body form button.sign-out:hover {
+h1.title a#sign-out-link:hover {
   color: #00f;
+}
+
+/* Sign In Form */
+form.sign-in {
+  background: #8EA7F1;
+  position: relative;
+  width: 250px;
+  height: 600px;
+  top: 100px;
+  padding: 0 230px 0 230px;
+  margin-left: 200px;
+}
+
+form.sign-in h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+form.sign-in:hover h2 {
+  color: #00f;
+}
+
+form.sign-in a {
+  border: 1px solid #fff;
+  margin: 5px;
+  padding: 3px;
+  font-size: 16px;
+  border-radius: 2px;
+  float: left;
+}
+
+form.sign-in a:hover {
+  border: 1px solid #00f;
+  color: #00f;
+}
+
+form.sign-in label {
+  float: left;
+}
+
+form.sign-in input {
+  background: #fff;
+  margin: 5px 0 5px 0;
+}
+
+form.sign-in button {
+  background: #436CE8;
+  border-radius: 3px;
+  float: left;
+}
+
+.hvr-float-shadow {
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  /* W3C */
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  /* move the element up by 5px */
+}
+
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
+.hvr-glow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
