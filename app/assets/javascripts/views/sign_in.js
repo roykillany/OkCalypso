@@ -25,6 +25,9 @@ OkStupid.Views.SignIn = Backbone.View.extend({
     OkStupid.currentUser.signIn({
       username: formData.username,
       password: formData.password,
+      success: function(){
+        Backbone.history.navigate("", { trigger: true })
+      },
       error: function(){
         alert("Wrong username/password combination. Please try again.");
       }
