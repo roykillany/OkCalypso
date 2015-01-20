@@ -18,6 +18,7 @@ OkStupid.Views.SignIn = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
+    console.log("submit")
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
 

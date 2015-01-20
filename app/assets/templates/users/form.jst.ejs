@@ -1,0 +1,62 @@
+<div class="new-user">
+  <form class="new-user hvr-glow" enctype="multipart/form-data">
+
+    <section class="avatar">
+      <label class="header avatar">Avatar
+        <input id="user_avatar" type="file" name="user[avatar]">
+      </label>
+    </section><br>
+
+    <section class="username">
+      <label class="header username">Username</label>
+      <input class="username hvr-glow" type="text" name="user[username]" value="<%= user.escape('username') %>">
+    </section><br>
+
+    <section class="email">
+      <label class="email header">Email</label>
+      <input class="email hvr-glow" type="email" name="user[email]" value="<%= user.escape('email') %>">
+    </section><br>
+
+    <section class="password">
+      <label class="header password">Password</label>
+      <input class="password hvr-glow" type="password" name="user[password]" value="">
+    </section><br>
+
+    <% var orientation = ["Straight", "Gay", "Bisexual", "Demisexual", "Heteroflexible", "Homoflexible", "Lesbian", "Pansexual", "Queer", "Questioning", "Sapiosexual"] %>
+
+    <% var gender = ["Woman", "Man", "Agender", "Androgynous", "Bigender", "Cis Man", "Cis Woman", "Genderfluid", "Genderqueer", "Gender Nonconforming", "Hijira", "Intersex", "Non-binary", "Other", "Pangender", "Transfeminine", "Transgender", "Transmasculine",
+    "Transsexual", "Trans Man", "Trans Woman", "Two Spirit"] %>
+
+    <section class="orientation">
+      <label class="header orientation">Orientation</label><br>
+      <select name="user[orientation]">
+        <% orientation.forEach(function(el){ %>
+          <label for="<%= el %>"><%= el %></label>
+          <option name="user[orientation]" value="<%= el %>"><%= el %></option>
+        <% }) %>
+      </select>
+    </section><br>
+
+    <section class="gender">
+      <label class="header gender">Gender</label><br>
+      <select name="user[gender]">
+        <% gender.forEach(function(el){ %>
+          <label for="<%= el %>"><%= el %></label>
+          <option name="user[gender]" value="<%= el %>"><%= el %></option>
+        <% }) %>
+      </select>
+    </section><br>
+
+    <section class="country">
+      <label class="header country">Country</label>
+      <input class="country hvr-glow" type="text" name="user[country]" value="America">
+    </section><br>
+
+    <section class="zip_code">
+      <label class="header zipcode">Zip Code</label>
+      <input class="zipcode hvr-glow" type="text" name="user[zip_code]" value="">
+    </section><br>
+
+    <button class="submit" name="button">Submit</button>
+  </form>
+</div>

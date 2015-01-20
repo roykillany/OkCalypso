@@ -16,19 +16,19 @@ class Api::SessionsController < ApplicationController
     if user.nil?
       head :unprocessable_entity
     else
-      sign_in!(user)
+      log_in(user)
       render :show
     end
   end
 
   def destroy
-    sign_out!
+    log_out
     render json: {}
   end
 
   def omniauth
     user = User.find_or_create_by_auth_hash(auth_hash)
-    sign_in!(user)
+    log_in(user)
     redirect_to root_url
   end
 

@@ -25,6 +25,8 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   questionsIndex: function(){
+    var callback = this.questionsIndex.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
     var that = this;
 
     OkStupid.questions.fetch({
@@ -39,6 +41,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   profileShow: function(id){
+    var callback = this.profileShow.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
     var that = this;
     var profile = OkStupid.profiles.getOrFetch(id);
     var profileView = new OkStupid.Views.ProfileShow({
@@ -50,6 +55,8 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   messageNew: function(){
+    var callback = this.messageNew.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
     var message = new OkStupid.Models.Message({
       sender_id: OkStupid.currentUser.id
     });
@@ -66,6 +73,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   messagesIndex: function(){
+    var callback = this.messagesIndex.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
     var that = this;
     OkStupid.messages.fetch({
       success: function(){
@@ -89,6 +99,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   matchesIndex: function(){
+    var callback = this.matchesIndex.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
     var that = this;
     OkStupid.matches.fetch({
       success: function (){
@@ -102,6 +115,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   matchShow: function(id){
+    var callback = this.matchShow.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
     var match = OkStupid.matches.getOrFetch(id);
 
     var matchShowView = new OkStupid.Views.MatchShow({
@@ -112,6 +128,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   likeIndex: function(){
+    var callback = this.likeIndex.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
     var that = this;
 
     OkStupid.likes.fetch({
@@ -126,6 +145,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   userSearch: function(){
+    var callback = this.userSearch.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
     var that = this;
 
     OkStupid.users.fetch({
@@ -138,9 +160,9 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   newUser: function(){
-    if(!this.requireSignedOut()){ return; }
+    if(!this._requireSignedOut()){ return; }
 
-    var model = new this.collection.model();
+    var model = new OkStupid.users.model();
     var newUserView = new OkStupid.Views.UsersForm({
       collection: OkStupid.users,
       model: model

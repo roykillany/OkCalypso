@@ -16,6 +16,9 @@ window.OkStupid = {
     this.preferences = new OkStupid.Collections.Preferences();
     this.matches = new OkStupid.Collections.Matches();
     this.likes = new OkStupid.Collections.Likes();
+    this.header = new OkStupid.Views.Header({
+      el: "#header"
+    });
     new OkStupid.Routers.Router({
       $rootEl: $("#content")
     });

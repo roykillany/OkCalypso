@@ -9,6 +9,11 @@ OkStupid.Models.User = Backbone.Model.extend({
     return response;
   },
 
+  toJSON: function(){
+    var json = { user: _.clone(this.attributes) };
+    return json;
+  },
+
   profile: function(){
     if(!this._profile){
       this._profile = new OkStupid.Collections.Profiles([], {
@@ -44,4 +49,64 @@ OkStupid.Models.User = Backbone.Model.extend({
     }
     return this._userAnswers;
   }
-})
+});
+
+OkStupid.Models.CurrentUser = OkStupid.Models.User.extend({
+  url: "api/session",
+
+  intialize: function(options){
+    this.listenTo(this, "change", this.fireSessionEvent);
+  },
+
+  isSignedIn: function(){
+    return !this.isNew();
+  },
+
+  signIn: function(options){
+    console.log("signIn");
+    var model = this;
+    var credentials = {
+      "user[username]": options.username,
+      "user[password]": options.password
+    };
+
+    $.ajax({
+      url: this.url,
+      type: "POST",
+      data: credentials,
+      dataType: "json",
+      success: function(data){
+        model.set(data);
+        options.success && options.success();
+      },
+      error: function(){
+        options.success && options.error();
+      }
+    });
+  },
+
+  signOut: function(options){
+    var model = this;
+
+    console.log("signOut");
+
+    $.ajax({
+      url: this.url,
+      type: "DELETE",
+      dataType: "json",
+      success: function(data){
+        console.log("successful signOut")
+        model.clear();
+        options.success && options.success();
+      }
+    });
+  },
+
+  fireSessionEvent: function(){
+    if(this.isSignedIn()){
+      this.trigger("signIn");
+    } else {
+      this.trigger("signOut");
+    }
+  }
+});

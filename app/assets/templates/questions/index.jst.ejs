@@ -16,7 +16,7 @@
             checked
           <% } %>>
           <input type="hidden" name="userAnswer[question_id]" value="<%= question.escape("id") %>">
-          <input type="hidden" name="userAnswer[user_id]" value="<%= currentUser.id %>">
+          <input type="hidden" name="userAnswer[user_id]" value="<%= OkStupid.currentUser.id %>">
           <label for="<%= answer.escape("id") %>"><%= answer.escape("content") %></label>
         <% } %>
       <% }) %>
