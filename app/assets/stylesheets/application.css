@@ -36,6 +36,7 @@ html, head, title, body, h1, a, h2, h3, nav, span, form, input, label, button {
 }
 
 body {
+  background: #CACADC;
 }
 
 h1.title {
