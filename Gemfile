@@ -63,3 +63,5 @@ gem 'kaminari'
 gem 'rmagick', '2.13.2', git: 'http://github.com/rmagick/rmagick.git'
 
 gem 'geocoder'
+
+gem 'omniauth-facebook'

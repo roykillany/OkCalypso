@@ -1,21 +1,23 @@
 OkStupid::Application.routes.draw do
   root :to => "sites#root"
 
-  namespace :api do
-    resources :searches, only: [:index], defaults: { format: :json }
-    resources :users, defaults: { format: :json }, only: [:index, :show, :new, :create] do
-      resources :user_answers, defaults: { format: :json }
+  namespace :api, defaults: { format: :json } do
+    resources :searches, only: [:index]
+    resources :users, only: [:index, :show, :new, :create] do
+      resources :user_answers
     end
-    resource :detail, only: [:show], defaults: { format: :json }
-    resource :session, only: [:show, :create, :new, :destroy], defaults: { format: :json }
-    resources :profiles, only: [:index, :show, :destroy, :update], defaults: { format: :json }
-    resources :messages, only: [:show, :index, :create], defaults: { format: :json }
-    resources :preferences, only: [:index, :create, :update], defaults: { format: :json }
-    resources :matches, only: [:show, :index, :create], defaults: { format: :json }
-    resources :likes, only: [:show, :create, :index, :destroy], defaults: { format: :json }
-    resources :questions, only: [:index], defaults: { format: :json }
-    resources :answers, only: [:index], defaults: { format: :json }
+    resource :detail, only: [:show]
+    resource :session, only: [:show, :create, :new, :destroy]
+    resources :profiles, only: [:index, :show, :destroy, :update]
+    resources :messages, only: [:show, :index, :create]
+    resources :preferences, only: [:index, :create, :update]
+    resources :matches, only: [:show, :index, :create]
+    resources :likes, only: [:show, :create, :index, :destroy]
+    resources :questions, only: [:index]
+    resources :answers, only: [:index]
   end
+
+  get "auth/:provider/callback" => "api/sessions#omniauth"
 
   # resources :users, only: [:new, :create] do
   #   resources :messages, only: [:create, :show, :destroy, :index]
