@@ -100,7 +100,8 @@ class User < ActiveRecord::Base
         uid: auth_hash[:uid],
         orientation: "straight",
         country: "America",
-        zip_code: 69
+        zip_code: 69,
+        avatar: auth_hash[:info][:image]
       )
     end
 
