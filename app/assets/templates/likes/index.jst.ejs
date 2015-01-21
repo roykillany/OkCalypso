@@ -1,11 +1,9 @@
 <h1>Your Likes</h1>
-<% console.log(likes) %>
-<ul class="likes">
+
+<ul class="likes js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".likes" }'>
   <% likes.each(function(like){ %>
     <li class="likes"><img src="<%= like.likee().escape("image_url") %>" alt="thumb" /><a href="#profiles/<%= like.likee().get("id") %>"><%= like.likee().escape("username") %></a>
 
     </li>
   <% }) %>
 </ul>
-
-<% console.log(likes) %>

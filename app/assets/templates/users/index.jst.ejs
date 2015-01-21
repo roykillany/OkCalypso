@@ -1,6 +1,6 @@
 All Users
-<ul>
+<ul class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": "li.searches" }'>
   <% users.each(function(user){ %>
-    <li><img src="<%= user.escape("image_url") %>" alt="thumbnail" /><%= user.escape("username") %></li>
+    <li class="searches"><img src="<%= user.escape("image_url") %>" alt="thumbnail" /><%= user.escape("username") %></li>
   <% }) %>
 </ul>
