@@ -91,12 +91,16 @@ class User < ActiveRecord::Base
     )
 
     if user.nil?
-      use r= User.create!(
-        username: auth_hash[:info][:name],
-        email: auth_hash[:info][:nickname],
+      user= User.create!(
+        username: auth_hash[:extra][:raw_info][:username],
+        email: auth_hash[:info][:email],
         password: SecureRandom::urlsafe_base64,
         provider: auth_hash[:provider],
-        uid: auth_hash[:uid]
+        gender: auth_hash[:extra][:raw_info][:gender],
+        uid: auth_hash[:uid],
+        orientation: "straight",
+        country: "America",
+        zip_code: 69
       )
     end
 
