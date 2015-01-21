@@ -95,7 +95,6 @@ class User < ActiveRecord::Base
         username: auth_hash[:extra][:raw_info][:username],
         email: auth_hash[:info][:email],
         password: SecureRandom::urlsafe_base64,
-        provider: auth_hash[:provider],
         gender: auth_hash[:extra][:raw_info][:gender],
         uid: auth_hash[:uid],
         orientation: "straight",
