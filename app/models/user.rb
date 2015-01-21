@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
 
     if user.nil?
       user= User.create!(
-        username: auth_hash[:extra][:raw_info][:username],
+        username: "#{auth_hash[:info][:first_name]} #{auth_hash[:info][:last_name]}",
         email: auth_hash[:info][:email],
         password: SecureRandom::urlsafe_base64,
         provider: auth_hash[:provider],
