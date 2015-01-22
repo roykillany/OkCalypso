@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
     )
 
     if user.nil?
-      user= User.create!(
+      user = User.create!(
         username: "#{auth_hash[:info][:first_name]} #{auth_hash[:info][:last_name]}",
         email: auth_hash[:info][:email],
         password: SecureRandom::urlsafe_base64,
@@ -103,8 +103,8 @@ class User < ActiveRecord::Base
         zip_code: 69,
         avatar: auth_hash[:info][:image]
       )
-      user.profile = Profile.new(user_id: @user.id)
-      user.preferences = Preference.new(user_id: @user.id)
+      user.profile = Profile.new(user_id: user.id)
+      user.preferences = Preference.new(user_id: user.id)
     end
 
     user
