@@ -103,6 +103,8 @@ class User < ActiveRecord::Base
         zip_code: 69,
         avatar: auth_hash[:info][:image]
       )
+      user.profile = Profile.new(user_id: @user.id)
+      user.preferences = Preference.new(user_id: @user.id)
     end
 
     user
