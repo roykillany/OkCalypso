@@ -3,27 +3,29 @@
 <% var answered = false %>
 <ul class="questions">
   <% questions.each(function(question){ %>
-    <li><%= question.escape("prompt") %></li>
-    <form id="<%= question.escape("id") %>">
+    <li class="questions group"><%= question.escape("prompt") %>
+    <form id="<%= question.escape('id') %>">
+      <div class="answers">
       <% question.answers().each(function(answer){ %>
 
         <% if(answer.get("answered")){ %>
           <% answered = true %>
         <% } %>
-        <% if(answer.escape("question_id") === question.escape("id")){ %>
-          <input type="radio" name="userAnswer[answer_id]" id="<%= answer.escape("id") %>" value="<%= answer.get("id") %>"
+        <% if(answer.get("question_id") === question.get("id")){ %>
+          <input type="radio" name="userAnswer[answer_id]" id="<%= answer.escape('id') %>" value="<%= answer.get('id') %>"
           <% if(answer.get("answered")){ %>
             checked
           <% } %>>
-          <input type="hidden" name="userAnswer[question_id]" value="<%= question.escape("id") %>">
+          <input type="hidden" name="userAnswer[question_id]" value="<%= question.escape('id') %>">
           <input type="hidden" name="userAnswer[user_id]" value="<%= OkStupid.currentUser.id %>">
-          <label for="<%= answer.escape("id") %>"><%= answer.escape("content") %></label>
+          <label for="<%= answer.escape('id') %>"><%= answer.escape("content") %></label>
         <% } %>
       <% }) %>
+      </div>
       <% if(!answered){ %>
         <button name="button">Submit</button>
       <% } %>
       <% answered = false %>
-    </form>
+    </form></li>
   <% }) %>
 </ul>
