@@ -67,3 +67,16 @@ a.messaging {
 a.messaging:hover {
   color: #00f;
 }
+
+i.fa-pencil-square-o {
+  color: #8EA7F1;
+}
+
+i.fa-pencil-square-o.hidden {
+  display: none;
+}
+
+i.fa-pencil-square-o:hover {
+  color: #00f;
+  cursor: pointer;
+}

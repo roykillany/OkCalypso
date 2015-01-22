@@ -30,7 +30,8 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     var type = event.currentTarget.id
     var id = $(event.currentTarget).data("field");
     $input = $("<textarea class='profile-edit' rows='8' cols='40' name='profile[" + type + "]'>" + id + "</textarea>")
-    $("p." + type).html($input)
+    $("p." + type).html($input);
+    $(event.currentTarget).addClass("hidden");
     $input.focus();
   },
 
