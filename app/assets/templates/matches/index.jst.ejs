@@ -1,6 +1,6 @@
 <h1>Your Matches</h1>
 
-<ul class="matches group">
+<ul class="matches group js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": "li" }'>
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
       <li><a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape("image_url") %>" alt="<%= match.matchee().escape("username") %>" /></a><h5><% if(match.get("match_percent") > 90){ %>

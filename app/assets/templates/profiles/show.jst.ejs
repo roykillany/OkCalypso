@@ -2,68 +2,54 @@
   <h3 class="profile-show-header">Your Profile</h3>
 <% } else { %>
   <h3><%= profile.user().escape("username") %>'s Profile</h3>
-  <form class="like <% if(profile.escape("current_user_liked") === "true"){ %>
+  <form class='like <% if(profile.escape("current_user_liked") === "true"){ %>
     clicked
-    <% } %>">
-    <input type="hidden" name="like[likee_id]" value="<%= profile.get("user_id") %>">
+    <% } %>'>
+    <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
     <button class="like" name="button"><i class="fa fa-star-o"></i> Like</button>
   </form>
-  <form class="unlike <% if(profile.escape("current_user_liked") === "false"){ %>
+  <form class='unlike <% if(profile.escape("current_user_liked") === "false"){ %>
     clicked
-    <% } %>">
-    <input type="hidden" name="like[likee_id]" value="<%= profile.get("user_id") %>">
+    <% } %>'>
+    <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
     <button class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
   </form>
 <% } %>
 
-  <img src="<%= profile.user().escape("image_url") %>" alt="Avatar" />
-    <label>Change Profile
+  <img src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
+  <% if(profile.get("is_current_user")){ %>
+    <label>Change Profile <i class="fa fa-pencil-square-o"></i>
       <form id="change-avatar">
         <input class="change-avatar" type="file" name="user[avatar]" value="">
         <button name="button" class="change-avatar" value="Submit"></button>
       </form>
     </label>
+  <% } %>
 
   <a class="messaging" href="/#message/new"><i class="fa fa-comment"></i> Send a Message</a>
 
   <form class="profile-edit">
-    <h4>My self-summary</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[self_sum]" value="<%= profile.escape("self_sum") %>"><%= profile.escape("self_sum") %></textarea>
+    <h4>My self-summary <% if(profile.get("is_current_user")){ %><i class='fa fa-pencil-square-o' id="self_sum" data-field='<%= profile.escape("self_sum") %>'></i><% } %></h4>
+    <p class='self_sum'><%= profile.escape("self_sum") %></p>
 
-    <h4>What I'm doing with my life</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[life_sum]" value="<%= profile.escape("life_sum") %>"><%= profile.escape("life_sum") %></textarea>
+    <h4>What I'm doing with my life <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="life_sum" data-field='<%= profile.escape("life_sum") %>'></i><% } %></h4>
+    <p class='life_sum'><%= profile.escape("life_sum") %></p>
 
-    <h4>I'm really good at</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[skills]" value="<%= profile.escape("skills") %>"><%= profile.escape("skills") %></textarea>
+    <h4>I'm really good at <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="skills" data-field='<%= profile.escape("skills") %>'></i><% } %></h4>
+    <p class='skills'><%= profile.escape("skills") %></p>
 
-    <h4>Favorite books, movies, shows, music, and food</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[favorites]" value="<%= profile.escape("favorites") %>"><%= profile.escape("favorites") %></textarea>
+    <h4>Favorite books, movies, shows, music, and food <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="favorites" data-field='<%= profile.escape("favorites") %>'></i><% } %></h4>
+    <p class='favorites'><%= profile.escape("favorites") %></p>
 
-    <h4>The six things I could never do without</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[needs]" value="<%= profile.escape("needs") %>"><%= profile.escape("needs") %></textarea>
+    <h4>The six things I could never do without <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="needs" data-field='<%= profile.escape("needs") %>'></i><% } %></h4>
+    <p class='needs'><%= profile.escape("needs") %></p>
 
-    <h4>I spend a lot of time thinking about</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[thoughts]" value="<%= profile.escape("thoughts") %>"><%= profile.escape("thoughts") %></textarea>
+    <h4>I spend a lot of time thinking about <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="thoughts" data-field='<%= profile.escape("thoughts") %>'></i><% } %></h4>
+    <p class='thoughts'><%= profile.escape("thoughts") %></p>
 
-    <h4>On a typical Friday night I am</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[fun_acts]" value="<%= profile.escape("fun_acts") %>"><%= profile.escape("fun_acts") %></textarea>
+    <h4>On a typical Friday night I am <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="fun_acts" data-field='<%= profile.escape("fun_acts") %>'></i><% } %></h4>
+    <p class='fun_acts'><%= profile.escape("fun_acts") %></p>
 
-    <h4>You should message me if</h4>
-    <textarea <% if(!profile.get("is_current_user")){ %>
-      readonly
-      <% } %> class="profile-edit" rows="8" cols="40" name="profile[msg_reason]" value="<%= profile.escape("msg_reason") %>"><%= profile.escape("msg_reason") %></textarea>
+    <h4>You should message me if <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="msg_reason" data-field='<%= profile.escape("msg_reason") %>'></i><% } %></h4>
+    <p class='msg_reason'><%= profile.escape("msg_reason") %></p>
   </form>

@@ -7,8 +7,9 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
 
   events: {
     "blur textarea.profile-edit": "editProfile",
+    "click i.fa": "showEdit",
     "click button.like": "likeUser",
-    "click button.unlike": "unlikeUser"
+    "click button.unlike": "unlikeUser",
   },
 
   render: function(){
@@ -18,6 +19,19 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     });
     this.$el.html(content);
     return this;
+  },
+
+  showEdit: function(event){
+    event.preventDefault();
+    console.log(event);
+    console.log(event.target);
+    console.log($(event.currentTarget).data("field"));
+
+    var type = event.currentTarget.id
+    var id = $(event.currentTarget).data("field");
+    $input = $("<textarea class='profile-edit' rows='8' cols='40' name='profile[" + type + "]'>" + id + "</textarea>")
+    $("p." + type).html($input)
+    $input.focus();
   },
 
   editProfile: function(event){
