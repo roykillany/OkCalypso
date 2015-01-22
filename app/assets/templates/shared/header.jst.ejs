@@ -23,7 +23,11 @@
 
 <nav class="sidebar">
   <a class="hvr-box-shadow-outset" href="/#questions"><i class="fa fa-question"></i> Questions</a>
-  <a class="hvr-box-shadow-outset" href="/#profiles/<%= currentUser.get('id') %>"><i class="fa fa-user"></i> Profile</a>
+  <% if(typeof currentUser.get('id') !== "undefined"){ %>
+      <a class="hvr-box-shadow-outset" href="/#profiles/<%= currentUser.get('id') %>"><i class="fa fa-user"></i> Profile</a>
+  <% } else { %>
+      <a class="hvr-box-shadow-outset" href="#session/new"><i class="fa fa-user"></i> Profile</a>
+  <% } %>
   <a class="hvr-box-shadow-outset" href="/#messages"><i class="fa fa-envelope"></i> Messages</a>
   <a class="hvr-box-shadow-outset" href="/#matches"><i class="fa fa-heart"></i> Matches</a>
   <a class="hvr-box-shadow-outset" href="/#likes"><i class="fa fa-star"></i> Likes</a>

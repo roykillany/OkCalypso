@@ -53,6 +53,10 @@ form input {
   padding: 3px 3px 3px 6px;
 }
 
+input[type=text], input[type=password], input[type=email] {
+  color: #00f;
+}
+
 form label.header {
   font-weight: bold;
 }
