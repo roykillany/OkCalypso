@@ -146,6 +146,7 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    open_uri_redirections (0.2.1)
     pg (0.18.1)
     pg_search (0.7.8)
       activerecord (>= 3.1)
@@ -234,6 +235,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   omniauth-facebook
+  open_uri_redirections
   paperclip!
   pg
   pg_search
