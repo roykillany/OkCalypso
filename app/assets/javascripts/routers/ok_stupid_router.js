@@ -5,7 +5,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "root",
+    "": "ownProfileShow",
     "session/new": "signIn",
     "profiles/:id": "profileShow",
     "messages": "messagesIndex",
@@ -19,9 +19,23 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     "users/new": "newUser"
   },
 
-  root: function(){
-    var rootView = new OkStupid.Views.RootView();
-    this._swapView(rootView);
+  ownProfileShow: function(){
+    var callback = this.ownProfileShow.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
+
+    var that = this;
+
+    OkStupid.currentUser.fetch({
+      success: function(){
+        var profile = OkStupid.profiles.getOrFetch(OkStupid.currentUser.id);
+        var profileView = new OkStupid.Views.ProfileShow({
+          id: OkStupid.currentUser.id,
+          model: profile
+        });
+
+        that._swapView(profileView);
+      }
+    })
   },
 
   questionsIndex: function(){
