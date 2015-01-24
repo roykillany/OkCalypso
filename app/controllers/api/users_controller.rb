@@ -54,7 +54,7 @@ class Api::UsersController < ApplicationController
     guest_email = Faker::Internet.free_email
     guest_country = Faker::Address.country
     guest_zip = Faker::Address.zip_code
-    guest_avatar = Faker::Avatar.image
+    guest_avatar = process_uri(UIFaces::face)
 
     userData = {
       username: guest_username,
@@ -68,9 +68,27 @@ class Api::UsersController < ApplicationController
       is_guest: true,
       searchable: true,
     }
+
     @guest = User.new(userData)
-    @guest.profile = Profile.new(user_id: @guest.id)
-    @guest.preferences = Preference.new(user_id: @guest.id)
+
+    profileData = {
+      user_id: @guest.id,
+      self_sum: Faker::Lorem.paragraph,
+      life_sum: Faker::Lorem.paragraph,
+      skills: Faker::Lorem.paragraph,
+      favorites: Faker::Lorem.paragraph,
+      needs: Faker::Lorem.paragraph,
+      thoughts: Faker::Lorem.paragraph,
+      fun_acts: Faker::Lorem.paragraph,
+      msg_reason: Faker::Lorem.paragraph
+    }
+
+    preferencesData = {
+      user_id: @guest.id,
+    }
+
+    @guest.profile = Profile.new(profileData)
+    @guest.preferences = Preference.new(preferencesData)
     if @guest.save
       log_in(@guest)
       render json: @guest
@@ -100,5 +118,13 @@ class Api::UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :orientation, :gender, :country, :zip_code, :avatar)
+  end
+
+  def process_uri(uri)
+    require 'open-uri'
+    require 'open_uri_redirections'
+    open(uri, :allow_redirections => :safe) do |r|
+      r.base_uri.to_s
+    end
   end
 end

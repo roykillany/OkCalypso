@@ -49,6 +49,9 @@ OkStupid.Views.SignIn = Backbone.View.extend({
     // generate preference
     event.preventDefault();
 
+    $("#guest-login").addClass("loading");
+    $("div.loading").removeClass("loading");
+
     $.ajax( '/api/guestuser', {
       type: 'POST',
       success: function(){
