@@ -91,11 +91,20 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     event.preventDefault();
     var that = this;
     var formData = $("form#change-avatar").serializeJSON().user;
+    console.log($("input#change-avatar"));
 
-    OkStupid.currentUser.save(formData, {
-      success: function(){
+    $.ajax( '/api/users/' + OkStupid.currentUser.id, {
+      type: 'GET',
+      dataType: 'json',
+      data: formData,
+      success: function(resp){
+        console.log(resp);
+        console.log(formData);
         that.render();
+      },
+      error: function(){
+        alert("BEEPBOOP THAT DIDN'T WORK")
       }
-    })
+    });
   }
 })

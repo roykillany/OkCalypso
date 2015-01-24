@@ -42,7 +42,7 @@ class Api::UsersController < ApplicationController
     log_out!
   end
 
-  def edit
+  def update
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save

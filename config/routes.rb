@@ -3,7 +3,7 @@ OkStupid::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :searches, only: [:index]
-    resources :users, only: [:index, :show, :new, :create] do
+    resources :users, only: [:index, :show, :new, :create, :update] do
       resources :user_answers
     end
     resource :detail, only: [:show]
