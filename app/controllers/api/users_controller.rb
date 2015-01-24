@@ -71,26 +71,18 @@ class Api::UsersController < ApplicationController
 
     @guest = User.new(userData)
 
-    profileData = {
-      user_id: @guest.id,
-      self_sum: Faker::Lorem.paragraph,
-      life_sum: Faker::Lorem.paragraph,
-      skills: Faker::Lorem.paragraph,
-      favorites: Faker::Lorem.paragraph,
-      needs: Faker::Lorem.paragraph,
-      thoughts: Faker::Lorem.paragraph,
-      fun_acts: Faker::Lorem.paragraph,
-      msg_reason: Faker::Lorem.paragraph
-    }
 
-    preferencesData = {
-      user_id: @guest.id,
-    }
 
-    @guest.profile = Profile.new(profileData)
-    @guest.preferences = Preference.new(preferencesData)
     if @guest.save
       log_in(@guest)
+
+      generate_profile
+      generate_preferences
+      generate_details
+      generate_user_answers
+      generate_likes
+      generate_messages
+
       render json: @guest
     else
       flash.now[:errors] = @guest.errors.full_messages
@@ -126,5 +118,52 @@ class Api::UsersController < ApplicationController
     open(uri, :allow_redirections => :safe) do |r|
       r.base_uri.to_s
     end
+  end
+
+  def generate_profile
+    profileData = {
+      user_id: @guest.id,
+      self_sum: Faker::Lorem.paragraph,
+      life_sum: Faker::Lorem.paragraph,
+      skills: Faker::Lorem.paragraph,
+      favorites: Faker::Lorem.paragraph,
+      needs: Faker::Lorem.paragraph,
+      thoughts: Faker::Lorem.paragraph,
+      fun_acts: Faker::Lorem.paragraph,
+      msg_reason: Faker::Lorem.paragraph
+    }
+
+    @guest.profile = Profile.new(profileData)
+  end
+
+  def generate_preferences
+    preferencesData = {
+      user_id: @guest.id,
+    }
+
+    @guest.preferences = Preference.new(preferencesData)
+  end
+
+  def generate_user_answers
+  end
+
+  def generate_likes
+    2.times do
+      user_id = User.all[rand(User.all.count)].id
+      p @guest.id
+
+      while User.all.pluck("id") == user_id || user_id == @guest.id
+        user_id = User.all[rand(User.all.count)].id
+      end
+
+      @guest.likes.push(Like.new({ liker_id: @guest.id, likee_id: user_id}))
+      p @guest.likes
+    end
+  end
+
+  def generate_messages
+  end
+
+  def generate_details
   end
 end
