@@ -44,18 +44,71 @@ OkStupid.Views.SignIn = Backbone.View.extend({
   },
 
   guestLogin: function(event){
+    // save user
+    // generate profile
+    // generate preference
     event.preventDefault();
-    $("input.username").attr("value", "guest");
-    $("input.password").attr("value", "guest");
 
-    var timer = window.setTimeout( function() {
-      OkStupid.currentUser.signIn({
-        username: "guest",
-        password: "guest",
-        success: function(){
-          Backbone.history.navigate("", { trigger: true })
-        }
-      });
-    }, 175);
+    $.ajax( '/api/guestuser', {
+      type: 'POST',
+      success: function(){
+        console.log("Welcome, guest!");
+        OkStupid.currentUser.fetch({
+          success: function(){
+            OkStupid.users.add(OkStupid.currentUser, { merge: true });
+            Backbone.history.navigate("", { trigger: true });
+          }
+        })
+      }
+    });
+
+    // var orientation = ["Straight", "Gay", "Bisexual", "Demisexual",
+    // "Heteroflexible", "Homoflexible", "Lesbian", "Pansexual", "Queer",
+    // "Questioning", "Sapiosexual"];
+    // var gender = ["Woman", "Man", "Agender", "Androgynous", "Bigender",
+    //  "Cis Man", "Cis Woman", "Genderfluid", "Genderqueer", "Gender Nonconforming",
+    //   "Hijira", "Intersex", "Non-binary", "Other", "Pangender", "Transfeminine",
+    //   "Transgender", "Transmasculine", "Transsexual", "Trans Man", "Trans Woman",
+    //   "Two Spirit"];
+    //
+    // var guestOrientation = orientation[Math.floor(Math.random() * orientation.length)];
+    //
+    // var guestGender = gender[Math.floor(Math.random() * gender.length)];
+    //
+    // var guestName = faker.name.userName();
+    // while(OkStupid.users.pluck("username").includes(guestName)){
+    //   var guestName = faker.name.userName();
+    // };
+    // var guestPass = faker.internet.password(6);
+    //
+    // $("input.username").attr("value", guestName);
+    // $("input.password").attr("value", guestPass);
+    // var userData = {
+    //   username: guestName,
+    //   email: faker.internet.email(),
+    //   password: guestPass,
+    //   orientation: guestOrientation,
+    //   gender: guestGender,
+    //   country: faker.address.country(),
+    //   zip_code: faker.address.zipCode(),
+    //   avatar: faker.internet.avatar(),
+    //   is_guest: true,
+    //   searchable: true,
+    // }
+    //
+    // var guest = new OkStupid.Models.User;
+    //
+    // var timer = window.setTimeout(function(){
+    //   guest.save(userData), {
+    //     success: function(){
+    //       OkStupid.currentUser.fetch({
+    //         success: function(){
+    //           OkStupid.users.add(guest, { merge: true });
+    //           Backbone.history.navigate("", { trigger: true });
+    //         }
+    //       })
+    //     }
+    //   }
+    // }, 275);
   }
 });

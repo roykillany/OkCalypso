@@ -36,6 +36,50 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def guest_create
+    orientation = ["Straight", "Gay", "Bisexual", "Demisexual",
+    "Heteroflexible", "Homoflexible", "Lesbian", "Pansexual", "Queer",
+    "Questioning", "Sapiosexual"]
+    gender = ["Woman", "Man", "Agender", "Androgynous", "Bigender",
+    "Cis Man", "Cis Woman", "Genderfluid", "Genderqueer", "Gender Nonconforming",
+    "Hijira", "Intersex", "Non-binary", "Other", "Pangender", "Transfeminine",
+    "Transgender", "Transmasculine", "Transsexual", "Trans Man", "Trans Woman",
+    "Two Spirit"]
+
+    guest_orientation = orientation[rand(orientation.length)]
+    guest_gender = gender[rand(gender.length)]
+
+    guest_username = Faker::Internet.user_name
+    guest_pass = Faker::Internet.password(6)
+    guest_email = Faker::Internet.free_email
+    guest_country = Faker::Address.country
+    guest_zip = Faker::Address.zip_code
+    guest_avatar = Faker::Avatar.image
+
+    userData = {
+      username: guest_username,
+      email: guest_email,
+      password: guest_pass,
+      orientation: guest_orientation,
+      gender: guest_gender,
+      country: guest_country,
+      zip_code: guest_zip,
+      avatar: guest_avatar,
+      is_guest: true,
+      searchable: true,
+    }
+    @guest = User.new(userData)
+    @guest.profile = Profile.new(user_id: @guest.id)
+    @guest.preferences = Preference.new(user_id: @guest.id)
+    if @guest.save
+      log_in(@guest)
+      render json: @guest
+    else
+      flash.now[:errors] = @guest.errors.full_messages
+      render json: @guest.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy!
@@ -46,7 +90,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
-      render :show
+      render json: @user
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit, status: 422

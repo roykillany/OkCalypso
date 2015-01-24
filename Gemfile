@@ -67,3 +67,5 @@ gem 'geocoder'
 gem 'omniauth-facebook'
 
 gem 'open_uri_redirections'
+
+gem 'faker'
