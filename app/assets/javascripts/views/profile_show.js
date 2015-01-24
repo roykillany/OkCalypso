@@ -10,6 +10,7 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     "click i.fa": "showEdit",
     "click button.like": "likeUser",
     "click button.unlike": "unlikeUser",
+    "click button.change-avatar": "changeAvatar"
   },
 
   render: function(){
@@ -84,5 +85,17 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
       }
     })
     // var like = OkStupid.Collections.Likes.getOrFetch(id)
+  },
+
+  changeAvatar: function(event){
+    event.preventDefault();
+    var that = this;
+    var formData = $("form#change-avatar").serializeJSON().user;
+
+    OkStupid.currentUser.save(formData, {
+      success: function(){
+        that.render();
+      }
+    })
   }
 })

@@ -20,6 +20,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
   },
 
   ownProfileShow: function(){
+    console.log("my little profile")
     var callback = this.ownProfileShow.bind(this);
     if (!this._requireSignedIn(callback)){ return; }
 
