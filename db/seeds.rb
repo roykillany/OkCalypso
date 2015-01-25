@@ -257,7 +257,7 @@ Detail.create!([{ user_id: 1,
   relationship_type: "Strictly Monogamous",
   offspring: "",
   pets: "likes dogs",
-  languages: "English"}
+  languages: "English"}])
 
 UserAnswer.create!([
   { user_id: 1, answer_id: 1, question_id: 1 },
