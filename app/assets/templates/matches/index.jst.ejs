@@ -3,7 +3,7 @@
 <ul class="matches group js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": "li" }'>
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
-      <li><a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape("image_url") %>" alt="<%= match.matchee().escape("username") %>" /></a><h5><% if(match.get("match_percent") > 90){ %>
+      <li><a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape('image_url') %>" alt="<%= match.matchee().escape('username') %>" /></a><h5><% if(match.get("match_percent") > 90){ %>
         <i class="fa fa-heart-o hvr-pulse hvr-radial-in"></i>
         <% } %><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a><%= match.escape("match_percent") %>% Match</h5></li>
     <% }) %>
