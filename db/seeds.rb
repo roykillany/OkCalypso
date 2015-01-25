@@ -202,7 +202,7 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
 
   target_people = ["Everyone", "Men", "Women"]
 
-  target_age_range = rand(18, 30).to_s + " to " + rand(30, 50).to_s
+  target_age_range = rand(18..30).to_s + " to " + rand(30..50).to_s
 
   target_location = ["Anywhere", "Near me"]
 
