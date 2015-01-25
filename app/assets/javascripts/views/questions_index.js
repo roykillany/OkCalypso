@@ -32,7 +32,11 @@ OkStupid.Views.QuestionsIndex = Backbone.View.extend({
     model.save(formData, {
       success: function(){
         OkStupid.userAnswers.add(model, { merge: true });
-        that.render();
+        OkStupid.questions.fetch({
+          success: function(){
+            that.render();
+          }
+        })
       }
     });
   }
