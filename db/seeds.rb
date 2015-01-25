@@ -5,6 +5,8 @@
 #
 #   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create!(name: 'Emanuel', city: cities.first)
+require 'users_controller.rb'
+
 orientation = ["Straight", "Gay", "Bisexual", "Demisexual",
   "Heteroflexible", "Homoflexible", "Lesbian", "Pansexual", "Queer",
   "Questioning", "Sapiosexual"]
@@ -208,12 +210,20 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
 
   target_purpose = ["New friends", "Long-term dating", "Short-term dating", "Casual sex"]
 
+  avatars = ["http://avatarbox.net/avatars/img30/cheryl_cole_profile_avatar_picture_43773.jpg",
+  "http://avatarbox.net/avatars/img9/james_blunt_profile_avatar_picture_62714.jpg",
+  "http://i79.photobucket.com/albums/j131/Darkwulf73/jojo-1.jpg"
+
+
+
+  ]
+
 # Creates my account
 
-user = [User.create!({ username: 'mebest winrar NA', email: 'me@best.na',
+users = [User.create!({ username: 'mebest winrar NA', email: 'me@best.na',
   password_digest: BCrypt::Password.create('mebest'), session_token: SecureRandom.urlsafe_base64,
   orientation: "Straight", gender: 'Cis Woman', country:
-  'United States of America', zip_code: '10012', avatar: process_uri(UIFaces::face)})]
+  'United States of America', zip_code: '10012', avatar: Api::UsersController.new.process_uri(UIFaces::face)})]
 
 Profile.create!({ user_id: 1,
   self_sum: "one time i ate a lot of dumplings and my mom was like \"Wow you eat
@@ -286,28 +296,28 @@ UserAnswer.create!([
 
 9.times do
   seed_username = Faker::Internet.user_name
-  while User.all.pluck("username").include?(guest_username)
-    guest_username = Faker::Internet.user_name
+  while User.all.pluck("username").include?(seed_username)
+    seed_username = Faker::Internet.user_name
   end
   seed_pass = Faker::Internet.password(6)
   seed_email = Faker::Internet.free_email
   seed_country = Faker::Address.country
   seed_zip = Faker::Address.zip_code
-  seed_avatar = process_uri(UIFaces::face)
+  seed_avatar = Api::UsersController.new.process_uri(UIFaces::face)
   seed_orientation = orientation[rand(orientation.length)]
   seed_gender = gender[rand(gender.length)]
 
-  users.push(User.create!({ username: seed_username, email: seed_email, password_digest:
+  User.create!({ username: seed_username, email: seed_email, password_digest:
     BCrypt::Password.create(seed_pass), session_token: SecureRandom.urlsafe_base64,
     orientation: seed_orientation, gender: seed_gender, country:
-    seed_country, zip_code: seed_zip, avatar: seed_avatar}))
+    seed_country, zip_code: seed_zip, avatar: seed_avatar})
 end
 
-users.each do |user|
-  next if user.id == 1
+9.times do |i|
+  id = i + 2
 
   Profile.create!({
-    user_id: user.id,
+    user_id: id,
     self_sum: self_sum[rand(self_sum.length)],
     life_sum: life_sum[rand(life_sum.length)],
     skills: skills[rand(skills.length)],
@@ -323,33 +333,30 @@ users.each do |user|
     target_age_range: rand(18..30).to_s + " to " + rand(30..50).to_s,
     target_location: target_location[rand(target_location.length)],
     target_purpose: target_purpose[rand(target_purpose.length)],
-    user_id: user.id
+    user_id: id
   })
 
-  20.times do |i|
-    idx = i + 1
-    UserAnswer.create!([{ user_id: user.id, answer_id: rand(1..2), question_id: idx},
-      { user_id: user.id, answer_id: rand(3..6), question_id: idx},
-      { user_id: user.id, answer_id: rand(7..10), question_id: idx},
-      { user_id: user.id, answer_id: rand(11..14), question_id: idx},
-      { user_id: user.id, answer_id: rand(15..17), question_id: idx},
-      { user_id: user.id, answer_id: rand(18..20), question_id: idx},
-      { user_id: user.id, answer_id: rand(21..25), question_id: idx},
-      { user_id: user.id, answer_id: rand(26..28), question_id: idx},
-      { user_id: user.id, answer_id: rand(29..31), question_id: idx},
-      { user_id: user.id, answer_id: rand(32..34), question_id: idx},
-      { user_id: user.id, answer_id: rand(35..38), question_id: idx},
-      { user_id: user.id, answer_id: rand(39..41), question_id: idx},
-      { user_id: user.id, answer_id: rand(42..44), question_id: idx},
-      { user_id: user.id, answer_id: rand(45..48), question_id: idx},
-      { user_id: user.id, answer_id: rand(49..52), question_id: idx},
-      { user_id: user.id, answer_id: rand(53..55), question_id: idx},
-      { user_id: user.id, answer_id: rand(56..58), question_id: idx},
-      { user_id: user.id, answer_id: rand(59..61), question_id: idx},
-      { user_id: user.id, answer_id: rand(62..63), question_id: idx},
-      { user_id: user.id, answer_id: rand(64..65), question_id: idx}
-    ])
-  end
+  UserAnswer.create!([{ user_id: id, answer_id: rand(1..2), question_id: 1},
+    { user_id: id, answer_id: rand(3..6), question_id: 2},
+    { user_id: id, answer_id: rand(7..10), question_id: 3},
+    { user_id: id, answer_id: rand(11..14), question_id: 4},
+    { user_id: id, answer_id: rand(15..17), question_id: 5},
+    { user_id: id, answer_id: rand(18..20), question_id: 6},
+    { user_id: id, answer_id: rand(21..25), question_id: 7},
+    { user_id: id, answer_id: rand(26..28), question_id: 8},
+    { user_id: id, answer_id: rand(29..31), question_id: 9},
+    { user_id: id, answer_id: rand(32..34), question_id: 10},
+    { user_id: id, answer_id: rand(35..38), question_id: 11},
+    { user_id: id, answer_id: rand(39..41), question_id: 12},
+    { user_id: id, answer_id: rand(42..44), question_id: 13},
+    { user_id: id, answer_id: rand(45..48), question_id: 14},
+    { user_id: id, answer_id: rand(49..52), question_id: 15},
+    { user_id: id, answer_id: rand(53..55), question_id: 16},
+    { user_id: id, answer_id: rand(56..58), question_id: 17},
+    { user_id: id, answer_id: rand(59..61), question_id: 18},
+    { user_id: id, answer_id: rand(62..63), question_id: 19},
+    { user_id: id, answer_id: rand(64..65), question_id: 20}
+  ])
 end
 
 questions = Question.create!([{ prompt: 'Do you believe that everything happens for a reason?'},
@@ -460,13 +467,3 @@ Answer.create!([{ question_id: 1, content: 'Yes'},
   { question_id: 19, content: 'No'},
   { question_id: 20, content: 'Yes'},
   { question_id: 20, content: 'No'},])
-
-private
-
-def process_uri(uri)
-  require 'open-uri'
-  require 'open_uri_redirections'
-  open(uri, :allow_redirections => :safe) do |r|
-    r.base_uri.to_s
-  end
-end
