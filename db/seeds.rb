@@ -460,3 +460,13 @@ Answer.create!([{ question_id: 1, content: 'Yes'},
   { question_id: 19, content: 'No'},
   { question_id: 20, content: 'Yes'},
   { question_id: 20, content: 'No'},])
+
+private
+
+def process_uri(uri)
+  require 'open-uri'
+  require 'open_uri_redirections'
+  open(uri, :allow_redirections => :safe) do |r|
+    r.base_uri.to_s
+  end
+end
