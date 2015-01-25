@@ -1,19 +1,21 @@
 <% if(profile.get("is_current_user")){ %>
-  <h3 class="profile-show-header">Your Profile</h3>
+  <h3 class="your-profile-show-header">Your Profile</h3>
 <% } else { %>
-  <h3><%= profile.user().escape("username") %>'s Profile</h3>
-  <form class='like <% if(profile.escape("current_user_liked") === "true"){ %>
-    clicked
-    <% } %>'>
-    <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
-    <button class="like" name="button"><i class="fa fa-star-o"></i> Like</button>
-  </form>
-  <form class='unlike <% if(profile.escape("current_user_liked") === "false"){ %>
-    clicked
-    <% } %>'>
-    <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
-    <button class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
-  </form>
+  <h3 class="profile-show-header"><%= profile.user().escape("username") %></h3>
+  <div class="bootins">
+    <form class='unlike <% if(profile.escape("current_user_liked") === "false"){ %>
+      clicked
+      <% } %>'>
+      <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
+      <button class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
+    </form>
+    <form class='like <% if(profile.escape("current_user_liked") === "true"){ %>
+      clicked
+      <% } %>'>
+      <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
+      <button class="like" name="button"><i class="fa fa-star-o"></i> Like</button>
+    </form>
+  </div>
 <% } %>
 
   <img src='<%= profile.user().escape("image_url") %>' alt="Avatar" />

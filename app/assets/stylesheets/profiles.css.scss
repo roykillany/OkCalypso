@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 form.profile-edit {
-  margin: 0 0 0 120px;
+  margin: 0 0 0 140px;
 }
 
 textarea.profile-edit {
@@ -23,9 +23,13 @@ textarea.profile-edit:focus {
 }
 
 button.like {
-  background: #E9E9F0;
+  background: #C3C3DA;
   padding: 3px;
   border-radius: 3px;
+  float: right;
+  position: relative;
+  top: 50px;
+  right: 20px;
 }
 
 button.unlike {
@@ -33,6 +37,10 @@ button.unlike {
   padding: 3px;
   border-radius: 3px;
   color: #fff;
+  float: right;
+  position: relative;
+  top: 50px;
+  right: 20px;
 }
 
 button.like:hover {
@@ -53,15 +61,15 @@ form.clicked {
   display: none;
 }
 
-h3.profile-show-header {
-  padding: none;
-}
-
 a.messaging {
   background: #8EA7F1;
   padding: 4px;
   border-radius: 3px;
   color: #fff;
+  float: right;
+  position: relative;
+  right: 20px;
+  bottom: 132px;
 }
 
 a.messaging:hover {
@@ -92,4 +100,31 @@ button.change-avatar {
 .change-avatar:hover {
   color: #00f;
   cursor: pointer;
+}
+
+p {
+  width: 430px;
+}
+
+img {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+h3.profile-show-header {
+  width: 300px;
+  height: 40px;
+  position: relative;
+  left: 161px;
+  top: 100px;
+  font-size: 50px;
+}
+
+h3.your-profile-show-header {
+  width: 300px;
+  height: 40px;
+  position: relative;
+  left: 161px;
+  top: 120px;
+  font-size: 30px;
 }
