@@ -7,7 +7,7 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
 
   events: {
     "blur textarea.profile-edit": "editProfile",
-    "click i.fa": "showEdit",
+    "click i.fa-pencil-square-o": "showEdit",
     "click button.like": "likeUser",
     "click button.unlike": "unlikeUser",
     "click button.change-avatar": "changeAvatar"

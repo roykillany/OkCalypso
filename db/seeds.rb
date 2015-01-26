@@ -78,7 +78,33 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
   a chat or a coffee!
 
   P.S. please excuse me for not replying if I think we are truly not compatible,
-  thanks."]
+  thanks.",
+  "I drove down here several years ago from the Great White North and never found
+  the way back… I love to explore the many things California has to offer.",
+  "",
+  "I am looking for something more on the serious side, but definitely not in any
+  rush. I am a fun person to hang out with - I keep things casual, light and happy.
+  When in serious relationships, I commit fully - you may see the very
+  domesticated side of me; I can make you laugh when you're having a bad day;
+  doll myself up and go hit the town with you; or simply just give you your space
+  and guy time. I'm pretty easy going.
+
+  Born and raised in San Francisco. Work in corporate finance. Love a great
+  conversation while listening to great music, along with a drink. I'm not
+  always a 'girly' girl as I like Marvel movies, the NBA and dressing down sometimes.
+  I am quite sociable, a little geeky and LOVE humor (I can be a big goofball).
+  I have worked hard all my life, and don't take things for granted.
+
+  I generally have a positive outlook on life and always try to find the silver
+  lining. I value honesty very much, and I dislike those who beat around the bushes
+  - I can be pretty direct and totally don't have patience for drama and bs. I
+  don't enjoy the company of those who are pretentious and self-serving. My family
+  and friends are most important to me.",
+  "Nearing the milestone of 5 years as a Londoner. I’m easy-going, considerate,
+  and pretty good at getting on with everyone I meet but I’m here to see if
+  OkCupid can help me meet some more great new people! (Ideally that’s you,
+  reader). I love escaping to the countryside but also touring and tasting
+  London’s finest coffee & cake purveyors."]
 
   life_sum = ["Experimenting, enjoying, smiling a lot, wishing for warm
   weather all the time so I can enjoy outdoors more often, meeting new
@@ -103,7 +129,30 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
   "Work & study part-time.
   Work in Arts/Health
   I am happy in my life but really missing a man who brings out the best in me
-  - some one special to journey through life with."]
+  - some one special to journey through life with.",
+  "I do research in a biotech startup. During my spare time, I enjoy cooking,
+  going on long bike rides, hiking, camping, snowboarding, going to music shows
+  or festivals, shopping for wine in Sonoma, finding new bars with great cocktails
+  or beers, trying new restaurants, etc.",
+  "Trying to improve it, one day at a time",
+  "I spend my weekdays working in insurance. I enjoy it really, but as far as
+  exciting jobs go it’s well down the list so let’s say no more about that.
+
+  I love exploring the outdoors and mostly do this through mountain biking. There's
+  nothing better than planning a long trip to the middle of nowhere on the back
+  of a single photo I’ve seen online. Usually I’ll try and dabble in some
+  photography of my own as I go too.
+
+  I’m quite inquisitive about town too. Sometimes I take all the wrong turns home,
+  just to see what's in those places I haven't been to. London is perfect for a
+  weekend with no plans as there are just so many museums and slowly I’m getting
+  through most of them.
+  And of course I like to travel too. For 2015 I've got plans to get to Paris,
+  Copenhagen, the Outer Hebrides, the Lofoten Islands and South Africa.
+
+  I like pubs with good beer, going to gigs and going to the cinema. After work
+  I often play a bit of badminton, pool, or table tennis on the table outside
+  our office. I’ll always accept any invitation to go camping."]
 
   skills = ["Gaming! Logical puzzles and programming on my computer as well,
   though I do it more on a \"need to\" basis for my classes than a hobby.
@@ -120,7 +169,19 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
   sing... in the car... so no one can hear me. I am a professional sleeper
   and night owl. I'm great at losing my temper... sometimes. I don't know,
   I'll try most things. I really enjoy being active, but activity is only fun
-  if there is someone else to share it with."]
+  if there is someone else to share it with.",
+  "My job, being a good daughter and sister, being a big dork, singing,
+  recognizing patterns, being exceptionally clean and organized, and laughing
+  at myself.",
+  "- Finding my way without a map
+  - Making carrot cake
+  - Overestimating how many wasabi peas I can handle in one mouthful
+  - DIY (Ok, I'm getting presumptuous with this one. I haven't had to try yet,
+  but how hard can it be?)",
+  "From what others have said i am apparently good at the following: Explaining
+  complex issues in a very easy to understand way, listening and understanding
+  people, looking at the big picture and cutting to the core of most problems.
+  The less CV like answers: being tidy, well organised and cooking!"]
 
   favorites = ["I can't really say I have a favorite book, but if I had to
   choose, I'd say the Alex Rider series~I loved Harry potter too, as well as
@@ -158,7 +219,33 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
   GOT, Cosmos, Always Sunny, Flight of the Conchords, The Office, Rick & Morty,
   Girls; Radiohead, Bon Iver, The xx, Audioslave, Muse, Black Keys, Interpol,
   Daft Punk, Smashing Pumpkins, Coldplay, Muse, & so so much more; blueberry
-  pancakes, chocolate"]
+  pancakes, chocolate",
+  "Favourite films include: Bourne Identity, The Godfather, Ronin, Pulp Fiction,
+  A Beautiful Mind. Lately I've developed a thing for films set in the 70s (Argo,
+  American Hustle). I think it's all the brown suits and moustaches. Important
+  note: I don't own a brown suit, or a moustache.
+
+  Mostly I read crime novels or travel/adventure stories. Just finished a book
+  on The Great Tour Divide mountain bike race, currently reading Bill Bryson's
+  A Walk in the Woods, and just bought Into Thin Air. But I also have Ian Rankin's
+  latest lined up to restore the balance.
+
+  I like to think I eat everything, and try to test this at every opportunity.
+  Usually I'm a magnet to anything unusual on the menu so 4 months spent in South
+  Korea were great fun. I'm eager to try surströmming. But more generally I'm a
+  huge fan of pizza or any sort of curry.
+
+  Dig through my mp3 player and there's a huge variety, but the most common
+  themes would be 60s-70s rock or metal. At pub quizzes I'm known for my 90s pop
+  knowledge (but maybe I'm just the only one bold enough to admit that I
+  recognise them?)
+
+  I'm not good at tv that requires a commitment to watch regularly and in a
+  specified order, so I mostly watch comedy panel shows, sports and one-off
+  documentaries. I love what 8 Out of 10 Cats have done to Countdown.",
+  "A bit of Game of Thrones. I like a good film. Memento and Gatica are two that
+  come to mind. I like trying to cook new dishes and eating out. Big fan of east
+  asian food."]
 
   needs = ["Integrity
   Smartphone
@@ -179,7 +266,20 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
   Sunshine
   All things green...like TREES
   Laughter
-  Dancing"]
+  Dancing",
+  "Human beings adapt... I can learn to do without many things, except for the
+  obvious...",
+  "- Cakes
+  - Tea
+  - My bike
+  - Music
+  - Friends
+  - A camera",
+  "Plain paper
+  Pen
+  Music
+  Soy sauce
+  Passport"]
 
   thoughts = ["How I can better myself, when I'm going to sleep, and what I'm
   eating for dinner. I'm exciting, aren't I?",
@@ -187,20 +287,53 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
   hypothetical world domination, humanity",
   "The future. I'm a right brained person and a Gemini, so I can be all over
   the place. I wonder how in the hell am I going to settle on something. I
-  promise I'm not sketchy, I'm just scattered."]
+  promise I'm not sketchy, I'm just scattered.",
+  "Why OKCupid has ranked my personality as 'less than average' in every
+  category. That's not necessarily a bad thing, right?",
+  "Filling in redundant boxes.",
+  "That okcupid profiles are an extreme example of personal Aestheticism."]
 
   fun_acts = ["It depends. Normally with friends or watching Netflix.",
   "Eating takeout and watching movies. Pretty laid back in general, but I like
   to go out every now and then.",
   "When I'm not studying, I'm hanging out with friends, watching a movie,
-  baking, or going to a potluck!"]
+  baking, or going to a potluck!",
+  "Depending on my level of energy, I’ll either take it easy watching a movie at
+  home or I’ll start off having drinks with co-workers or friends and see where
+  the night takes me.",
+  "I usually prefer spending my Friday nights at home cooking dinner and getting
+  some 'me' time to unwind the week. But anything goes during the weekend.",
+  "The last 4 Fridays have been spent: travelling home for a weekend wedding;
+  at the cinema with workfriends; staying in a hostel in the middle of nowhere
+  on a bike trip; and at a ceilidh in Camden. Hard to pull out a 'typical' from
+  that. This week it's curry and drinks near Waterloo.",
+  "Meeting with old friends for tea and shisha",
+  "Winding down. Hanging out with a few mates. Surrendering all the comfortable
+  spots to my dog."]
 
   msg_reason = ["you have a French bull dog.",
   "You are genuinely interested in meeting someone new, you believe in
   chivalry, are confident, you have a sense of humor, you're close with your
   family, you have goals {and are not crazy}!",
   "You are smart, fun, stylish and handsome. Bonus points if you can show me
-  to the best coffee shop in town."]
+  to the best coffee shop in town.",
+  "Please don't message me if you have for profile photo, a picture of yourself
+  in the mirror.",
+  "You are not looking to 'hook up,'' not pretentious, don't like to bs people,
+  don't lie, and don't like to live in the past. Just cut the bull and keep it
+  real...",
+  "You want to meet someone for a good chat over a nice hot drink.",
+  "You don't take match percentages too seriously.
+
+  The voices in your head are telling you to.
+
+  You've read enough of my profile to realise that I've already told you my name.
+
+  Did I mention that I have a son? Because I have a son.",
+  "You find any of the above remotely interesting and you fancy a chat.
+
+  I do my utmost to converse with you if you've taken the time out to drop me a
+  message."]
 
   target_people = ["Everyone", "Men", "Women"]
 
