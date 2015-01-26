@@ -19,15 +19,16 @@
   </div>
 <% } %>
 
-  <img src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
-  <% if(profile.get("is_current_user")){ %>
-    <label>Change Profile <i class="fa fa-pencil-square-o"></i>
+  <div id="profile-picture">
+    <img src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
+    <!-- <% if(profile.get("is_current_user")){ %>
+      <i class="fa fa-pencil-square-o avatar-edit fa-3x"></i>
       <form id="change-avatar" data-remote="true" enctype="multipart/form-data" name="avatar">
         <input class="change-avatar" type="file" name="user[avatar]">
         <button name="button" class="change-avatar" value="Submit">Submit</button>
       </form>
-    </label>
-  <% } %>
+    <% } %> -->
+  </div>
 
 
 

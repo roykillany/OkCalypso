@@ -2,16 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h1.questions-header {
-  position: relative;
-  top: 10px;
-  left: 30px;
+  padding-top: 100px;
+  padding-left: 150px;
   font-size: 30px;
+  padding-bottom: 3px;
 }
 
 ul.questions {
   list-style: none;
   background: #DCDCDF;
-  margin-left: 150px;
+  margin-left: 160px;
   margin-right: 220px;
   padding: 5px;
 }

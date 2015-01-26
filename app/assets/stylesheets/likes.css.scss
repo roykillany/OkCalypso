@@ -2,16 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h1.likes-header {
-  position: relative;
-  top: 10px;
-  left: 30px;
+  padding-top: 100px;
+  padding-left: 150px;
   font-size: 30px;
   padding-bottom: 20px;
 }
 
 ul.likes {
   background: #DCDCDF;
-  margin: 0 20px 0 140px;
+  margin: 0 40px 0 160px;
   padding: 10px;
 }
 

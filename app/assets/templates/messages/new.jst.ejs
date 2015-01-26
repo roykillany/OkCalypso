@@ -1,8 +1,8 @@
-<h1>Send a Message ^_^V</h1>
+<h1 class="new-messages-header">Send a Message ^_^V</h1>
 
 <form id="new-message">
   <input type="hidden" name="message[sender_id]" value="<%= OkStupid.currentUser.id %>">
-  <label>Send to:
+  <label class="new-msg-receiver">Send to:
     <select id="sendee" name="message[receiver_id]">
 
     <% users.each(function(user){ %>
@@ -14,15 +14,14 @@
     </select>
   </label>
 
-  <label>
+  <label class="new-msg-title">
     Title
     <input class="msg-title" type="text" name="message[title]" value="">
   </label>
 
-  <label>
-    Body
-    <textarea class="msg-body" name="message[body]" rows="8" cols="40" value="Say hello!"></textarea>
+  <label class="new-msg-body">
+    <textarea class="msg-body" name="message[body]" rows="30" cols="130" value="Say hello!" placeholder="Say hello!"></textarea>
   </label>
 
-  <input type="submit" class="submit" value="Send!"></button>
+  <input type="submit" class="submit new-msg hvr-grow-shadow" value="Send!"></button>
 </form>
