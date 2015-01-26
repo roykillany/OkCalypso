@@ -45,6 +45,7 @@ h1.title {
   position: relative;
   height: 73px;
   /*display: block;*/
+  z-index: 2;
 }
 
 a.title {
@@ -97,6 +98,7 @@ nav.sign-outs {
 
 .sign-ins a:hover {
   color: #fff;
+  cursor: pointer;
 }
 
 h1.title ~ h2 {
@@ -117,6 +119,7 @@ nav.sidebar {
   width: 120px;
   background: #BDBDBD;
   height: 700px;
+  z-index: 1;
 }
 
 nav.sidebar a {
