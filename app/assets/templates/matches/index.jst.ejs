@@ -3,12 +3,14 @@
 <ul class="matches group js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": "li" }'>
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
-      <li><a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape('image_url') %>" alt="<%= match.matchee().escape('username') %>" /></a><h5><% if(match.get("match_percent") > 90){ %>
-        <i class="fa fa-heart-o hvr-pulse hvr-radial-in"></i>
-        <% } %><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a><%= match.escape("match_percent") %>% Match</h5></li>
+      <li class="hvr-reveal"><a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape('image_url') %>" alt="<%= match.matchee().escape('username') %>" /></a><h5><% if(match.get("match_percent") > 90){ %>
+        <i class="fa fa-heart-o hvr-pulse hvr-radial-in fa-3x"></i>
+        <% } %><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a> <%= match.escape("match_percent") %>% Match</h5>
+      </li>
     <% }) %>
   <% } else { %>
-    <strong>You don't have any matches. You will die alone. Goodbye. Beepboop.</strong><br>
-    <strong>Please answer more questions to start getting matches!</strong>
+    <strong>You have only answered <%= OkStupid.currentUser.get("answered_questions") %> questions.
+    Please answer at least <%= 10 - OkStupid.currentUser.get("answered_questions") %>
+    more to start getting matches!</strong>
   <% } %>
 </ul>
