@@ -48,7 +48,7 @@
     <% } %>
 
     <h4>I'm really good at <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="skills" data-field='<%= profile.escape("skills") %>'></i><% } %></h4>
-    <% if(profile.escape("skill") === ""){ %>
+    <% if(profile.escape("skills") === ""){ %>
       <p class='skills'><i>Go on, brag a little (or a lot). We won’t judge.</i></p>
     <% } else { %>
       <p class='skills'><%= profile.escape("skills") %></p>

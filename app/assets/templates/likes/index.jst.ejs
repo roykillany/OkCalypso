@@ -1,9 +1,12 @@
-<h1>Your Likes</h1>
+<h1 class="likes-header">Your Likes</h1>
 
 <ul class="likes js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".likes" }'>
   <% likes.each(function(like){ %>
-    <li class="likes"><img src="<%= like.likee().escape("image_url") %>" alt="thumb" /><a href="#profiles/<%= like.likee().get("id") %>"><%= like.likee().escape("username") %></a>
-
-    </li>
+    <li class="likes hvr-overline-from-right"><a href="#profiles/<%= like.likee().get('id') %>" class="item-link">
+      <img src="<%= like.likee().escape("image_url") %>" alt="thumb" />
+      <a class="likee-name" href="#profiles/<%= like.likee().get("id") %>">
+      <%= like.likee().escape("username") %>
+      </a>
+    </a></li>
   <% }) %>
 </ul>

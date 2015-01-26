@@ -1,10 +1,10 @@
-<h1>Questions</h1>
+<h1 class="questions-header">Questions</h1>
 
 <ul class="questions">
   <% if(questions.length !== 0){ %>
   <% questions.each(function(question){ %>
     <% if(!question.get("answered_q")){ %>
-    <li class="questions group">
+    <li class="questions group hvr-border-fade">
     <h4 style="padding-left: 5px;"><%= question.escape("prompt") %></h4>
     <form id="<%= question.escape('id') %>">
       <% question.answers().each(function(answer){ %>

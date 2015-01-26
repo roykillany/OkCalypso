@@ -1,16 +1,33 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-ul {
+h1.messages-header {
+  position: relative;
+  top: 10px;
+  left: 30px;
+  font-size: 30px;
+}
+
+ul.messages {
   list-style: none;
+  margin-left: 160px;
+  margin-right: 40px;
+  background: #DCDCDF;
+  padding: 20px;
 }
 
 ul.messages ul.sent-msg {
+  list-style: none;
   padding: 5px 0 5px 0;
+  margin-right: 40px;
+  margin-left: 30px;
 }
 
 ul.messages ul.received-msg {
+  list-style: none;
   padding: 5px 0 5px 0;
+  margin-right: 40px;
+  margin-left: 30px;
 }
 
 ul li.msg {
@@ -19,4 +36,9 @@ ul li.msg {
 
 form#new-message {
   display: block;
+}
+
+h4.sent-msg-header, h4.received-msg-header {
+  font-size: 20px;
+  margin: 0 0 10px 0;
 }
