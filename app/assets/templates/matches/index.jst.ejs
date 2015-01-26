@@ -8,6 +8,7 @@
         <% } %><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a><%= match.escape("match_percent") %>% Match</h5></li>
     <% }) %>
   <% } else { %>
-    <strong>You don't have any matches. You will die alone. Goodbye. Beepboop.</strong>
+    <strong>You don't have any matches. You will die alone. Goodbye. Beepboop.</strong><br>
+    <strong>Please answer more questions to start getting matches!</strong>
   <% } %>
 </ul>

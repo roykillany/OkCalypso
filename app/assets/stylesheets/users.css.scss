@@ -143,3 +143,35 @@ a.next-page {
   border-radius: 3px;
   color: #fff;
 }
+
+ul.search-results {
+  margin-left: 140px;
+  margin-right: 20px;
+  background: #DCDCDF;
+  padding: 0;
+}
+
+div.search-input {
+  margin-left: 140px;
+}
+
+li.searches {
+  margin: 5px;
+}
+
+li.searches h3 {
+  padding: 3px;
+  margin: 2px;
+  border-bottom: 3px solid #fff;
+}
+
+li.searches h3 a {
+  bottom: 8px;
+  right: 7px;
+  position: relative;
+}
+
+div.user-search-header {
+  padding-left: 140px;
+  padding-top: 83px;
+}

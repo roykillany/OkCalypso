@@ -299,3 +299,7 @@ form.sign-in button {
 .loading {
   display: none;
 }
+
+img.user-search-result {
+  width: 100px;
+}
