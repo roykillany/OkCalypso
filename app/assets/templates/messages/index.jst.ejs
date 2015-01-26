@@ -7,6 +7,7 @@
     <% if(msg.get("receiver_id") === OkStupid.currentUser.id){ %>
       <% sent = true %>
       <ul class="received-msg">
+        <img src="<%= msg.sender().escape("image_url") %>" alt="" />
         <li class="msg"><strong>From</strong>: <a href="#profiles/<%= msg.sender().get("id") %>"><%= msg.sender().escape("username") %></a></li>
         <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
         <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
@@ -25,6 +26,7 @@
     <% if(msg.get("sender_id") === OkStupid.currentUser.id){ %>
       <% received = true %>
       <ul class="sent-msg">
+        <img src="<%= msg.receiver().escape("image_url") %>" alt="" />
         <li class="msg"><strong>To</strong>: <a href="#profiles/<%= msg.receiver().get("id") %>"><%= msg.receiver().escape("username") %></a></li>
         <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
         <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
