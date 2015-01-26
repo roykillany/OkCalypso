@@ -1,5 +1,5 @@
 OkStupid.Models.Message = Backbone.Model.extend({
-  urlRoot: "api/messages",
+  urlRoot: "api/users/user_id/messages",
 
   parse: function(jsonResp){
     if(jsonResp.sender){

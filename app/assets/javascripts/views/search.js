@@ -23,6 +23,7 @@ OkStupid.Views.Search = Backbone.View.extend({
 
   renderSearchResults: function(){
     var container = this.$(".search-results");
+    container.empty();
 
     this.searchResults.each(function(model){
       var template;

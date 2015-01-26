@@ -5,12 +5,13 @@ OkStupid::Application.routes.draw do
     resources :searches, only: [:index]
     resources :users, only: [:index, :show, :new, :create, :update, :guest_create] do
       resources :user_answers
+      resources :messages, only: [:create]
     end
     post '/guestuser', to: 'users#guest_create'
     resource :detail, only: [:show]
     resource :session, only: [:show, :create, :new, :destroy]
     resources :profiles, only: [:index, :show, :destroy, :update]
-    resources :messages, only: [:show, :index, :create]
+    resources :messages, only: [:index]
     resources :preferences, only: [:index, :create, :update]
     resources :matches, only: [:show, :index, :create]
     resources :likes, only: [:show, :create, :index, :destroy]
