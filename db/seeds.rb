@@ -427,7 +427,7 @@ UserAnswer.create!([
 
 # Creates other seed accounts
 
-9.times do
+19.times do
   seed_username = Faker::Internet.user_name
   while User.all.pluck("username").include?(seed_username)
     seed_username = Faker::Internet.user_name
@@ -446,7 +446,7 @@ UserAnswer.create!([
     seed_country, zip_code: seed_zip, avatar: seed_avatar})
 end
 
-9.times do |i|
+19.times do |i|
   id = i + 2
 
   Profile.create!({

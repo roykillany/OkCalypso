@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       p "SAVED!"
       log_in(@user)
-      render json: @user
+      render :show
     else
       p "NOT SAVED!"
       flash.now[:errors] = @user.errors.full_messages
