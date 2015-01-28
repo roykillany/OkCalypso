@@ -1,39 +1,37 @@
-TODO:
-  1. Make Match Show Page
-  2. Fix answered Question visibility
-  2. Add User Like functionality
-  3. Make User Like Show Page
+# OkCalypso
 
-Features
-  user auth
-  switching user profiles from public to private
-  friending
-  liking
-  blogs
-  matchmaking questionnaire
-  uploading photos
-  viewing matches
-  messaging
+## What is it?
+OkCalypso is a dating web-application inspired by OkCupid.
+  * Customized data serialization with JBuilder to allow for rich content per view
+  * Integrated OmniAuth and Filepicker technologies
+  * Custom parse method allowed for greater control of outgoing data
 
-MVP
-  sign up
-  sign in
-  home page
-  user profile
-  MM questions
-  matches
-  sign out
+## Features
+  * user auth
+  * Facebook omniauth
+  * avatar upload
+  * matchmaking questionnaire
+  * matchmaking
+  * liking
+  * user search
+  * messaging
 
-Models
-  User
-  Liked Users
-  User Answers /w Questions
-  Questions
-  Answers
-  Messages
-  Blogs
+## Technologies Used
+  * Ruby on Rails
+  * Backbone.js
+  * HTML5
+  * CSS3
+  * Git
+  * AWS
+  * jQuery
+  * AJAX
+  * OmniAuth
+  * Filepicker
+  * JBuilder
 
-Schema
-  User
-    username
-    email
+## TODO:
+  1. Match output sorting
+  2. Switching user profiles from public to private
+  3. Blogs
+  4. Uploading multiple pictures
+  5. Google+ OmniAuth
