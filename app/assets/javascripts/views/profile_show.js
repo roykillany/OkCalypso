@@ -107,14 +107,14 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     event.preventDefault();
     var that = this;
 
-    console.log({ avatar: avatar });
+    console.log({ avatar: OkStupid.currentUser._avatar });
     $.ajax({
       type: "PATCH",
       url: "/api/users/" + OkStupid.currentUser.id,
       dataType: "json",
-      data: OkStupid.currentUser,
+      data: { user: { avatar: OkStupid.currentUser._avatar } },
       success: function(){
-        that.render();
+        OkStupid.currentUser.fetch();
       }
     })
   },
@@ -125,8 +125,11 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     var reader = new FileReader();
 
     reader.onloadend = function(){
-      OkStupid.currentUser.set("avatar", this.result);
-      that._updatePreview(this.result);
+      that._updatePreview(reader.result);
+      OkStupid.currentUser._avatar = reader.result;
+      console.log(this.result)
+      console.log(OkStupid.currentUser)
+
     }
 
     if(imageFile){

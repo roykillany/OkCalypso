@@ -3,7 +3,6 @@ OkStupid::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :searches, only: [:index]
-    post '/api/users/', to: 'users#update'
     resources :users, only: [:index, :show, :new, :create, :update, :guest_create] do
       resources :user_answers
       resources :messages, only: [:create]

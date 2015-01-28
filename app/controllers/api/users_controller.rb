@@ -103,9 +103,11 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    p user_params
+    @user.update!(user_params)
     if @user.save
-      render json: @user
+      p @user
+      render json: {}
     else
       flash.now[:errors] = @user.errors.full_messages
       render :edit, status: 422

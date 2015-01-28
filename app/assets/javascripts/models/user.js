@@ -10,8 +10,8 @@ OkStupid.Models.User = Backbone.Model.extend({
   },
 
   toJSON: function(){
-    var json = { user: _.clone(this.attributes) };
-    return json;
+    var attributes = _.clone(this.attributes);
+    return { user: attributes }
   },
 
   profile: function(){
