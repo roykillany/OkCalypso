@@ -7,10 +7,12 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
 
   events: {
     "blur textarea.profile-edit": "editProfile",
-    "click i.fa-pencil-square-o": "showEdit",
+    "click i.profile": "showEdit",
     "click button.like": "likeUser",
     "click button.unlike": "unlikeUser",
-    "click button.change-avatar": "changeAvatar"
+    "click button.change-avatar": "changeAvatar",
+    "change input.change-avatar": "fileSelect",
+    "click i.avatar-edit": "showAvatarEdit"
   },
 
   render: function(){
@@ -24,11 +26,8 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
 
   showEdit: function(event){
     event.preventDefault();
-    console.log(event);
-    console.log(event.target);
-    console.log($(event.currentTarget).data("field"));
 
-    var type = event.currentTarget.id
+    type = event.currentTarget.id
     var id = $(event.currentTarget).data("field");
     $input = $("<textarea class='profile-edit' rows='8' cols='40' name='profile[" + type + "]'>" + id + "</textarea>")
     $("p." + type).html($input);
@@ -43,7 +42,24 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     var formData = $("form.profile-edit").serializeJSON();
     this.model.save(formData, {
       success: function(){
-        that.render();
+          function replaceAll(find, replace, str)
+        {
+          while( str.indexOf(find) > -1)
+          {
+            str = str.replace(find, replace);
+          }
+          return str;
+        };
+
+        var txt = $("textarea.profile-edit").val();
+        txt = replaceAll("\r\n", "<br />", txt);
+        txt = replaceAll("\n", "<br />", txt);
+        txt = replaceAll("\r", "<br />", txt);
+        txt = replaceAll("\t", "&nbsp;", txt);
+        txt = replaceAll("  ", " &nbsp;", txt);
+        $("textarea.profile-edit").remove();
+        console.log(txt)
+        $("p." + type).append(txt).append("<div>" + txt + "</div>");
       }
     })
   },
@@ -90,21 +106,42 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
   changeAvatar: function(event){
     event.preventDefault();
     var that = this;
-    var formData = $("form#change-avatar").serializeJSON().user;
 
-    $.ajax( '/api/users/' + OkStupid.currentUser.id, {
-      type: 'GET',
-      dataType: 'json',
-      contentType: false,
-      data: formData,
-      success: function(resp){
-        console.log(resp);
-        console.log(formData);
+    console.log({ avatar: avatar });
+    $.ajax({
+      type: "PATCH",
+      url: "/api/users/" + OkStupid.currentUser.id,
+      dataType: "json",
+      data: OkStupid.currentUser,
+      success: function(){
         that.render();
-      },
-      error: function(){
-        alert("BEEPBOOP THAT DIDN'T WORK")
       }
-    });
+    })
+  },
+
+  fileSelect: function(event){
+    var that = this;
+    var imageFile = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      OkStupid.currentUser.set("avatar", this.result);
+      that._updatePreview(this.result);
+    }
+
+    if(imageFile){
+      reader.readAsDataURL(imageFile);
+    } else {
+      this._updatePreview("");
+    }
+  },
+
+  showAvatarEdit: function(event){
+    console.log("SUNK MY BATTLESHIP")
+    $("form#change-avatar").removeClass("hidden");
+  },
+
+  _updatePreview: function(imageData){
+    this.$el.find("#profile-image-preview").attr("src", imageData);
   }
 })

@@ -12,6 +12,7 @@ ul.likes {
   background: #DCDCDF;
   margin: 0 40px 0 160px;
   padding: 10px;
+  list-style-type: none;
 }
 
 ul.likes img {
@@ -69,4 +70,8 @@ li.likes img {
 a.item-link {
   width: 800px;
   height: 100px;
+}
+
+em {
+  font-size: 10px;
 }

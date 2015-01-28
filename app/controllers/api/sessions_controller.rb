@@ -1,4 +1,6 @@
 class Api::SessionsController < ApplicationController
+  wrap_parameters false
+
   def show
     if current_user
       render :show
@@ -30,6 +32,12 @@ class Api::SessionsController < ApplicationController
     user = User.find_or_create_by_auth_hash(auth_hash)
     log_in(user)
     redirect_to root_url
+  end
+
+  def update
+    p params
+    current_user.update(params)
+    render json: {}
   end
 
   protected

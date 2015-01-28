@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  wrap_parameters false
+
   def index
     @users = User.all
   end

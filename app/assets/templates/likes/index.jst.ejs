@@ -1,6 +1,10 @@
 <h1 class="likes-header">Your Likes</h1>
 
 <ul class="likes js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".likes" }'>
+  <% if(likes.length === 0){ %>
+    <li>You haven't liked anyone <strong>yet</strong> <em>(wink-wink-nudge-nudge)</em></li>
+  <% } %>
+  <strong></strong>
   <% likes.each(function(like){ %>
     <li class="likes hvr-overline-from-right"><a href="#profiles/<%= like.likee().get('id') %>" class="item-link">
       <img src="<%= like.likee().escape("image_url") %>" alt="thumb" />

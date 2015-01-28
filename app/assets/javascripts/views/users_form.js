@@ -6,7 +6,8 @@ OkStupid.Views.UsersForm = Backbone.View.extend({
   },
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "change input#user_avatar": "fileSelect"
   },
 
   render: function(){
@@ -25,12 +26,13 @@ OkStupid.Views.UsersForm = Backbone.View.extend({
     console.log(userData);
     var that = this;
 
-    this.model.set(userData);
-    this.model.save({}, {
+    this.model.save(userData, {
       success: function(){
+        console.log(that.model);
         OkStupid.currentUser.fetch({
           success: function(){
             OkStupid.users.add(that.model, { merge: true });
+            delete that.model.attributes.avatar;
             Backbone.history.navigate("", { trigger: true });
           }
         });
@@ -39,5 +41,28 @@ OkStupid.Views.UsersForm = Backbone.View.extend({
         alert("You're not foolin' anyone skippy!");
       }
     });
+  },
+
+  fileSelect: function(event){
+    var that = this;
+    var imageFile = event.currentTarget.files[0];
+    console.log(imageFile);
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      that.model.set("avatar", this.result);
+      console.log(that.model);
+      that._updatePreview(this.result);
+    }
+
+    if(imageFile){
+      reader.readAsDataURL(imageFile);
+    } else {
+      this._updatePreview("");
+    }
+  },
+
+  _updatePreview: function(imageData){
+    this.$el.find("#post-image-preview").attr("src", imageData);
   }
 });

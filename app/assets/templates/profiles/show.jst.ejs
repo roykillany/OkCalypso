@@ -1,39 +1,47 @@
 <% if(profile.get("is_current_user")){ %>
-  <h3 class="your-profile-show-header">Your Profile</h3>
-<% } else { %>
-  <h3 class="profile-show-header"><%= profile.user().escape("username") %></h3>
-  <div class="bootins">
-    <a class="messaging" href="/#message/new"><i class="fa fa-comment"></i> Send a Message</a>
-    <form class='unlike <% if(profile.escape("current_user_liked") === "false"){ %>
-      clicked
-      <% } %>'>
-      <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
-      <button class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
-    </form>
-    <form class='like <% if(profile.escape("current_user_liked") === "true"){ %>
-      clicked
-      <% } %>'>
-      <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
-      <button class="like" name="button"><i class="fa fa-star-o"></i> Like</button>
-    </form>
-  </div>
-<% } %>
-
-  <div id="profile-picture">
-    <img src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
-    <!-- <% if(profile.get("is_current_user")){ %>
-      <i class="fa fa-pencil-square-o avatar-edit fa-3x"></i>
-      <form id="change-avatar" data-remote="true" enctype="multipart/form-data" name="avatar">
+  <h3 class="your-profile-show-header">
+    <div id="profile-picture">
+    <label>
+    <img id="profile-image-preview" src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
+    Your Profile
+    <% if(profile.get("is_current_user")){ %>
+      <i class="fa fa-pencil-square-o avatar-edit fa-3x hidden"></i>
+    <% } %>
+    </label>
+    <% if(profile.get("is_current_user")){ %>
+      <form class="hidden" id="change-avatar" data-remote="true" enctype="multipart/form-data" name="avatar">
         <input class="change-avatar" type="file" name="user[avatar]">
         <button name="button" class="change-avatar" value="Submit">Submit</button>
       </form>
-    <% } %> -->
-  </div>
-
-
+    <% } %>
+    </div>
+  </h3>
+<% } else { %>
+  <h3 class="profile-show-header">
+    <div id="profile-picture" style="width: 500px;">
+      <img id="profile-image-preview" src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
+      <%= profile.user().escape("username") %>
+    </div>
+    <div class="bootins">
+      <a class="messaging" href="/#message/new"><i class="fa fa-comment"></i> Send a Message</a>
+      <form class='unlike <% if(profile.escape("current_user_liked") === "false"){ %>
+        clicked
+        <% } %>'>
+        <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
+        <button class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
+      </form>
+      <form class='like <% if(profile.escape("current_user_liked") === "true"){ %>
+        clicked
+        <% } %>'>
+        <input type="hidden" name="like[likee_id]" value='<%= profile.get("user_id") %>'>
+        <button class="like" name="button"><i class="fa fa-star-o"></i> Like</button>
+      </form>
+    </div>
+  </h3>
+<% } %>
 
   <form class="profile-edit">
-    <h4>My self-summary <% if(profile.get("is_current_user")){ %><i class='fa fa-pencil-square-o' id="self_sum" data-field='<%= profile.escape("self_sum") %>'></i><% } %></h4>
+    <h4>My self-summary <% if(profile.get("is_current_user")){ %><i class='fa fa-pencil-square-o profile' id="self_sum" data-field='<%= profile.escape("self_sum") %>'></i><% } %></h4>
     <% if(profile.escape("self_sum") === ""){ %>
       <p class='self_sum'><i>Write a little about yourself. Just a paragraph will do.</i></p>
     <% } else { %>
@@ -41,14 +49,14 @@
     <% } %>
 
 
-    <h4>What I'm doing with my life <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="life_sum" data-field='<%= profile.escape("life_sum") %>'></i><% } %></h4>
+    <h4>What I'm doing with my life <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="life_sum" data-field='<%= profile.escape("life_sum") %>'></i><% } %></h4>
     <% if(profile.escape("life_sum") === ""){ %>
       <p class='life_sum'><i>Don’t overthink this one; tell us what you’re doing day-to-day.</i></p>
     <% } else { %>
       <p class='life_sum'><%= profile.escape("life_sum") %></p>
     <% } %>
 
-    <h4>I'm really good at <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="skills" data-field='<%= profile.escape("skills") %>'></i><% } %></h4>
+    <h4>I'm really good at <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="skills" data-field='<%= profile.escape("skills") %>'></i><% } %></h4>
     <% if(profile.escape("skills") === ""){ %>
       <p class='skills'><i>Go on, brag a little (or a lot). We won’t judge.</i></p>
     <% } else { %>
@@ -56,7 +64,7 @@
     <% } %>
 
 
-    <h4>Favorite books, movies, shows, music, and food <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="favorites" data-field='<%= profile.escape("favorites") %>'></i><% } %></h4>
+    <h4>Favorite books, movies, shows, music, and food <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="favorites" data-field='<%= profile.escape("favorites") %>'></i><% } %></h4>
     <% if(profile.escape("favorites") === ""){ %>
       <p class='favorites'><i>Help your potential matches find common interests.</i></p>
     <% } else { %>
@@ -64,7 +72,7 @@
     <% } %>
 
 
-    <h4>The six things I could never do without <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="needs" data-field='<%= profile.escape("needs") %>'></i><% } %></h4>
+    <h4>The six things I could never do without <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="needs" data-field='<%= profile.escape("needs") %>'></i><% } %></h4>
     <% if(profile.escape("needs") === ""){ %>
       <p class='needs'><i>Think outside the box. Sometimes the little things can say a lot.</i></p>
     <% } else { %>
@@ -72,7 +80,7 @@
     <% } %>
 
 
-    <h4>I spend a lot of time thinking about <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="thoughts" data-field='<%= profile.escape("thoughts") %>'></i><% } %></h4>
+    <h4>I spend a lot of time thinking about <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="thoughts" data-field='<%= profile.escape("thoughts") %>'></i><% } %></h4>
     <% if(profile.escape("thoughts") === ""){ %>
       <p class='thoughts'><i>Global warming, lunch, or your next vacation… it’s all fair game.</i></p>
     <% } else { %>
@@ -80,7 +88,7 @@
     <% } %>
 
 
-    <h4>On a typical Friday night I am <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="fun_acts" data-field='<%= profile.escape("fun_acts") %>'></i><% } %></h4>
+    <h4>On a typical Friday night I am <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="fun_acts" data-field='<%= profile.escape("fun_acts") %>'></i><% } %></h4>
     <% if(profile.escape("fun_acts") === ""){ %>
       <p class='fun_acts'><i>Netflix and takeout, or getting your party on — how do you let loose?</i></p>
     <% } else { %>
@@ -88,7 +96,7 @@
     <% } %>
 
 
-    <h4>You should message me if <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o" id="msg_reason" data-field='<%= profile.escape("msg_reason") %>'></i><% } %></h4>
+    <h4>You should message me if <% if(profile.get("is_current_user")){ %><i class="fa fa-pencil-square-o profile" id="msg_reason" data-field='<%= profile.escape("msg_reason") %>'></i><% } %></h4>
     <% if(profile.escape("msg_reason") === ""){ %>
       <p class='msg_reason'><i>Offer a few tips to help matches win you over.</i></p>
     <% } else { %>

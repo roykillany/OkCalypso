@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tinymce.min
+//= require masonry.pkgd.min
 //= require underscore
 //= require backbone
 //= require ok_stupid

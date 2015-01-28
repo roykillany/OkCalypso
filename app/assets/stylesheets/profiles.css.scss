@@ -27,10 +27,8 @@ button.like {
   background: #C3C3DA;
   padding: 3px;
   border-radius: 3px;
+  margin-top: 10px;
   float: right;
-  position: relative;
-  top: 50px;
-  left: 120px;
 }
 
 button.unlike {
@@ -38,10 +36,8 @@ button.unlike {
   padding: 3px;
   border-radius: 3px;
   color: #fff;
+  margin-top: 10px;
   float: right;
-  position: relative;
-  top: 50px;
-  left: 120px;
 }
 
 button.like:hover {
@@ -67,10 +63,7 @@ a.messaging {
   padding: 4px;
   border-radius: 3px;
   color: #fff;
-  float: right;
-  position: relative;
-  right: 20px;
-  top: 20px;
+  margin-bottom: 10px;
 }
 
 a.messaging:hover {
@@ -114,24 +107,46 @@ img {
 }
 
 h3.profile-show-header {
-  width: 300px;
-  height: 40px;
   position: relative;
-  left: 275px;
-  top: -600px;
-  font-size: 50px;
 }
 
 h3.your-profile-show-header {
-  width: 300px;
-  height: 40px;
+
+}
+
+h3.your-profile-show-header label {
   position: relative;
-  left: 161px;
-  top: 120px;
-  font-size: 30px;
 }
 
 i.avatar-edit {
+  position: absolute;
+  left: 41%;
+  bottom: 74px;
+  display: none;
+}
 
+img#profile-image-preview:hover ~ i.avatar-edit {
+  display: inline;
+}
 
+i.avatar-edit:hover {
+  display: inline;
+}
+
+form#change-avatar {
+  padding-left: 140px;
+}
+
+form#change-avatar.hidden {
+  display: none;
+}
+
+div.bootins {
+  position: absolute;
+  right: 20px;
+  top: 97px;
+}
+
+div#profile-picture {
+  z-index: -1;
 }
