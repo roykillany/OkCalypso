@@ -5,10 +5,14 @@ h1.match-header {
   padding-top: 100px;
   padding-left: 150px;
   font-size: 30px;
+  padding-bottom: 10px;
 }
 
 i.fa.fa-heart-o {
   color: #f00;
+  position: absolute;
+  bottom: 228px;
+  left: 6px;
 }
 
 li:hover i.hvr-pulse, .hvr-pulse {
@@ -22,7 +26,7 @@ li:hover i.hvr-pulse, .hvr-pulse {
   -moz-osx-font-smoothing: grayscale;
 }
 
-li:hover ~ i.hvr-pulse, .hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
+li.hvr-reveal:hover i.hvr-pulse, .hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
   -webkit-animation-name: hvr-pulse;
   animation-name: hvr-pulse;
   -webkit-animation-duration: 1s;
@@ -58,7 +62,7 @@ li:hover ~ i.hvr-pulse, .hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
 }
 
 ul.matches {
-  margin: 20px 40px 20px 160px;
+  margin: 5px 40px 20px 160px;
   background: #DCDCDF;
   padding: 20px;
 }
@@ -134,4 +138,22 @@ form.clicked {
 
 button.like, button.unlike {
   position: relative;
+}
+
+li.hvr-reveal button.unlike {
+  background: #436CE8;
+  border-bottom-right-radius: 0px;
+}
+
+li.hvr-reveal button.like {
+  border-bottom-right-radius: 0px;
+}
+
+label.sort {
+  font-size: 12px;
+  margin-left: 40px;
+}
+
+a.match-name {
+  font-size: 19px;
 }

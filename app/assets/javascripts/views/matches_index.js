@@ -8,6 +8,7 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
   events: {
     "click button.like": "likeUser",
     "click button.unlike": "unlikeUser",
+    "change select#sorting-hat": "sortMatches"
   },
 
   render: function(){
@@ -83,5 +84,11 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
         $("form#" + id + ".like").removeClass("clicked");
       }
     })
+  },
+
+  sortMatches: function(event){
+    event.preventDefault();
+
+    console.log(event.currentTarget);
   }
 });

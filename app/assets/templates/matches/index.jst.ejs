@@ -1,11 +1,21 @@
 <h1 class="match-header">Your Matches</h1>
 
+<label class="sort">Sort By:
+<select id="sorting-hat" name="sort">
+  <option value="username">Username</option>
+  <option value="match_percent">High Match %</option>
+  <option value="match_percent">Low Match %</option>
+  <option value="liked">Liked</option>
+</select>
+</label>
+
 <ul class="matches group js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": "li" }'>
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
       <li class="hvr-reveal"><a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape('image_url') %>" alt="<%= match.matchee().escape('username') %>" /></a><h5><% if(match.get("match_percent") > 90){ %>
         <i class="fa fa-heart-o hvr-pulse hvr-radial-in fa-3x"></i>
-        <% } %><a href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a> <%= match.escape("match_percent") %>% Match</h5>
+        <% } %><a class="match-name" href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a><br>
+        <strong><%= match.escape("match_percent") %>% Match</strong></h5>
         <form id="<%= match.get("matchee_id") %>" class='unlike group <% if(match.escape("current_user_liked") === "false"){ %>
           clicked
           <% } %>'>

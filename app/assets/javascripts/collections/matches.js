@@ -17,5 +17,9 @@ OkStupid.Collections.Matches = Backbone.Collection.extend({
       })
     }
     return match;
+  },
+
+  comparator: function(match){
+    return match.matchee().escape("username");
   }
 });
