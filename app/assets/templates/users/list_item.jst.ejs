@@ -1,5 +1,5 @@
 <% console.log("list_item template") %>
-<li class="searches">
-  <h3><a href="#profiles/<%= model.id %>"><img class="user-search-result" src="<%= model.escape('image_url') %>" alt="<%= model.escape('username') %>" /></a>
-     <a href="#profiles/<%= model.id %>"><%= model.escape("username") %></a></h3>
+<li class="searches hvr-overline-from-right">
+  <a href="#profiles/<%= model.id %>"><img class="user-search-result" src="<%= model.escape('image_url') %>" alt="<%= model.escape('username') %>" /></a>
+  <a href="#profiles/<%= model.id %>"><%= model.escape("username") %></a>
 </li>

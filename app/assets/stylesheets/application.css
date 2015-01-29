@@ -304,7 +304,8 @@ form.sign-in button {
 }
 
 img.user-search-result {
-  width: 100px;
+  width: 128px;
+  margin: 0;
 }
 
 @-webkit-keyframes hvr-wobble-horizontal {
