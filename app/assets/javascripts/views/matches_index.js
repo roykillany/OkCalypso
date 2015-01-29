@@ -3,6 +3,7 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.createMatches();
+    this.listenTo(this.collection, "sort", this.render);
   },
 
   events: {
@@ -88,7 +89,37 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   sortMatches: function(event){
     event.preventDefault();
+    var option = $("form.sorting option:selected").val()
+    var menu = $("select#sorting-hat")
 
-    console.log(event.currentTarget);
+    switch(option){
+      case "username":
+        menu.children(".username").attr("selected", "selected")
+        this.collection.comparator = "username";
+        this.collection.sort();
+        break;
+      case "high-match-percent":
+        menu.children(".high-match-percent").attr("selected", "selected")
+        this.collection.comparator = function(a, b){
+          return a.get("match_percent") < b.get("match_percent") ? 1 : -1;
+        };
+        this.collection.sort();
+        break;
+      case "low-match-percent":
+        menu.children(".low-match-percent").attr("selected", "selected")
+        this.collection.comparator = "match_percent";
+        this.collection.sort();
+        break;
+      case "liked":
+        this.collection.comparator = function(a, b){
+          return b.get("current_user_liked") ? 1 : -1;
+        };
+        this.collection.sort();
+        break;
+      case "not-liked":
+        this.collection.comparator = "current_user_liked"
+        this.collection.sort();
+        break;
+    }
   }
 });

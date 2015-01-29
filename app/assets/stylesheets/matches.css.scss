@@ -143,10 +143,14 @@ button.like, button.unlike {
 li.hvr-reveal button.unlike {
   background: #436CE8;
   border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 li.hvr-reveal button.like {
   border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 label.sort {
@@ -156,4 +160,8 @@ label.sort {
 
 a.match-name {
   font-size: 19px;
+}
+
+h5.match a, h5.match strong {
+  padding-left: 7px
 }
