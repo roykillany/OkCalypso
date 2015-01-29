@@ -12,5 +12,9 @@ OkStupid.Collections.SearchResults = Backbone.Collection.extend({
     this._page = resp._page;
 
     return resp.results;
+  },
+
+  comparator: function(user){
+    return user.escape("username");
   }
 })

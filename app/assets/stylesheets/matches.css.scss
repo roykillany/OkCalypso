@@ -126,3 +126,12 @@ li h5 {
  transform: translateY(0);
  border-width: 4px;
 }
+
+form.clicked {
+  display: none;
+  position: relative;
+}
+
+button.like, button.unlike {
+  position: relative;
+}

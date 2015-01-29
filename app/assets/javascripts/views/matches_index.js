@@ -5,8 +5,12 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
     this.createMatches();
   },
 
+  events: {
+    "click button.like": "likeUser",
+    "click button.unlike": "unlikeUser",
+  },
+
   render: function(){
-    console.log(this.collection)
     var content = this.template({
       matches: this.collection
     });
@@ -32,6 +36,51 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
             })
           }
         });
+      }
+    })
+  },
+
+  likeUser: function(event){
+    event.preventDefault();
+    var that = this;
+    var id = $(event.currentTarget).data("id")
+    var form = $("form#" + id + ".like")
+    var formData = form.serializeJSON().like;
+
+    var like = new OkStupid.Models.Like();
+
+    like.save(formData, {
+      success: function(){
+        OkStupid.likes.add(like, { merge: true });
+        console.log("liked!")
+        form.addClass("clicked");
+        $("form#" + id + ".unlike").removeClass("clicked");
+        OkStupid.matches.fetch({
+          success: function(){
+            that.render();
+          }
+        })
+      }
+    })
+  },
+
+  unlikeUser: function(event){
+    event.preventDefault();
+    var that = this;
+    var like_id = $(event.currentTarget).data("like-id");
+    var id = $(event.currentTarget).data("id")
+    var form = $("form#" + id + ".unlike");
+    var formData = form.serializeJSON().like;
+
+    OkStupid.likes.fetch({
+      success: function(){
+        console.log("unliked!")
+        var like = OkStupid.likes.get(like_id)
+
+        like.destroy();
+
+        form.addClass("clicked");
+        $("form#" + id + ".like").removeClass("clicked");
       }
     })
   }

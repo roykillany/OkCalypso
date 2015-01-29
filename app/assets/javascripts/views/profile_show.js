@@ -84,14 +84,11 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     event.preventDefault();
     var that = this;
     var formData = $("form.unlike").serializeJSON().like;
-    console.log(formData);
     var id = formData.likee_id;
-    console.log(id);
-    console.log(this.id);
 
     OkStupid.likes.fetch({
       success: function(){
-        console.log(OkStupid.likes);
+        console.log(that.model);
         var like = OkStupid.likes.get(that.model.get("like_id"))
         console.log(like)
 
@@ -100,7 +97,6 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
         $("form.unlike").addClass("clicked");
       }
     })
-    // var like = OkStupid.Collections.Likes.getOrFetch(id)
   },
 
   changeAvatar: function(event){
