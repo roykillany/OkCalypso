@@ -1,0 +1,30 @@
+<% if(matches.length > 0){ %>
+  <% matches.forEach(function(match){ %>
+    <li class="hvr-reveal matches" data-username="<%= match.matchee().escape("username") %>"
+      data-match-percent="<%= match.get("match_percent") %>" data-liked="<%= match.get("current_user_liked") %>">
+      <a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape('image_url') %>" alt="<%= match.matchee().escape('username') %>" /></a>
+      <h5 class="match"><% if(match.get("match_percent") > 90){ %>
+        <i class="fa fa-heart-o hvr-pulse hvr-radial-in fa-3x"></i>
+        <% } %><a class="match-name" href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a><br>
+        <strong><%= match.escape("match_percent") %>% Match</strong>
+      </h5>
+      <form id="<%= match.get("matchee_id") %>" class='unlike group <% if(match.escape("current_user_liked") === "false"){ %>
+          clicked
+          <% } %>'>
+          <input type="hidden" name="like[likee_id]" value='<%= match.get("matchee_id") %>'>
+          <button data-id="<%= match.get("matchee_id") %>" data-like-id="<%= match.get("like_id") %>" class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
+      </form>
+      <form id="<%= match.get("matchee_id") %>" class='like group <% if(match.escape("current_user_liked") === "true"){ %>
+          clicked
+          <% } %>'>
+          <input type="hidden" name="like[likee_id]" value='<%= match.get("matchee_id") %>'>
+          <button class="like" data-id="<%= match.get("matchee_id") %>" name="button"><i class="fa fa-star-o"></i> Like</button>
+      </form>
+    </li>
+  <% }) %>
+<% } else { %>
+  <strong>You have only answered <%= OkStupid.currentUser.get("answered_questions") %> questions.
+    Please answer at least <%= 10 - OkStupid.currentUser.get("answered_questions") %>
+    more to start getting matches!
+  </strong>
+<% } %>

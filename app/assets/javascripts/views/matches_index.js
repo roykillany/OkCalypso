@@ -3,7 +3,7 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.createMatches();
-    this.listenTo(this.collection, "sort", this.render);
+    this.listenTo(this.collection, "sort", this.renderMatches);
   },
 
   events: {
@@ -19,6 +19,16 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
     this.$el.html(content);
 
+    return this;
+  },
+
+  renderMatches: function(){
+    console.log("renderMatches")
+    var content = JST["matches/matches_list"]({
+      matches: this.collection
+    });
+
+    this.$("ul.matches").html(content);
     return this;
   },
 
@@ -94,19 +104,22 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
     switch(option){
       case "username":
-        menu.children(".username").attr("selected", "selected")
-        this.collection.comparator = "username";
+        menu.children(".username").attr("selected", true)
+        this.collection.comparator = function(a, b){
+          return a.matchee().escape("username") > b.matchee().escape("username") ? 1 : -1
+        }
         this.collection.sort();
+        console.log("sort by username")
         break;
       case "high-match-percent":
-        menu.children(".high-match-percent").attr("selected", "selected")
+        menu.children(".high-match-percent").attr("selected", "true")
         this.collection.comparator = function(a, b){
           return a.get("match_percent") < b.get("match_percent") ? 1 : -1;
         };
         this.collection.sort();
         break;
       case "low-match-percent":
-        menu.children(".low-match-percent").attr("selected", "selected")
+        menu.children(".low-match-percent").attr("selected", true)
         this.collection.comparator = "match_percent";
         this.collection.sort();
         break;
