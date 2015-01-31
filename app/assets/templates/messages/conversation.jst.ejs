@@ -1,7 +1,7 @@
 <% console.log(messages) %>
 <% messages.each(function(msg){ %>
   <% console.log(msg) %>
-  <ul class="received-msg hvr-reveal">
+  <ul class="correspondence hvr-reveal">
     <img src="<%= msg.sender().escape("image_url") %>" alt="" />
     <li class="msg"><strong>From</strong>: <a href="#profiles/<%= msg.sender().get("id") %>"><%= msg.sender().escape("username") %></a></li>
     <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
