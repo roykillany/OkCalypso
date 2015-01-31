@@ -480,11 +480,10 @@ class Api::UsersController < ApplicationController
 
   def generate_likes
     2.times do
-      user_id = User.all[rand(User.all.count)].id
-      p @guest.id
+      user_id = find_id
 
-      while User.all.pluck("id") == user_id || user_id == @guest.id
-        user_id = User.all[rand(User.all.count)].id
+      while Like.find_by({ liker_id: @guest.id, likee_id: user_id })
+        find_likee_id
       end
 
       Like.create!({ liker_id: @guest.id, likee_id: user_id})
@@ -492,20 +491,60 @@ class Api::UsersController < ApplicationController
   end
 
   def generate_messages
-    
-    # 3.times do
-    #   user_
+    titles = [
+      "Hey",
+      "Hi",
+      "hiiii",
+      "Hello",
+      ":D",
+      "Hai",
+      "Howdy",
+      "Sup",
+      "Yo",
+      "Ay guhh",
+      "I'm a fish"
+    ]
 
-      # Message.create!({
-      #   sender_id: ,
-      #   receiver_id: ,
-      #   title: ,
-      #   body: "Hey, you're cute! Are you into #{Faker::Company.catch-phrase} by any
-      #   chance? I'd love to chat if you are ;]"
-      # })
-    # end
+    part = [
+      "eyes",
+      "hair",
+      "shoes"
+    ]
+
+    3.times do
+      receiver_id = find_id
+      sender_id = find_id
+
+      Message.create!({
+        sender_id: @guest.id,
+        receiver_id: receiver_id,
+        title: titles[rand(titles.length)],
+        body: "Hey, you're cute! Are you into #{Faker::Company.catch_phrase} by any
+        chance? I'd love to chat if you are ;]"
+      })
+
+      Message.create!({
+        sender_id: sender_id,
+        receiver_id: @guest.id,
+        title: titles[rand(titles.length)],
+        body: "You have nice #{Faker::Commerce.color} #{part[rand(part.length)]}.
+        Wanna go to the #{Faker::Company.name} for a hot date?"
+      })
+    end
   end
 
   def generate_details
+  end
+
+  private
+
+  def find_id
+    user_id = User.all[rand(User.all.count)].id
+
+    while user_id == @guest.id
+      user_id = User.all[rand(User.all.count)].id
+    end
+
+    user_id
   end
 end
