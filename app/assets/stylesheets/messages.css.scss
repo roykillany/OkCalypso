@@ -25,8 +25,9 @@ ul.messages {
 }
 
 ul.messages ul.sent-msg {
+  display: block;
   list-style: none;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 0 0;
   margin-right: 40px;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -34,8 +35,9 @@ ul.messages ul.sent-msg {
 }
 
 ul.messages ul.received-msg {
+  display: block;
   list-style: none;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 0 0;
   margin-right: 40px;
   margin-left: 30px;
   margin-bottom: 10px;
@@ -43,7 +45,46 @@ ul.messages ul.received-msg {
 }
 
 ul li.msg {
-  background: #8EA7F1;
+  background: #A9BFFF;
+}
+
+ul.sent-msg:hover, ul.received-msg:hover {
+
+}
+
+.hvr-reveal {
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-reveal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-color: #2098d1;
+  border-style: solid;
+  border-width: 0;
+  -webkit-transition-property: border-width;
+  transition-property: border-width;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+ul.sent-msg:hover, ul.received-msg:hover, .hvr-reveal:hover:before, .hvr-reveal:focus:before, .hvr-reveal:active:before {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  border-width: 4px;
 }
 
 form#new-message {

@@ -4,6 +4,8 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
   events: {
     "click li.msg-option.received": "receivedMessages",
     "click li.msg-option.sent": "sentMessages",
+    "click ul.sent-msg": "viewMessages",
+    "click ul.received-msg": "viewMessages"
   },
 
   initialize: function(){
@@ -21,7 +23,10 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
   },
 
   receivedMessages: function(event){
-    $("ul.message-options").find(".selected").removeClass("selected");
+    var options = $("ul.message-options");
+    options.find(".selected").removeClass("selected");
+    options.find(".revealed").removeClass("revealed").addClass("hidden");
+
     $(event.currentTarget).addClass("selected");
     var container = $("ul.messages");
     container.empty();
@@ -41,7 +46,10 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
   },
 
   sentMessages: function(event){
-    $("ul.message-options").find(".selected").removeClass("selected");
+    var options = $("ul.message-options");
+    options.find(".selected").removeClass("selected");
+    options.find(".revealed").removeClass("revealed").addClass("hidden");
+
     $(event.currentTarget).addClass("selected");
     var container = $("ul.messages");
     container.empty();
@@ -57,5 +65,40 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
 
       return this;
     }
+  },
+
+  viewMessages: function(event){
+    var id = parseInt($(event.currentTarget).attr("data-id"))
+    var options = $("ul.message-options");
+
+    options.find(".selected").removeClass("selected");
+    options.find(".hidden")
+      .removeClass("hidden")
+      .addClass("revealed")
+      .addClass("selected")
+
+    var container = $("ul.messages");
+    container.empty();
+
+    var msgFrom = this.collection.where({ sender_id: id });
+    var msgTo = this.collection.where({ receiver_id: id });
+    var correspondence = msgFrom.concat(msgTo);
+    var messages = new OkStupid.Collections.Messages();
+
+    correspondence.forEach(function(msg){
+      messages.add(msg);
+    })
+    messages.comparator = function(a, b){
+      return a.get("created_at") > b.get("created_at") ? -1 : 1;
+    }
+    messages.sort();
+
+    var content = JST["messages/conversation"]({
+      messages: messages
+    })
+
+    container.html(content);
+
+    return this;
   }
 })
