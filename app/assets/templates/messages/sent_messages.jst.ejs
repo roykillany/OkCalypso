@@ -1,0 +1,9 @@
+<% messages.forEach(function(msg){ %>
+  <ul class="sent-msg">
+    <img src="<%= msg.receiver().escape("image_url") %>" alt="" />
+    <li class="msg"><strong>To</strong>: <a href="#profiles/<%= msg.receiver().get("id") %>"><%= msg.receiver().escape("username") %></a></li>
+    <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
+    <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
+    <li class="msg"><strong>Sent</strong>: <%= new Date(msg.escape("created_at")) %></li>
+  </ul>
+<% }) %>

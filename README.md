@@ -30,8 +30,11 @@ OkCalypso is a dating web-application inspired by OkCupid.
   * JBuilder
 
 ## TODO:
-  1. Match output sorting
-  2. Switching user profiles from public to private
-  3. Blogs
-  4. Uploading multiple pictures
-  5. Google+ OmniAuth
+  1. Switch-View for Sent/Received Messages
+  2. Add message index view for messages between current user and recipient
+  3. Switching user profiles from public to private
+  4. Blogs
+  5. Uploading multiple pictures
+  6. Editing submitted questions
+  7. Google+ OmniAuth
+  8. Sending messages should autofill the receiving username

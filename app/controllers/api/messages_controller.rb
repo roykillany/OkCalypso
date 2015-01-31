@@ -9,7 +9,6 @@ class Api::MessagesController < ApplicationController
 
   def create
     @message = current_user.sent_messages.build(message_params)
-    # @message = Message.new(message_params)
     if @message.save!
       render json: @message
     else

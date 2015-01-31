@@ -21,6 +21,7 @@ ul.messages {
   margin-right: 40px;
   background: #DCDCDF;
   padding: 20px;
+  margin-top: 19px;
 }
 
 ul.messages ul.sent-msg {
@@ -94,4 +95,35 @@ input.new-msg:hover {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+ul.message-options {
+  list-style: none;
+  height: 20px;
+  padding-left: 160px;
+  margin-bottom: 0px;
+}
+
+li.msg-option {
+  float: left;
+  padding-right: 10px;
+  background: #E0E0FF;
+  padding: 10px;
+}
+
+li.msg-option.middle {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+li.msg-option:hover {
+  cursor: pointer;
+}
+
+li.msg-option.selected {
+  background: #DCDCDF;
+}
+
+li.msg-option.hidden {
+  display: none;
 }
