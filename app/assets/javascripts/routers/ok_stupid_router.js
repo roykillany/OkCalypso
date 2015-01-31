@@ -120,6 +120,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
     var that = this;
     OkStupid.matches.fetch({
       success: function (){
+        OkStupid.matches.sort();
         var newMatchIndexView = new OkStupid.Views.MatchesIndex({
           collection: OkStupid.matches
         });

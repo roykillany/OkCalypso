@@ -103,6 +103,8 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     event.preventDefault();
     var that = this;
 
+    $("form#change-avatar").addClass("hidden");
+
     console.log({ avatar: OkStupid.currentUser._avatar });
     $.ajax({
       type: "PATCH",

@@ -42,7 +42,7 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
           success: function(data){
             OkStupid.matches.fetch({
               success: function(){
-                that.render();
+                that.collection.sort();
               }
             })
           }
