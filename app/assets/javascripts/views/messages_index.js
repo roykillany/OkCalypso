@@ -13,8 +13,10 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
   },
 
   render: function(){
+    var receivedMsg = this.collection.where({ receiver_id: OkStupid.currentUser.id });
+
     var content = this.template({
-      messages: this.collection,
+      messages: receivedMsg,
     });
 
     this.$el.html(content);

@@ -6,11 +6,8 @@
   <li class="msg-option messages hidden">Correspondence</li>
 </ul>
 <ul class="messages">
-  <% var sent = false %>
-  <% messages.each(function(msg){ %>
-    <% sent = false %>
-    <% if(msg.get("receiver_id") === OkStupid.currentUser.id){ %>
-      <% sent = true %>
+  <% if(messages.length > 0){ %>
+    <% messages.forEach(function(msg){ %>
       <ul class="received-msg hvr-reveal" data-id="<%= msg.get("sender_id") %>">
         <img src="<%= msg.sender().escape("image_url") %>" alt="" />
         <li class="msg"><strong>From</strong>: <a href="#profiles/<%= msg.sender().get("id") %>"><%= msg.sender().escape("username") %></a></li>
@@ -18,9 +15,8 @@
         <li class="msg"><strong>Title</strong>: <%= msg.escape("title") %></li>
         <li class="msg"><strong>Body</strong>: <%= msg.escape("body") %></li>
       </ul>
-    <% } %>
-  <% }) %>
-  <% if(sent){ %>
+    <% }) %>
+  <% } else { %>
     <ul class="received-msg">
       "You don't seem to have any messages."
     </ul>

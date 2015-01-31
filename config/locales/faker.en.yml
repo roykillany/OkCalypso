@@ -1,0 +1,6 @@
+en:
+  faker:
+    messages:
+      reply: [no, yes, please, no, cya]
+
+      request: [hi]

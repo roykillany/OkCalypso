@@ -76,8 +76,6 @@ class Api::UsersController < ApplicationController
 
     @guest = User.new(userData)
 
-
-
     if @guest.save
       log_in(@guest)
 
@@ -494,6 +492,18 @@ class Api::UsersController < ApplicationController
   end
 
   def generate_messages
+    
+    # 3.times do
+    #   user_
+
+      # Message.create!({
+      #   sender_id: ,
+      #   receiver_id: ,
+      #   title: ,
+      #   body: "Hey, you're cute! Are you into #{Faker::Company.catch-phrase} by any
+      #   chance? I'd love to chat if you are ;]"
+      # })
+    # end
   end
 
   def generate_details
