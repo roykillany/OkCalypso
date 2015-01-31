@@ -23,7 +23,6 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
   },
 
   renderMatches: function(){
-    console.log("renderMatches")
     var content = JST["matches/matches_list"]({
       matches: this.collection
     });
@@ -109,7 +108,6 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
           return a.matchee().escape("username") > b.matchee().escape("username") ? 1 : -1
         }
         this.collection.sort();
-        console.log("sort by username")
         break;
       case "high-match-percent":
         menu.children(".high-match-percent").attr("selected", "true")

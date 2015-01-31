@@ -2,7 +2,6 @@ OkStupid.Views.UserSearch = Backbone.View.extend({
   template: JST["users/index"],
 
   events: {
-    "change sorting-hat": "sortResults"
   },
 
   initialize: function(){
@@ -10,6 +9,7 @@ OkStupid.Views.UserSearch = Backbone.View.extend({
   },
 
   render: function(){
+    console.log(this.collection.length);
     var content = this.template({
       users: this.collection
     });

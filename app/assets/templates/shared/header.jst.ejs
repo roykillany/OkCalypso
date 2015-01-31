@@ -4,7 +4,7 @@
   <% if(OkStupid.currentUser.isSignedIn()) { %>
   <nav class="sign-outs">
     <strong class="user-name">How-de-do <strong style="color:#C3C3DA;"><%= OkStupid.currentUser.escape("username") %></strong></strong>
-    <a class="user-search" href="#users"><i class="fa fa-search"></i> Find a User</a>
+    <a class="user-search" href="#users"><i class="fa fa-search hvr-grow"></i> Find a User</a>
     <a href="#" id="sign-out-link"><i class="fa fa-sign-out hvr-wobble-horizontal"></i> Sign Out</a>
   </nav>
 
@@ -22,14 +22,14 @@
 </h1>
 
 <nav class="sidebar">
-  <a class="hvr-box-shadow-outset" href="/#questions"><i class="fa fa-question"></i> Questions</a>
+  <a class="hvr-box-shadow-outset" href="/#questions"><i class="fa fa-question hvr-icon-float"></i> Questions</a>
   <% if(typeof currentUser.get('id') !== "undefined"){ %>
-      <a class="hvr-box-shadow-outset" href="/#profiles/<%= currentUser.get('id') %>"><i class="fa fa-user"></i> Profile</a>
+      <a class="hvr-box-shadow-outset" href="/#profiles/<%= currentUser.get('id') %>"><i class="fa fa-user hvr-icon-float"></i> Profile</a>
   <% } else { %>
-      <a class="hvr-box-shadow-outset" href="#session/new"><i class="fa fa-user"></i> Profile</a>
+      <a class="hvr-box-shadow-outset" href="#session/new"><i class="fa fa-user hvr-icon-float"></i> Profile</a>
   <% } %>
-  <a class="hvr-box-shadow-outset" href="/#messages"><i class="fa fa-envelope"></i> Messages</a>
-  <a class="hvr-box-shadow-outset" href="/#matches"><i class="fa fa-heart"></i> Matches</a>
-  <a class="hvr-box-shadow-outset" href="/#likes"><i class="fa fa-star"></i> Likes</a>
+  <a class="hvr-box-shadow-outset" href="/#messages"><i class="fa fa-envelope hvr-icon-float"></i> Messages</a>
+  <a class="hvr-box-shadow-outset" href="/#matches"><i class="fa fa-heart hvr-icon-float"></i> Matches</a>
+  <a class="hvr-box-shadow-outset" href="/#likes"><i class="fa fa-star hvr-icon-float"></i> Likes</a>
 </nav>
 </div>

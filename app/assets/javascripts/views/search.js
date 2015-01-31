@@ -24,15 +24,21 @@ OkStupid.Views.Search = Backbone.View.extend({
   renderSearchResults: function(){
     var container = this.$(".search-results");
     container.empty();
+    if(this.searchResults.length === 0){
+      var template = JST["users/list_item"]
+      var missingMsg = $("<li class='missing-msg'>There doesn't seem to be anyone like that here, sorry</li>")
 
-    this.searchResults.each(function(model){
-      var template;
-      template = JST["users/list_item"]
+      container.append(missingMsg)
+    } else {
+      this.searchResults.each(function(model){
+        var template;
+        template = JST["users/list_item"]
 
-      container.append(template({
-        model: model
-      }));
-    });
+        container.append(template({
+          model: model
+        }));
+      });
+    }
   },
 
   search: function(event){
