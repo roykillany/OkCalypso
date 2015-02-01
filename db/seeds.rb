@@ -343,22 +343,18 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
 
   target_purpose = ["New friends", "Long-term dating", "Short-term dating", "Casual sex"]
 
-  avatars = ["http://avatarbox.net/avatars/img30/cheryl_cole_profile_avatar_picture_43773.jpg",
-  "http://avatarbox.net/avatars/img9/james_blunt_profile_avatar_picture_62714.jpg",
-  "http://i79.photobucket.com/albums/j131/Darkwulf73/jojo-1.jpg"
-
-
-
-  ]
-
-# Creates my account
+# Creates my and my hunnypooh's accounts
 
 users = [User.create!({ username: 'mebest winrar NA', email: 'me@best.na',
   password_digest: BCrypt::Password.create('mebest'), session_token: SecureRandom.urlsafe_base64,
   orientation: "Straight", gender: 'Cis Woman', country:
-  'United States of America', zip_code: '10012', avatar: Api::UsersController.new.process_uri(UIFaces::face)})]
+  'United States of America', zip_code: '10012', avatar: Api::UsersController.new.process_uri(UIFaces::face) }),
+  User.create!({ username: 'totallytinytina', email: 'totally@tiny.tina', password_digest:
+    BCrypt::Password.create('mebest'), session_token: SecureRandom.urlsafe_base64,
+    orientation: 'Straight', gender: 'Cis Woman', country:
+    'Germany', zip_code: 12203, avatar: Api::UsersController.new.process_uri(UIFaces::face) })]
 
-Profile.create!({ user_id: 1,
+Profile.create!([{ user_id: 1,
   self_sum: "one time i ate a lot of dumplings and my mom was like \"Wow you eat
   a lot of dumplings\" and i was like \"guuuuurl don\'t i know it\" the end",
   life_sum: "twerking",
@@ -373,19 +369,35 @@ Profile.create!({ user_id: 1,
   FOR THREE DAYS IN A ROW, 6",
   thoughts: "what i'm going to have for supper",
   fun_acts: "looking at foodporn",
-  msg_reason: "don't"})
+  msg_reason: "don't" },
+  { user_id: 2,
+    self_sum: "I love to play league, I enjoy cuddling with my poohbear, and Burnese
+    Mountain Dogs are the best!",
+    life_sum: "eating doeners like they're going out of style",
+    skills: "looking adorable",
+    favorites: "poohbear",
+    needs: "poohbear",
+    thoughts: "when I'll get to see my poohbear next",
+    fun_acts: "playing leggolegends",
+    msg_reason: "if you want to play league!" }])
 
-Preference.create!({
+Preference.create!([{
   target_people: "Everyone",
   target_age_range: "98 to 98",
   target_location: "Located Anywhere",
   target_purpose: "New Friends",
-  user_id: 1 })
+  user_id: 1 },
+  {
+    target_people: "Everyone",
+    target_age_range: "18 to 98",
+    target_location: "Located Anywhere",
+    target_purpose: "New Friends",
+    user_id: 2 }])
 
 Detail.create!([{ user_id: 1,
   orientation: "Straight",
   ethnicity: "Asian",
-  height: "6ft",
+  height: "6\'",
   body_type: "Athletic",
   diet: "Anything",
   smokes: "No",
@@ -400,34 +412,58 @@ Detail.create!([{ user_id: 1,
   relationship_type: "Strictly Monogamous",
   offspring: "",
   pets: "likes dogs",
-  languages: "English"}])
+  languages: "English"},
+  {
+    user_id: 2,
+    orientation: "Straight",
+    ethnicity: "White",
+    height: "5\'9\"",
+    body_type: "Curvy",
+    diet: "Anything",
+    smokes: "No",
+    drinks: "Socially",
+    drugs: "Never",
+    religion: "Christianity",
+    sign: "",
+    education: "Master's Program",
+    job: "Student",
+    income: "",
+    relationship_status: "Seeing Someone",
+    relationship_type: "Strictly Monogamous",
+    offspring: "",
+    pets: "likes dogs",
+    languages: "German, English"
+    }])
 
-UserAnswer.create!([
-  { user_id: 1, answer_id: 1, question_id: 1 },
-  { user_id: 1, answer_id: 4, question_id: 2 },
-  { user_id: 1, answer_id: 9, question_id: 3 },
-  { user_id: 1, answer_id: 13, question_id: 4 },
-  { user_id: 1, answer_id: 17, question_id: 5 },
-  { user_id: 1, answer_id: 19, question_id: 6 },
-  { user_id: 1, answer_id: 22, question_id: 7 },
-  { user_id: 1, answer_id: 27, question_id: 8 },
-  { user_id: 1, answer_id: 30, question_id: 9 },
-  { user_id: 1, answer_id: 34, question_id: 10 },
-  { user_id: 1, answer_id: 37, question_id: 11 },
-  { user_id: 1, answer_id: 40, question_id: 12 },
-  { user_id: 1, answer_id: 42, question_id: 13 },
-  { user_id: 1, answer_id: 47, question_id: 14 },
-  { user_id: 1, answer_id: 51, question_id: 15 },
-  { user_id: 1, answer_id: 55, question_id: 16 },
-  { user_id: 1, answer_id: 57, question_id: 17 },
-  { user_id: 1, answer_id: 59, question_id: 18 },
-  { user_id: 1, answer_id: 62, question_id: 19 },
-  { user_id: 1, answer_id: 65, question_id: 20 }
-  ])
+2.times do |i|
+  i = i + 1
+  UserAnswer.create!([
+    { user_id: i, answer_id: 1, question_id: 1 },
+    { user_id: i, answer_id: 4, question_id: 2 },
+    { user_id: i, answer_id: 9, question_id: 3 },
+    { user_id: i, answer_id: 13, question_id: 4 },
+    { user_id: i, answer_id: 17, question_id: 5 },
+    { user_id: i, answer_id: 19, question_id: 6 },
+    { user_id: i, answer_id: 22, question_id: 7 },
+    { user_id: i, answer_id: 27, question_id: 8 },
+    { user_id: i, answer_id: 30, question_id: 9 },
+    { user_id: i, answer_id: 34, question_id: 10 },
+    { user_id: i, answer_id: 37, question_id: 11 },
+    { user_id: i, answer_id: 40, question_id: 12 },
+    { user_id: i, answer_id: 42, question_id: 13 },
+    { user_id: i, answer_id: 47, question_id: 14 },
+    { user_id: i, answer_id: 51, question_id: 15 },
+    { user_id: i, answer_id: 55, question_id: 16 },
+    { user_id: i, answer_id: 57, question_id: 17 },
+    { user_id: i, answer_id: 59, question_id: 18 },
+    { user_id: i, answer_id: 62, question_id: 19 },
+    { user_id: i, answer_id: 65, question_id: 20 }
+    ])
+end
 
 # Creates other seed accounts
 
-19.times do
+18.times do
   seed_username = Faker::Internet.user_name
   while User.all.pluck("username").include?(seed_username)
     seed_username = Faker::Internet.user_name
@@ -446,8 +482,8 @@ UserAnswer.create!([
     seed_country, zip_code: seed_zip, avatar: seed_avatar})
 end
 
-19.times do |i|
-  id = i + 2
+18.times do |i|
+  id = i + 3
 
   Profile.create!({
     user_id: id,
