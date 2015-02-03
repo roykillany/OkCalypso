@@ -5,11 +5,12 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
     "click li.msg-option.received": "receivedMessages",
     "click li.msg-option.sent": "sentMessages",
     "click ul.sent-msg": "viewMessages",
-    "click ul.received-msg": "viewMessages"
+    "click ul.received-msg": "viewMessages",
+    "submit form#corr-message-form": "addConvoMessage"
   },
 
   initialize: function(){
-    this.listenTo(this.collection, "sync", this.render)
+
   },
 
   render: function(){
@@ -70,7 +71,14 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
   },
 
   viewMessages: function(event){
-    var id = parseInt($(event.currentTarget).attr("data-id"))
+    console.log(typeof event)
+    if(typeof event === "string"){
+      var id = event;
+    } else {
+      var id = parseInt($(event.currentTarget).attr("data-id"));
+    }
+
+    console.log(id);
     var options = $("ul.message-options");
 
     options.find(".selected").removeClass("selected");
@@ -96,11 +104,35 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
     messages.sort();
 
     var content = JST["messages/conversation"]({
-      messages: messages
+      messages: messages,
+      id: id
     })
 
-    container.html(content);
+    container.append(content);
 
     return this;
+  },
+
+  addConvoMessage: function(event){
+    event.preventDefault();
+
+    var formData = $(event.currentTarget).serializeJSON().message;
+    var that = this;
+    var message = new OkStupid.Models.Message();
+    message.save(formData, {
+      success: function(){
+        OkStupid.messages.add(message, { merge: true });
+        message.fetch({
+          success: function(){
+            var content = JST["messages/convo_message"]({
+              message: message,
+            })
+
+            $("ul.messages").prepend(content)
+            $("textarea.corr-message-body").val("");
+          }
+        })
+      }
+    });
   }
 })

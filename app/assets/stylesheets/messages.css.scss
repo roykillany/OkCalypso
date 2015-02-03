@@ -168,3 +168,22 @@ li.msg-option.selected {
 li.msg-option.hidden {
   display: none;
 }
+
+
+// Conversation Message Form
+form#corr-message-form {
+  width: 666px;
+}
+
+button.corr-msg-button {
+  float: right;
+  background: #A9BFFF;
+  padding: 3px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}
+
+button.corr-msg-button:hover {
+  cursor: pointer;
+
+}
