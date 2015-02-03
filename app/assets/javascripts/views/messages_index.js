@@ -112,7 +112,6 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
     event.preventDefault();
 
     var formData = $(event.currentTarget).serializeJSON().message;
-    formData["receiver_id"] = id;
     var that = this;
     var message = new OkStupid.Models.Message();
     message.save(formData, {

@@ -44,9 +44,6 @@ OkStupid.Views.SignIn = Backbone.View.extend({
   },
 
   guestLogin: function(event){
-    // save user
-    // generate profile
-    // generate preference
     event.preventDefault();
 
     $("#guest-login").addClass("loading");
