@@ -71,12 +71,7 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
   },
 
   viewMessages: function(event){
-    console.log(typeof event)
-    if(typeof event === "string"){
-      var id = event;
-    } else {
-      var id = parseInt($(event.currentTarget).attr("data-id"));
-    }
+    var id = parseInt($(event.currentTarget).attr("data-id"));
 
     console.log(id);
     var options = $("ul.message-options");
@@ -117,6 +112,7 @@ OkStupid.Views.MessagesIndex = Backbone.View.extend({
     event.preventDefault();
 
     var formData = $(event.currentTarget).serializeJSON().message;
+    formData["receiver_id"] = id;
     var that = this;
     var message = new OkStupid.Models.Message();
     message.save(formData, {
