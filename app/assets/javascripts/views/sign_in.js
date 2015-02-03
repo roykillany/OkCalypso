@@ -45,9 +45,11 @@ OkStupid.Views.SignIn = Backbone.View.extend({
 
   guestLogin: function(event){
     event.preventDefault();
+    var content = JST["shared/loading"]
 
     $("#guest-login").addClass("loading");
     $("div.loading").removeClass("loading");
+    $("form.sign-in").html(content)
 
     $.ajax( '/api/guestuser', {
       type: 'POST',
