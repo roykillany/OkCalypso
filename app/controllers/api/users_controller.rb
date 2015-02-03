@@ -491,20 +491,6 @@ class Api::UsersController < ApplicationController
   end
 
   def generate_messages
-    titles = [
-      "Hey",
-      "Hi",
-      "hiiii",
-      "Hello",
-      ":D",
-      "Hai",
-      "Howdy",
-      "Sup",
-      "Yo",
-      "Ay guhh",
-      "I'm a fish"
-    ]
-
     part = [
       "eyes",
       "hair",
@@ -518,7 +504,6 @@ class Api::UsersController < ApplicationController
       Message.create!({
         sender_id: @guest.id,
         receiver_id: receiver_id,
-        title: titles[rand(titles.length)],
         body: "Hey, you're cute! Are you into #{Faker::Company.catch_phrase} by any
         chance? I'd love to chat if you are ;]"
       })
@@ -526,7 +511,6 @@ class Api::UsersController < ApplicationController
       Message.create!({
         sender_id: sender_id,
         receiver_id: @guest.id,
-        title: titles[rand(titles.length)],
         body: "You have nice #{Faker::Commerce.color} #{part[rand(part.length)]}.
         Wanna go to the #{Faker::Company.name} for a hot date?"
       })

@@ -12,7 +12,8 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     "click button.unlike": "unlikeUser",
     "click button.change-avatar": "changeAvatar",
     "change input.change-avatar": "fileSelect",
-    "click i.avatar-edit": "showAvatarEdit"
+    "click i.avatar-edit": "showAvatarEdit",
+    "click a.messaging": "showMessageModal",
   },
 
   render: function(){
@@ -140,6 +141,12 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
   showAvatarEdit: function(event){
     console.log("SUNK MY BATTLESHIP")
     $("form#change-avatar").removeClass("hidden");
+  },
+
+  showMessageModal: function(event){
+    event.preventDefault();
+
+    $("form#message-modal").removeClass("hidden")
   },
 
   _updatePreview: function(imageData){

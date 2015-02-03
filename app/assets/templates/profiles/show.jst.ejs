@@ -104,3 +104,11 @@
     <% } %>
 
   </form>
+
+<form id="message-modal" class="hidden">
+  <strong class="message-heading">Message to <%= profile.user().escape("username") %></strong>
+
+  <textarea name="message[body]" rows="16" cols="80" placeholder="Say hi!"></textarea>
+
+  <button name="submit">Send</button>
+</form>

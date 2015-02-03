@@ -150,3 +150,21 @@ div.bootins {
 
 div#profile-picture {
 }
+
+form#message-modal {
+  position: absolute;
+  z-index: 1000;
+
+  bottom: 0;
+  right: 50px;
+  width: 500px;
+  background: #436CE8;
+  padding: 20px;
+}
+
+form#message-modal.hidden {
+  display: none;
+}
+
+strong.message-heading {
+}
