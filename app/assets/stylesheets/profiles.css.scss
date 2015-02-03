@@ -152,19 +152,55 @@ div#profile-picture {
 }
 
 form#message-modal {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
+  color: #fff;
 
-  bottom: 0;
+  bottom: -20px;
   right: 50px;
   width: 500px;
   background: #436CE8;
   padding: 20px;
 }
 
-form#message-modal.hidden {
+form#message-modal.hidden, i.hidden, img.hidden {
   display: none;
 }
 
+form#message-modal.minimized {
+  height: 20px;
+  width: 230px;
+}
+
 strong.message-heading {
+}
+
+div.receiver-name {
+  color: #8EA7F1;
+}
+
+img.tinypicture {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+i.minimize, i.close, i.maximize {
+  float: right;
+  margin-left: 20px;
+}
+
+i.minimize:hover, i.close:hover, i.maximize:hover, button.send-message:hover {
+  cursor: pointer;
+  color: #00f;
+}
+
+button.send-message {
+  float: right;
+
+}
+
+textarea.touch-my-body {
+  resize: none;
+  margin-top: 10px;
 }

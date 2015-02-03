@@ -7,4 +7,5 @@ end
 json.user do
   json.merge! @profile.user.attributes
   json.image_url asset_path(@profile.user.avatar.url(:medium))
+  json.image_url_tiny asset_path(@profile.user.avatar.url(:tiny))
 end

@@ -106,9 +106,12 @@
   </form>
 
 <form id="message-modal" class="hidden">
-  <strong class="message-heading">Message to <%= profile.user().escape("username") %></strong>
+  <strong class="message-heading"><img class="tinypicture" src="<%= profile.user().escape("image_url_tiny") %>" alt="" /><%= profile.user().escape("username") %></strong>
+  <i class="fa fa-times close"></i><i class="fa fa-minus minimize"></i><i class="fa fa-plus maximize hidden"></i>
+  <input type="hidden" name="message[receiver_id]" value="<%= profile.get("user_id") %>">
+  <input type="hidden" name="message[sender_id]" value="<%= OkStupid.currentUser.id %>">
 
-  <textarea name="message[body]" rows="16" cols="80" placeholder="Say hi!"></textarea>
+  <textarea name="message[body]" rows="16" cols="80" placeholder="Say hi!" class="touch-my-body"></textarea>
 
-  <button name="submit">Send</button>
+  <button name="submit" class="send-message">Send</button>
 </form>

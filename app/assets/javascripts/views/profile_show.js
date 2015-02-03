@@ -14,6 +14,10 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
     "change input.change-avatar": "fileSelect",
     "click i.avatar-edit": "showAvatarEdit",
     "click a.messaging": "showMessageModal",
+    "click i.close": "closeMessageModal",
+    "click i.minimize": "minimizeMessageModal",
+    "click i.maximize": "maximizeMessageModal",
+    "submit form#message-modal": "sendMessage"
   },
 
   render: function(){
@@ -146,7 +150,45 @@ OkStupid.Views.ProfileShow = Backbone.View.extend({
   showMessageModal: function(event){
     event.preventDefault();
 
-    $("form#message-modal").removeClass("hidden")
+    $("form#message-modal").removeClass("hidden");
+  },
+
+  closeMessageModal: function(event){
+    event.preventDefault();
+
+    $("form#message-modal").addClass("hidden");
+  },
+
+  minimizeMessageModal: function(event){
+    event.preventDefault();
+
+    $("form#message-modal").addClass("minimized");
+    $("i.minimize").addClass("hidden");
+    $("i.maximize").removeClass("hidden");
+    $("img.tinypicture").addClass("hidden");
+  },
+
+  maximizeMessageModal: function(event){
+    event.preventDefault();
+
+    $("form#message-modal").removeClass("minimized");
+    $("i.maximize").addClass("hidden");
+    $("i.minimize").removeClass("hidden");
+    $("img.tinypicture").removeClass("hidden");
+  },
+
+  sendMessage: function(event){
+    event.preventDefault();
+
+    var formData = $(event.currentTarget).serializeJSON().message;
+    var that = this;
+    var message = new OkStupid.Models.Message();
+    message.save(formData, {
+      success: function(){
+        OkStupid.messages.add(that.model, { merge: true });
+        that.render();
+      }
+    });
   },
 
   _updatePreview: function(imageData){
