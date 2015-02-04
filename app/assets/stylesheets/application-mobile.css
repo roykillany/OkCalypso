@@ -33,7 +33,7 @@
   nav.sidebar a.hvr-box-shadow-outset {
     border-bottom: none;
     padding: 10px 10px 10px 0px;
-    width: 117px;
+    width: 121px;
   }
 
   nav.sidebar {
@@ -121,6 +121,51 @@
     padding-left: 0;
     text-align: center;
     padding-top: 117px;
+  }
+
+  /*Likes*/
+  h1.likes-header {
+    padding-left: 0;
+    text-align: center;
+    padding-top: 117px;
+  }
+
+  ul.likes {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  /*Matches*/
+  h1.match-header {
+    padding-left: 0;
+    text-align: center;
+    padding-top: 117px;
+  }
+
+  ul.matches.group {
+    margin-left: auto;
+    margin-right: auto;
+    width: 78%;
+  }
+
+  /*User Search*/
+  div.user-search-header {
+    padding-left: 0;
+    text-align: center;
+    padding-top: 117px;
+  }
+
+  div.search-input {
+    padding-left: 0;
+    text-align: center;
+    margin-left: 31px;
+  }
+
+  ul.search-results {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
   }
 }
 
