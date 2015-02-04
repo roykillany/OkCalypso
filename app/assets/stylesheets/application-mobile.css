@@ -21,6 +21,11 @@
   form.profile-edit h4 {
     width: 70%;
   }
+
+  /*Questions*/
+  ul.questions div.answer {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 655px) {
@@ -52,6 +57,70 @@
 
   ul.message-options {
     padding-left: 45px;
+  }
+
+  /*Profiles*/
+  div#profile-picture label {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    display: block;
+    width: 190px;
+  }
+
+  img#profile-image-preview {
+    margin-left: auto;
+    margin-right: auto;
+    width: 183px;
+    height: 183px;
+  }
+
+  i.avatar-edit {
+    left: 69%;
+    bottom: 148px;
+  }
+
+  form.profile-edit {
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form.profile-edit h4 {
+    width: 100%;
+  }
+
+  form.profile-edit p {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 0;
+  }
+
+  textarea.profile-edit {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*Questions*/
+  ul.questions {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  ul.questions li.questions {
+    height: 100%;
+  }
+
+  button.question {
+    position: static;
+  }
+
+  h1.questions-header {
+    padding-left: 0;
+    text-align: center;
+    padding-top: 117px;
   }
 }
 

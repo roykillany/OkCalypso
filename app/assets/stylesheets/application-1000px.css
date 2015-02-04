@@ -61,6 +61,10 @@
     width: 98%;
   }
 
+  ul.questions div.answer {
+    width: 100%;
+  }
+
   /*Matches*/
   ul.matches {
     width: 81%;
