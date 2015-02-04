@@ -18,6 +18,8 @@
     margin-top: 65px;
   }
 
+  /*Profiles*/
+
   div#profile-picture {
     padding-top: 65px;
   }
@@ -25,4 +27,43 @@
   h3.profile-show-header {
     position: static;
   }
+
+  ul.matches {
+    width: 100%;
+  }
+
+  form#message-modal {
+    width: 300px;
+    height: 200px;
+  }
+
+  textarea.touch-my-body {
+    width: 98%;
+    height: 113px;
+  }
+
+  /*Messages*/
+
+  ul.correspondence ul {
+    position: relative;
+  }
+
+  form#corr-message-form {
+    width: 86%;
+  }
+
+  textarea.corr-message-body {
+    width: 100%;
+  }
+
+  /*Questions*/
+  li.questions.group {
+    width: 98%;
+  }
+
+  /*Matches*/
+  ul.matches {
+    width: 81%;
+  }
+
 }

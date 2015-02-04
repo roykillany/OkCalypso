@@ -1,5 +1,56 @@
 @media only screen and (max-width: 675px) {
-  div {
+  /*Header*/
+  strong.user-name {
     display: none;
+  }
+
+  /*Sidebar*/
+  nav.sidebar {
+    width: 100%;
+    height: 100%;
+  }
+
+  nav.sidebar a.hvr-box-shadow-outset {
+  }
+
+  /*Profile*/
+  form.profile-edit, form.profile-edit p {
+    width: 80%;
+  }
+
+  form.profile-edit h4 {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 655px) {
+  /*Sidebar*/
+  nav.sidebar a.hvr-box-shadow-outset {
+    border-bottom: none;
+    padding: 10px 10px 10px 0px;
+    width: 117px;
+  }
+
+  nav.sidebar {
+    border-bottom: 1px solid #000;
+  }
+
+  nav.sidebar i {
+    padding-left: 26px;
+  }
+
+  /*Messages*/
+  h1.messages-header {
+    padding-left: 0;
+    text-align: center;
+    padding-top: 117px;
+  }
+
+  ul.messages {
+    margin-left: 45px;
+  }
+
+  ul.message-options {
+    padding-left: 45px;
   }
 }

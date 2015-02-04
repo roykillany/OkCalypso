@@ -169,7 +169,6 @@ li.msg-option.hidden {
   display: none;
 }
 
-
 // Conversation Message Form
 form#corr-message-form {
   width: 666px;
@@ -186,4 +185,8 @@ button.corr-msg-button {
 button.corr-msg-button:hover {
   cursor: pointer;
 
+}
+
+textarea.corr-message-body {
+  resize: none;
 }
