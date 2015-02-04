@@ -54,3 +54,18 @@
     padding-left: 45px;
   }
 }
+
+@media only screen and (max-width: 530px) {
+  /*Header*/
+  nav.sign-outs a.user-search {
+    float: right;
+    font-size: 10px;
+    bottom: 11px;
+  }
+
+  nav.sign-outs a#sign-out-link {
+    top: 13px;
+    left: 72px;
+    font-size: 10px;
+  }
+}
