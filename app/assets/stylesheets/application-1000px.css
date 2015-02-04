@@ -1,0 +1,28 @@
+@media only screen and (max-width: 1000px) {
+  div#site {
+    width: 100%;
+  }
+
+  h1.title {
+    width: 100%;
+    position: absolute;
+  }
+
+  nav.sign-outs {
+    position: absolute;
+    right: 0%;
+    top: 0px;
+  }
+
+  nav.sidebar {
+    margin-top: 65px;
+  }
+
+  div#profile-picture {
+    padding-top: 65px;
+  }
+
+  h3.profile-show-header {
+    position: static;
+  }
+}

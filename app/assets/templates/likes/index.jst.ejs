@@ -4,7 +4,6 @@
   <% if(likes.length === 0){ %>
     <li>You haven't liked anyone <strong>yet</strong> <em>(wink-wink-nudge-nudge)</em></li>
   <% } %>
-  <strong></strong>
   <% likes.each(function(like){ %>
     <li class="likes hvr-overline-from-right"><a href="#profiles/<%= like.likee().get('id') %>" class="item-link">
       <img src="<%= like.likee().escape("image_url") %>" alt="thumb" />

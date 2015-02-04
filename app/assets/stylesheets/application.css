@@ -14,7 +14,7 @@
  *= require font-awesome
  *= require_self
  */
-html, head, title, body, h1, a, h2, h3, nav, span, form, input, label, button {
+html, head, title, body, h1, a, h2, h3, nav, span, form, input, label, button, nav {
   margin: 0;
   padding: 0;
   border: 0;
@@ -37,6 +37,12 @@ html, head, title, body, h1, a, h2, h3, nav, span, form, input, label, button {
 
 body {
   background: #CACADC;
+}
+
+div#site {
+  width: 1000px;
+  margin: auto;
+  background: #fff;
 }
 
 h1.title {
