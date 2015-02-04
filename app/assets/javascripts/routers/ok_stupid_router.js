@@ -26,7 +26,7 @@ OkStupid.Routers.Router = Backbone.Router.extend({
 
     var that = this;
 
-    OkStupid.currentUser.fetch({
+    OkStupid.profiles.fetch({
       success: function(){
         var profile = OkStupid.profiles.getOrFetch(OkStupid.currentUser.id);
         var profileView = new OkStupid.Views.ProfileShow({
