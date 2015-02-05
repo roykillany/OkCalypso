@@ -356,6 +356,7 @@
     width: 97%;
   }
 
+  /*Sign In*/
   div#content form.sign-in {
     height: 490px;
     padding: 0 57px 20px 12px;
@@ -363,5 +364,14 @@
 
   form.sign-in h2 {
     padding-left: 47px;
+  }
+
+  /*Sign Up*/
+  div.new-user form.new-user {
+    padding: 50px 123px 50px 38px;
+  }
+
+  section.avatar input#user_avatar {
+    width: 195px;
   }
 }
