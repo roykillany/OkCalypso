@@ -88,7 +88,7 @@
     margin-top: 10px;
   }
 
-  form.unlike button.unlike {
+  form.unlike button.unlike, form.like button.like {
     float: none;
   }
 
@@ -228,6 +228,11 @@
     padding-top: 130px;
   }
 
+  img.loading-wheel {
+    padding: 0px;
+    margin-left: 0px;
+  }
+
   /*Sign Up*/
   div.new-user form.new-user {
     margin-left: auto;
@@ -293,15 +298,15 @@
   }
 }
 
-@media only screen and (max-width: 385px) {
+@media only screen and (max-width: 340px) {
   /*Header*/
-  nav.sign-outs {
-    width: 81%;
-    top: 46px;
+  h1.title nav.sign-outs {
+    width: 79%;
+    top: 40px;
   }
 
   nav.sign-outs a#sign-out-link {
-    top: 0px;
+    top: 3px;
     left: 29px;
   }
 
@@ -315,11 +320,31 @@
   }
 
   /*Sidebar*/
-  nav.sidebar {
+  div#bars nav.sidebar {
     margin-top: 95px;
   }
 
   nav.sidebar a.hvr-box-shadow-outset {
-    width: 132px;
+    width: 152px;
+  }
+
+  /*Messages*/
+  li.msg-option.messages {
+    font-size: 14px;
+    position: relative;
+    top: 3px;
+  }
+
+  ul.messages ul.correspondence {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  ul.messages ul:nth-child(2) {
+    padding: 0;
+  }
+
+   ul form#corr-message-form {
+    width: 97%;
   }
 }
