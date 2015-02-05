@@ -338,17 +338,17 @@
 
   /*Messages*/
   li.msg-option.messages {
-    font-size: 14px;
+    font-size: 12px;
     position: relative;
-    top: 3px;
+    top: 5px;
   }
 
-  ul.messages ul.correspondence {
+  ul.messages ul.correspondence, ul.messages ul.received-msg, ul.messages ul.sent-msg {
     margin-right: 0px;
     margin-left: 0px;
   }
 
-  ul.messages ul:nth-child(2) {
+  ul.messages ul:last-child {
     padding: 0;
   }
 
@@ -373,5 +373,10 @@
 
   section.avatar input#user_avatar {
     width: 195px;
+  }
+
+  /*Matches*/
+  form.like button.like {
+    float: right;
   }
 }
