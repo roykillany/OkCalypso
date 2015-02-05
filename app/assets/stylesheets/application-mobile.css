@@ -292,3 +292,34 @@
     font-size: 16px;
   }
 }
+
+@media only screen and (max-width: 385px) {
+  /*Header*/
+  nav.sign-outs {
+    width: 81%;
+    top: 46px;
+  }
+
+  nav.sign-outs a#sign-out-link {
+    top: 0px;
+    left: 29px;
+  }
+
+  nav.sign-outs a.user-search {
+    float: none;
+    bottom: -3px;
+  }
+
+  h1.title {
+    height: 95px;
+  }
+
+  /*Sidebar*/
+  nav.sidebar {
+    margin-top: 95px;
+  }
+
+  nav.sidebar a.hvr-box-shadow-outset {
+    width: 132px;
+  }
+}
