@@ -189,6 +189,10 @@
     width: 78%;
   }
 
+  li.matches button.unlike {
+    float: right;
+  }
+
   /*User Search*/
   div.user-search-header {
     padding-left: 0;
@@ -209,14 +213,34 @@
   }
 
   /*Sign In*/
-  div#content form.sign-in.hvr-float-shadow {
+  div#content form.sign-in {
     top: 116px;
     padding-top: 65px;
-    width: 90%;
-    padding: 0;
-    margin: 0;
-    height: 100px;
+    width: 45%;
+    padding: 0 50px 20px 50px;
+    height: 455px;
     margin: auto;
+    position: static;
+    text-align: center;
+  }
+
+  form.sign-in h2 {
+    padding-top: 130px;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  /*Header*/
+  nav.sign-ins {
+    margin: -36px 20px;
+    width: 96px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+  }
+
+  nav.sign-ins a {
+    font-size: 19px;
+    padding: 0;
   }
 }
 
@@ -232,6 +256,10 @@
     top: 13px;
     left: 72px;
     font-size: 10px;
+  }
+
+  nav.sign-ins {
+    width: 86px;
   }
 }
 

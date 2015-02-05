@@ -19,12 +19,12 @@
   }
 
   /*Sign In*/
-  form.sign-in.hvr-float-shadow {
+  form.sign-in {
     padding-top: 65px;
     width: 24%;
   }
 
-  form.sign-in.hvr-float-shadow p {
+  form.sign-in p {
     width: 195px;
   }
 
