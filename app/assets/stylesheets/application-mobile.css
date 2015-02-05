@@ -319,6 +319,14 @@
     height: 95px;
   }
 
+  nav.sign-ins {
+    width: 258px;
+  }
+
+  nav.sign-ins a {
+    margin-left: 20px;
+  }
+
   /*Sidebar*/
   div#bars nav.sidebar {
     margin-top: 95px;
@@ -346,5 +354,14 @@
 
    ul form#corr-message-form {
     width: 97%;
+  }
+
+  div#content form.sign-in {
+    height: 490px;
+    padding: 0 57px 20px 12px;
+  }
+
+  form.sign-in h2 {
+    padding-left: 47px;
   }
 }
