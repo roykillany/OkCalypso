@@ -15,7 +15,7 @@
 
   /*Profile*/
   form.profile-edit, form.profile-edit p {
-    width: 80%;
+    width: 78%;
   }
 
   form.profile-edit h4 {
@@ -60,12 +60,36 @@
   }
 
   /*Profiles*/
+  h3.profile-show-header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  div#profile-picture {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 45%;
+    font-size: 30px;
+  }
+
   div#profile-picture label {
     margin-right: auto;
     margin-left: auto;
     text-align: center;
     display: block;
     width: 190px;
+    margin-top: 117px;
+  }
+
+  div.bootins {
+    position: static;
+    margin-top: 10px;
+  }
+
+  form.unlike button.unlike {
+    float: none;
   }
 
   img#profile-image-preview {
@@ -78,6 +102,7 @@
   i.avatar-edit {
     left: 69%;
     bottom: 148px;
+    font-size: 2em;
   }
 
   form.profile-edit {
@@ -85,6 +110,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 40px;
   }
 
   form.profile-edit h4 {
@@ -100,6 +126,20 @@
   textarea.profile-edit {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  form#change-avatar {
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+  }
+
+  button.change-avatar {
+  position: absolute;
+  top: 1px;
+  right: 172px;
   }
 
   /*Questions*/
@@ -167,6 +207,17 @@
     margin-right: auto;
     width: 90%;
   }
+
+  /*Sign In*/
+  div#content form.sign-in.hvr-float-shadow {
+    top: 116px;
+    padding-top: 65px;
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    margin: auto;
+  }
 }
 
 @media only screen and (max-width: 530px) {
@@ -181,5 +232,12 @@
     top: 13px;
     left: 72px;
     font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 407px) {
+  /*Sidebar*/
+  nav.sidebar a.hvr-box-shadow-outset {
+    width: 118px;
   }
 }

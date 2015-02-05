@@ -18,7 +18,7 @@
   </h3>
 <% } else { %>
   <h3 class="profile-show-header">
-    <div id="profile-picture" style="width: 500px;">
+    <div id="profile-picture">
       <img id="profile-image-preview" src='<%= profile.user().escape("image_url") %>' alt="Avatar" />
       <%= profile.user().escape("username") %>
     </div>

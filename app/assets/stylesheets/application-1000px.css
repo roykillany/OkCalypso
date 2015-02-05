@@ -18,6 +18,16 @@
     margin-top: 65px;
   }
 
+  /*Sign In*/
+  form.sign-in.hvr-float-shadow {
+    padding-top: 65px;
+    width: 24%;
+  }
+
+  form.sign-in.hvr-float-shadow p {
+    width: 195px;
+  }
+
   /*Profiles*/
 
   div#profile-picture {
@@ -41,6 +51,8 @@
     width: 98%;
     height: 113px;
   }
+
+
 
   /*Messages*/
 
