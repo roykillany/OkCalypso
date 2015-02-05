@@ -28,6 +28,12 @@
     width: 195px;
   }
 
+  /*Sign Up*/
+  form.new-user {
+    width: 35%;
+    margin-left: 174px;
+  }
+
   /*Profiles*/
 
   div#profile-picture {
