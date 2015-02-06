@@ -169,7 +169,11 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
             var match = that.collection.findWhere({ matchee_id: matchData.user_id })
             that.matches.add(match, { merge: true })
           })
-          that.renderMatches(that.matches);
+          if(that.matches.length === 0){
+            that.$("ul.matches").html("<strong>There doesn't seem to be anyone here...</strong>")
+          } else {
+            that.renderMatches(that.matches);
+          }
         }
       });
     }
@@ -222,6 +226,11 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   renderSearchMatches: function(){
     console.log("RENDERING FILTERED MATCHES")
-    this.renderMatches(this.matches);
+    console.log(this.matches.length)
+    if(this.matches.length === 0){
+      this.$("ul.matches").html("<strong>There doesn't seem to be anyone here...</strong>")
+    } else {
+      this.renderMatches(this.matches);
+    }
   },
 });
