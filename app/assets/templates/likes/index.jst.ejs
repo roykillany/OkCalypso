@@ -5,9 +5,9 @@
     <li>You haven't liked anyone <strong>yet</strong> <em>(wink-wink-nudge-nudge)</em></li>
   <% } %>
   <% likes.each(function(like){ %>
-    <li class="likes hvr-overline-from-right"><a href="#profiles/<%= like.likee().get('id') %>" class="item-link">
-      <img src="<%= like.likee().escape("image_url") %>" alt="thumb" />
-      <a class="likee-name" href="#profiles/<%= like.likee().get("id") %>">
+    <li class="likes hvr-overline-from-right" data-id="<%= like.likee().get('id') %>"><a href="#profiles/<%= like.likee().get('id') %>" class="item-link">
+      <img src="<%= like.likee().escape('image_url') %>" alt="thumb" />
+      <a class="likee-name" href="#profiles/<%= like.likee().get('id') %>">
       <%= like.likee().escape("username") %>
       </a>
     </a></li>

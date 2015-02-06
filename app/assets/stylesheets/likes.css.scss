@@ -24,6 +24,10 @@ ul.likes li {
   height: 128px;
 }
 
+ul.likes li:hover {
+  cursor: pointer;
+}
+
 li.likes a.likee-name {
   position: relative;
   margin-left: 10px;
