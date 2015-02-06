@@ -15,6 +15,7 @@ OkCalypso is a dating web-application inspired by OkCupid.
   * liking
   * user search
   * messaging
+  * responsiveness for mobile and tablet
 
 ## Technologies Used
   * Ruby on Rails
@@ -31,10 +32,10 @@ OkCalypso is a dating web-application inspired by OkCupid.
 
 ## TODO:
   1. Switch-View for Sent/Received Messages (CHECK)
-  2. Add message index view for messages between current user and recipient
+  2. Add message index view for messages between current user and recipient (CHECK)
   3. Switching user profiles from public to private
   4. Blogs
   5. Uploading multiple pictures
   6. Editing submitted questions
   7. Google+ OmniAuth
-  8. Sending messages should autofill the receiving username
+  8. Sending messages should autofill the receiving username (CHECK)
