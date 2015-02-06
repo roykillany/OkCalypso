@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", tiny: "40x40" }, :default_url => "http://www.genengnews.com/app_themes/genconnect/images/default_profile.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  geocoded_by :zip_code
-  after_validation :geocode, if: :zip_code_changed?
+  geocoded_by :zip_code_and_country
+  after_validation :geocode
 
   include PgSearch
   multisearchable against: [:username, :email, :orientation, :zip_code, :country, :gender]
@@ -136,5 +136,9 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+
+  def zip_code_and_country
+    "#{self.country} #{self.zip_code}"
   end
 end

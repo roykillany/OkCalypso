@@ -2,6 +2,7 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
   template: JST["matches/index"],
 
   initialize: function(){
+    this.collection.sort();
     this.createMatches();
     this.matches = new OkStupid.Collections.Matches();
     this.listenTo(this.collection, "sort", this.renderMatches);

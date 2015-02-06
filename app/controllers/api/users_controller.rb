@@ -39,6 +39,8 @@ class Api::UsersController < ApplicationController
   end
 
   def guest_create
+    Faker::Config.locale = 'en-US'
+    
     orientation = ["Straight", "Gay", "Bisexual", "Demisexual",
     "Heteroflexible", "Homoflexible", "Lesbian", "Pansexual", "Queer",
     "Questioning", "Sapiosexual"]
@@ -57,7 +59,7 @@ class Api::UsersController < ApplicationController
     end
     guest_pass = Faker::Internet.password(6)
     guest_email = Faker::Internet.free_email
-    guest_country = Faker::Address.country
+    guest_country = "United States of America"
     guest_zip = Faker::Address.zip_code
     guest_avatar = process_uri(UIFaces::face)
 
@@ -97,7 +99,7 @@ class Api::UsersController < ApplicationController
     p params
     distance = params["distance"]
     @users = current_user.
-    matchees.near(current_user.zip_code.to_s, distance.to_i)
+    matchees.near("#{current_user.country} #{current_user.zip_code}", distance.to_i)
   end
 
   def destroy
