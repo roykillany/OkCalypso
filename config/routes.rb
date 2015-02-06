@@ -8,6 +8,7 @@ OkStupid::Application.routes.draw do
       resources :messages, only: [:create, :show]
     end
     post '/guestuser', to: 'users#guest_create'
+    get '/filteruser', to: 'users#filtered_users'
     resource :detail, only: [:show]
     resource :session, only: [:show, :create, :new, :destroy, :update]
     resources :profiles, only: [:index, :show, :destroy, :update]

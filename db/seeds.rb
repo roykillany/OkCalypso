@@ -347,8 +347,8 @@ self_sum = ["Okay so I'm a gamer mostly Xbox some pc plus any other console
 
 users = [User.create!({ username: 'mebest winrar NA', email: 'me@best.na',
   password_digest: BCrypt::Password.create('mebest'), session_token: SecureRandom.urlsafe_base64,
-  orientation: "Straight", gender: 'Cis Woman', country:
-  'United States of America', zip_code: '10012', avatar: Api::UsersController.new.process_uri(UIFaces::face) }),
+  orientation: "Straight", gender: 'Cis Man', country:
+  'United States of America', zip_code: 10012, avatar: Api::UsersController.new.process_uri(UIFaces::face) }),
   User.create!({ username: 'totallytinytina', email: 'totally@tiny.tina', password_digest:
     BCrypt::Password.create('mebest'), session_token: SecureRandom.urlsafe_base64,
     orientation: 'Straight', gender: 'Cis Woman', country:

@@ -9,6 +9,26 @@
   <option class="liked" value="liked">Liked</option>
   <option class="not-liked" value="not-liked">Not Liked</option>
 </select>
+<select id="sorting-bat" class="hidden">
+  <option class="username" value="username">Username</option>
+  <option class="high-match-percent" value="high-match-percent">High Match %</option>
+  <option class="low-match-percent" value="low-match-percent">Low Match %</option>
+  <option class="liked" value="liked">Liked</option>
+  <option class="not-liked" value="not-liked">Not Liked</option>
+</select>
+</label>
+<label class="filter">Located:
+<select id="filter-hat">
+  <option class="distance" value="anywhere">Anywhere</option>
+  <option class="distance" value="5">5 miles</option>
+  <option class="distance" value="10">10 miles</option>
+  <option class="distance" value="25">25 miles</option>
+  <option class="distance" value="50">50 miles</option>
+  <option class="distance" value="100">100 miles</option>
+  <option class="distance" value="250">250 miles</option>
+  <option class="distance" value="500">500 miles</option>
+  <option class="distance" value="1000">1000 miles</option>
+</select>
 </label>
 </form>
 
@@ -16,23 +36,23 @@
   <% if(matches.length > 0){ %>
     <% matches.forEach(function(match){ %>
       <li class="hvr-reveal matches" data-username="<%= match.matchee().escape("username") %>"
-        data-match-percent="<%= match.get("match_percent") %>" data-liked="<%= match.get("current_user_liked") %>">
+        data-match-percent="<%= match.get('match_percent') %>" data-liked="<%= match.get('current_user_liked') %>">
         <a href="#profiles/<%= match.matchee().id %>"><img src="<%= match.matchee().escape('image_url') %>" alt="<%= match.matchee().escape('username') %>" /></a>
         <h5 class="match"><% if(match.get("match_percent") > 90){ %>
         <i class="fa fa-heart-o hvr-pulse hvr-radial-in fa-3x"></i>
         <% } %><a class="match-name" href="#profiles/<%= match.matchee().id %>"><%= match.matchee().escape("username") %></a><br>
         <strong><%= match.escape("match_percent") %>% Match</strong></h5>
-        <form id="<%= match.get("matchee_id") %>" class='unlike group <% if(match.escape("current_user_liked") === "false"){ %>
+        <form id="<%= match.get('matchee_id') %>" class='unlike group <% if(match.escape("current_user_liked") === "false"){ %>
           clicked
           <% } %>'>
           <input type="hidden" name="like[likee_id]" value='<%= match.get("matchee_id") %>'>
-          <button data-id="<%= match.get("matchee_id") %>" data-like-id="<%= match.get("like_id") %>" class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
+          <button data-id="<%= match.get('matchee_id') %>" data-like-id="<%= match.get('like_id') %>" class="unlike" name="button"><i class="fa fa-star liked"></i> Liked!</button>
         </form>
-        <form id="<%= match.get("matchee_id") %>" class='like group <% if(match.escape("current_user_liked") === "true"){ %>
+        <form id="<%= match.get('matchee_id') %>" class='like group <% if(match.escape("current_user_liked") === "true"){ %>
           clicked
           <% } %>'>
           <input type="hidden" name="like[likee_id]" value='<%= match.get("matchee_id") %>'>
-          <button class="like" data-id="<%= match.get("matchee_id") %>" name="button"><i class="fa fa-star-o"></i> Like</button>
+          <button class="like" data-id="<%= match.get('matchee_id') %>" name="button"><i class="fa fa-star-o"></i> Like</button>
         </form>
       </li>
     <% }) %>

@@ -159,10 +159,18 @@ label.sort {
   margin-left: 40px;
 }
 
+label.filter {
+  font-size: 12px;
+}
+
 a.match-name {
   font-size: 19px;
 }
 
 h5.match a, h5.match strong {
   padding-left: 7px
+}
+
+select.hidden {
+  display: none;
 }

@@ -93,6 +93,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def filtered_users
+    p params
+    distance = params["distance"]
+    @users = current_user.
+    matchees.near(current_user.zip_code.to_s, distance.to_i)
+  end
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy!

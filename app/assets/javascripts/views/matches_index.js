@@ -3,13 +3,17 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   initialize: function(){
     this.createMatches();
+    this.matches = new OkStupid.Collections.Matches();
     this.listenTo(this.collection, "sort", this.renderMatches);
+    this.listenTo(this.matches, "sort", this.renderSearchMatches);
   },
 
   events: {
     "click button.like": "likeUser",
     "click button.unlike": "unlikeUser",
-    "change select#sorting-hat": "sortMatches"
+    "change select#sorting-hat": "sortMatches",
+    "change select#filter-hat": "filterMatches",
+    "change select#sorting-bat": "sortFilterMatches"
   },
 
   render: function(){
@@ -22,9 +26,12 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
     return this;
   },
 
-  renderMatches: function(){
+  renderMatches: function(collection){
+    collection = collection || this.collection
+
+    console.log(collection)
     var content = JST["matches/matches_list"]({
-      matches: this.collection
+      matches: collection
     });
 
     this.$("ul.matches").html(content);
@@ -98,8 +105,8 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
 
   sortMatches: function(event){
     event.preventDefault();
-    var option = $("form.sorting option:selected").val()
-    var menu = $("select#sorting-hat")
+    var option = $("select#sorting-hat option:selected").val();
+    var menu = $("select#sorting-hat");
 
     switch(option){
       case "username":
@@ -132,5 +139,89 @@ OkStupid.Views.MatchesIndex = Backbone.View.extend({
         this.collection.sort();
         break;
     }
-  }
+  },
+
+  filterMatches: function(event){
+    event.preventDefault();
+    var mainMenu = $("select#sorting-hat");
+    var filterMenu = $("select#sorting-bat");
+    var option = $("select#filter-hat option:selected").val();
+    if(option === "anywhere"){
+      this.render();
+      mainMenu.removeClass("hidden");
+      filterMenu.addClass("hidden");
+    } else {
+      filterMenu.removeClass("hidden");
+      mainMenu.addClass("hidden");
+
+      var that = this;
+
+      $.ajax( '/api/filteruser', {
+        type: 'GET',
+        data: { distance: option },
+        dataType: "json",
+        success: function(data){
+          console.log("filtered")
+          console.log(data)
+
+          that.matches = new OkStupid.Collections.Matches();
+          data.forEach(function(matchData){
+            var match = that.collection.findWhere({ matchee_id: matchData.user_id })
+            that.matches.add(match, { merge: true })
+          })
+          that.renderMatches(that.matches);
+        }
+      });
+    }
+  },
+
+  sortFilterMatches: function(event){
+    event.preventDefault();
+    var option = $("select#sorting-bat option:selected").val();
+    var menu = $("select#sorting-bat");
+    console.log("SORTING FILTERED MATCHES BEEPBOOP")
+    console.log(option)
+
+    switch(option){
+      case "username":
+        menu.children(".username").attr("selected", true)
+        this.matches.comparator = function(a, b){
+          return a.matchee().escape("username") > b.matchee().escape("username") ? 1 : -1
+        }
+        console.log(this.matches)
+        this.matches.sort();
+        break;
+      case "high-match-percent":
+        menu.children(".high-match-percent").attr("selected", "true")
+        this.matches.comparator = function(a, b){
+        return a.get("match_percent") < b.get("match_percent") ? 1 : -1;
+        };
+        console.log(this.matches)
+        this.matches.sort();
+        break;
+      case "low-match-percent":
+        menu.children(".low-match-percent").attr("selected", true)
+        this.matches.comparator = "match_percent";
+        console.log(this.matches)
+        this.matches.sort();
+        break;
+      case "liked":
+        this.matches.comparator = function(a, b){
+          return b.get("current_user_liked") ? 1 : -1;
+        };
+        console.log(this.matches)
+        this.matches.sort();
+        break;
+      case "not-liked":
+        this.matches.comparator = "current_user_liked"
+        console.log(this.matches)
+        this.matches.sort();
+        break;
+    }
+  },
+
+  renderSearchMatches: function(){
+    console.log("RENDERING FILTERED MATCHES")
+    this.renderMatches(this.matches);
+  },
 });

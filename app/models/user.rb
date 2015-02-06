@@ -77,6 +77,8 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :matchees, through: :matches, source: :matchee
+
   attr_reader :password
 
   after_initialize :ensure_session_token
