@@ -190,3 +190,7 @@ button.corr-msg-button:hover {
 textarea.corr-message-body {
   resize: none;
 }
+
+ul.messages ul li:last-child {
+  padding-top: 20px;
+}

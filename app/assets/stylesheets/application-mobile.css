@@ -70,7 +70,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 45%;
+    width: 70%;
     font-size: 30px;
   }
 
@@ -298,10 +298,15 @@
   }
 }
 
+/*iPhone 5 Babyyyyy*/
 @media only screen and (max-width: 340px) {
   /*Header*/
+  h1.title {
+    text-align: center;
+  }
+
   h1.title nav.sign-outs {
-    width: 79%;
+    width: 100%;
     top: 40px;
   }
 
@@ -378,5 +383,28 @@
   /*Matches*/
   form.like button.like {
     float: right;
+  }
+
+  /*Profile*/
+  div.bootins button.like {
+    float: none;
+  }
+
+  div form#message-modal {
+    width: 81%;
+    right: 3%;
+  }
+
+  div form#message-modal.minimized {
+    width: 81%;
+  }
+
+  /*Question*/
+  ul.questions {
+    width: 92%;
+  }
+
+  ul.questions li.questions.group {
+    width: 93%;
   }
 }
