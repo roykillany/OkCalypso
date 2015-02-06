@@ -325,7 +325,7 @@
   }
 
   nav.sign-ins {
-    width: 258px;
+    width: 100%;
   }
 
   nav.sign-ins a {
@@ -364,16 +364,34 @@
   /*Sign In*/
   div#content form.sign-in {
     height: 490px;
-    padding: 0 57px 20px 12px;
+    padding: 0 28px 20px 28px;
+    width: 60%;
   }
 
   form.sign-in h2 {
-    padding-left: 47px;
+    padding-left: 0px;
+  }
+
+  form.sign-in button {
+    float: none;
+  }
+
+  form.sign-in strong.loading-message {
+    font-size: 13px;
+  }
+
+  form.sign-in img.loading-wheel {
+    margin-top: 50px;
   }
 
   /*Sign Up*/
   div.new-user form.new-user {
-    padding: 50px 123px 50px 38px;
+    padding: 50px 20px;
+    width: 65%
+  }
+
+  form.new-user img {
+    margin-left: 0;
   }
 
   section.avatar input#user_avatar {
